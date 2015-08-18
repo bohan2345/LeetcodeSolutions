@@ -14,7 +14,7 @@ import java.util.Arrays;
  * 3,2,1 → 1,2,3<br>
  * 1,1,5 → 1,5,1
  * 
- * @author bzheng
+ * @author Bohan Zheng
  *
  */
 public class NextPermutation {
