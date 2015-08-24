@@ -23,9 +23,4 @@ public class ThreeSumTest {
 		expected.add(l);
 		assertEquals(expected, actual);
 	}
-
-	@Test
-	public void twoSumTest() {
-
-	}
 }
