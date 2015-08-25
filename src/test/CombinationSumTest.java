@@ -1,6 +1,6 @@
 package test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +24,6 @@ public class CombinationSumTest {
 		l2.add(7);
 		expected.add(l1);
 		expected.add(l2);
-		assertEquals(expected, actual);
+		assertTrue(expected.containsAll(actual) && actual.containsAll(expected));
 	}
 }
