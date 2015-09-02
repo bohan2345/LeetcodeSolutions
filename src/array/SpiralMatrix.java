@@ -1,5 +1,7 @@
 package array;
 
+import utils.Directions;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +27,8 @@ public class SpiralMatrix {
         if (matrix == null || matrix.length == 0) {
             return res;
         }
-        int i = 0, j = 0, direction = 0; // direction 0 -> right, 1 -> down, 2 -> left, 3 -> up
+        int i = 0, j = 0; // direction 0 -> right, 1 -> down, 2 -> left, 3 -> up
+        Directions direction = Directions.RIGHT;
         int m = matrix.length, n = matrix[0].length, total = m * n;
         if (n == 1) {
             for (; i < m; i++) {
@@ -36,28 +39,28 @@ public class SpiralMatrix {
         res.add(matrix[i][j]);
         while (i < m && j < n && res.size() < total) {
             switch (direction) {
-                case 0:
+                case RIGHT:
                     j++;
                     if (i + j == n - 1) {
-                        direction = 1;
+                        direction = Directions.DOWN;
                     }
                     break;
-                case 1:
+                case DOWN:
                     i++;
                     if (i - j == m - n) {
-                        direction = 2;
+                        direction = Directions.LEFT;
                     }
                     break;
-                case 2:
+                case LEFT:
                     j--;
                     if (i + j == m - 1) {
-                        direction = 3;
+                        direction = Directions.UP;
                     }
                     break;
-                case 3:
+                case UP:
                     i--;
                     if (i - j == 1) {
-                        direction = 0;
+                        direction = Directions.RIGHT;
                     }
                     break;
             }
