@@ -71,9 +71,4 @@ public class ThreeSum {
 		}
 		return res;
 	}
-
-	public static void main(String[] args) {
-		int[] A = { 0, 0, 0 };
-		System.out.println(new ThreeSum().threeSum(A).toString());
-	}
 }

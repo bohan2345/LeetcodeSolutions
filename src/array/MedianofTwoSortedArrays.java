@@ -40,9 +40,4 @@ public class MedianofTwoSortedArrays {
 			return findKBigestinTwoSortedArray(nums1, nums2, left1 + numsToRemove, left2, k - numsToRemove);
 		}
 	}
-
-	public static void main(String[] args) {
-		double x = new MedianofTwoSortedArrays().solution1(new int[] { 1, 2 }, new int[] { 1, 2, 3 });
-		System.out.println(x);
-	}
 }
