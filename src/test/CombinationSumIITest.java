@@ -1,13 +1,12 @@
 package test;
 
-import static org.junit.Assert.assertTrue;
+import array.CombinationSumII;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Test;
-
-import array.CombinationSumII;
+import static org.junit.Assert.assertTrue;
 
 public class CombinationSumIITest {
 	@Test
