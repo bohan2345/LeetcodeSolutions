@@ -9,6 +9,7 @@ package array;
  */
 public class MaximalRectangle {
     public int maximalRectangle(char[][] matrix) {
+        //TODO: implement
         return 0;
     }
 }

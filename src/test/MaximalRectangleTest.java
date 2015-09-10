@@ -1,5 +1,6 @@
 package test;
 
+import array.MaximalRectangle;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -11,8 +12,11 @@ import static org.junit.Assert.assertEquals;
  * @author Bohan Zheng
  */
 public class MaximalRectangleTest {
+    MaximalRectangle test = new MaximalRectangle();
+
     @Test
     public void test() {
-        assertEquals(0, 0);
+        char[][] matrix = {{1, 0, 1, 0, 0}, {1, 0, 1, 1, 1}, {1, 1, 1, 1, 1}, {1, 0, 0, 1, 0}};
+        assertEquals(6, test.maximalRectangle(matrix));
     }
 }
