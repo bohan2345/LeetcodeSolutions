@@ -11,7 +11,7 @@ package array;
  */
 
 public class RemoveDuplicatesfromSortedArray {
-	public int solution1(int[] nums) {
+	public int removeDuplicates(int[] nums) {
 		if (nums.length <= 1) {
 			return nums.length;
 		}

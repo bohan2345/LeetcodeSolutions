@@ -17,31 +17,34 @@ import java.util.List;
  * For example, given candidate set 10,1,2,7,6,1,5 and target 8,<br>
  * A solution set is:<br>
  * [1, 7] [1, 2, 5] [2, 6] [1, 1, 6]
- * 
- * @author Bohan Zheng
  *
+ * @author Bohan Zheng
  */
 public class CombinationSumII {
-	public List<List<Integer>> combinationSum2(int[] candidates, int target) {
-		Arrays.sort(candidates);
-		List<List<Integer>> res = new ArrayList<>();
-		dfsHelper(candidates, target, 0, 0, res, new ArrayList<Integer>());
-		return res;
-	}
-	
-	private void dfsHelper(int[] candidates, int target, int i, int sum, List<List<Integer>> res, List<Integer> tmp) {
-		if (sum >= target) {
-			return;
-		}
-		for (; i < candidates.length; i++) {
-			tmp.add(candidates[i]);
-			if (sum + candidates[i] == target) {
-				res.add(new ArrayList<>(tmp));
-			}
-			dfsHelper(candidates, target, i + 1, sum + candidates[i], res, tmp);
-			tmp.remove(tmp.size() - 1);
-			while (i + 1 < candidates.length && candidates[i + 1] == candidates[i])
-				i++;
-		}
-	}
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        List<List<Integer>> res = new ArrayList<>();
+        if (candidates == null || candidates.length == 0) {
+            return res;
+        }
+        Arrays.sort(candidates);
+        dfsHelper(candidates, target, 0, res, new ArrayList<>(), 0);
+        return res;
+    }
+
+    private void dfsHelper(int[] candidates, int target, int i, List<List<Integer>> res, List<Integer> tmp, int sum) {
+        if (sum > target) {
+            return;
+        } else if (sum == target) {
+            res.add(new ArrayList<>(tmp));
+            return;
+        }
+        for (; i < candidates.length; i++) {
+            tmp.add(candidates[i]);
+            dfsHelper(candidates, target, i + 1, res, tmp, sum + candidates[i]);
+            tmp.remove(tmp.size() - 1);
+            while (i + 1 < candidates.length && candidates[i + 1] == candidates[i]) {
+                i++;
+            }
+        }
+    }
 }

@@ -9,7 +9,7 @@ package array;
  * 
  */
 public class MedianofTwoSortedArrays {
-	public double solution1(int[] nums1, int[] nums2) {
+	public double findMedianSortedArrays(int[] nums1, int[] nums2) {
 		int n1 = nums1.length, n2 = nums2.length, nt = n1 + n2;
 		if (nt % 2 == 0) {
 			return (findKBigestinTwoSortedArray(nums1, nums2, 0, 0, nt / 2)
