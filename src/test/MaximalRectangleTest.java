@@ -16,7 +16,13 @@ public class MaximalRectangleTest {
 
     @Test
     public void test() {
-        char[][] matrix = {{1, 0, 1, 0, 0}, {1, 0, 1, 1, 1}, {1, 1, 1, 1, 1}, {1, 0, 0, 1, 0}};
+        char[][] matrix = {{'1', '0', '1', '0', '0'}, {'1', '0', '1', '1', '1'}, {'1', '1', '1', '1', '1'}, {'1', '0', '0', '1', '0'}};
         assertEquals(6, test.maximalRectangle(matrix));
+    }
+
+    @Test
+    public void test2() {
+        char[][] matrix = {{'0'}};
+        assertEquals(0, test.maximalRectangle(matrix));
     }
 }

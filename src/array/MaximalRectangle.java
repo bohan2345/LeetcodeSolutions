@@ -9,7 +9,24 @@ package array;
  */
 public class MaximalRectangle {
     public int maximalRectangle(char[][] matrix) {
-        //TODO: implement
-        return 0;
+        if (matrix == null || matrix.length == 0) {
+            return 0;
+        }
+        int[][] heights = new int[matrix.length][matrix[0].length];
+        for (int i = 0; i < matrix[0].length; i++) {
+            heights[0][i] = matrix[0][i] - '0';
+        }
+        for (int i = 1; i < heights.length; i++) {
+            for (int j = 0; j < heights[i].length; j++) {
+                heights[i][j] = matrix[i][j] == '0' ? 0 : 1 + heights[i - 1][j];
+            }
+        }
+        //using the function from Largest Rectangle in histogram
+        LargestRectangleinHistogram helper = new LargestRectangleinHistogram();
+        int maxArea = 0;
+        for (int[] height : heights) {
+            maxArea = Math.max(maxArea, helper.largestRectangleArea(height));
+        }
+        return maxArea;
     }
 }
