@@ -1,10 +1,6 @@
 package main.array;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Given two words (beginWord and endWord), and a dictionary's word list, find all shortest transformation sequence(s)<br>
@@ -31,16 +27,6 @@ import java.util.Set;
  */
 public class WordLadderII {
 
-    class BfsNode {
-        String value;
-        BfsNode parent;
-
-        BfsNode(String value, BfsNode node) {
-            this.value = value;
-            this.parent = node;
-        }
-    }
-
     /**
      * <ol>
      * <li>BFS from beginword</li>
@@ -58,7 +44,10 @@ public class WordLadderII {
 
         Queue<BfsNode> queue = new LinkedList<>();
         queue.offer(new BfsNode(beginWord, null));
-        int level = 0, cur = 1, next = 0;
+        int cur = 1, next = 0;
+
+        // keep record of all used string, remove from wordList after each level
+        Set<String> set = new HashSet<>();
 
         while (!queue.isEmpty()) {
             BfsNode tmpNode = queue.poll();
@@ -77,18 +66,25 @@ public class WordLadderII {
                     if (newStr.equals(endWord)) {
                         List<String> path = getPath(tmpNode);
                         path.add(endWord);
-                        res.add(path);
+                        res.add(new ArrayList<>(path));
                         continue;
                     }
                     if (wordList.contains(newStr)) {
                         queue.add(new BfsNode(newStr, tmpNode));
+                        //keep track of used words
+                        set.add(newStr);
+                        next++;
                     }
                 }
                 tmpBuilder.setCharAt(i, originChar);
             }
 
             if (cur == 0) {
-                level++;
+                //remove used words
+                wordList.removeAll(set);
+                if (res.size() != 0) {
+                    return res;
+                }
                 cur = next;
                 next = 0;
             }
@@ -98,6 +94,28 @@ public class WordLadderII {
 
     List<String> getPath(BfsNode node) {
         List<String> res = new ArrayList<>();
+        while (node != null) {
+            res.add(0, node.value);
+            node = node.parent;
+        }
         return res;
+    }
+
+    class BfsNode {
+        String value;
+        BfsNode parent;
+
+        BfsNode(String value, BfsNode node) {
+            this.value = value;
+            this.parent = node;
+        }
+
+        @Override
+        public String toString() {
+            return "BfsNode{" +
+                    "value='" + value + '\'' +
+                    ", parent=" + parent +
+                    '}';
+        }
     }
 }
