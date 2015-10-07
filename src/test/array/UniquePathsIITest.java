@@ -49,4 +49,16 @@ public class UniquePathsIITest {
         obstacleGrid[0][0] = 1;
         assertEquals(0, test.uniquePathsWithObstacles(obstacleGrid));
     }
+
+    @Test
+    public void test6() {
+        int[][] obstacleGrid = {{0}, {1}};
+        assertEquals(0, test.uniquePathsWithObstacles(obstacleGrid));
+    }
+
+    @Test
+    public void test7() {
+        int[][] obstacleGrid = {{0, 0}, {1, 1}, {0, 0}};
+        assertEquals(0, test.uniquePathsWithObstaclesII(obstacleGrid));
+    }
 }
