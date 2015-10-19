@@ -17,34 +17,15 @@ package main.array;
  * @author Bohan Zheng
  */
 public class SortColor {
-    public void sortColors2(int[] nums) {
-        int left = 0, right = nums.length - 1, i = 0;
-        while (i <= right) {
-            if (nums[i] == 0) {
-                if (!swap(nums, left, i)) {
-                    i++;
-                }
-                left = nextNoZero(nums, left);
-            } else if (nums[i] == 2) {
-                if (!swap(nums, i, right)) {
-                    i++;
-                }
-                right = nextNoTwo(nums, right);
-            } else {
-                i++;
-            }
-        }
-    }
-
-    public void sortColors(int[] A) {
-        int zero = 0, one = 0, two = A.length - 1;
+    public void sortColors(int[] nums) {
+        int zero = 0, one = 0, two = nums.length - 1;
         while (one <= two) {
-            if (A[one] == 0) {
-                swap(A, zero, one);
+            if (nums[one] == 0) {
+                swap(nums, zero, one);
                 zero++;
                 one++;
-            } else if (A[one] == 2) {
-                swap(A, one, two);
+            } else if (nums[one] == 2) {
+                swap(nums, one, two);
                 two--;
             } else {
                 one++;
@@ -52,26 +33,9 @@ public class SortColor {
         }
     }
 
-    private int nextNoZero(int[] nums, int i) {
-        while (i < nums.length && nums[i] == 0) {
-            i++;
-        }
-        return i;
-    }
-
-    private int nextNoTwo(int[] nums, int i) {
-        while (i >= 0 && nums[i] == 2) {
-            i--;
-        }
-        return i;
-    }
-
-    private boolean swap(int[] nums, int a, int b) {
-        if (a >= b)
-            return false;
-        int tmp = nums[a];
-        nums[a] = nums[b];
-        nums[b] = tmp;
-        return true;
+    private void swap(int[] nums, int i, int j) {
+        int tmp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tmp;
     }
 }
