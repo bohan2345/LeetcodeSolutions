@@ -24,26 +24,24 @@ package main.array;
  */
 public class Search2DMatrix {
     public boolean searchMatrix(int[][] matrix, int target) {
-        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
-            return false;
-        }
-        int index = matrix.length - 1, ceil = 0, floor = matrix.length - 1;
+        int ceil = 0, floor = matrix.length - 1;
+        int i = floor;
         while (ceil <= floor) {
             int mid = ceil + (floor - ceil) / 2;
             if (matrix[mid][0] == target) {
                 return true;
-            } else if (matrix[mid][0] > target) {
+            }
+            if (matrix[mid][0] > target) {
                 floor = mid - 1;
             } else {
                 if (mid + 1 < matrix.length && matrix[mid + 1][0] > target) {
-                    index = mid;
+                    i = mid;
                     break;
-                }else {
-                    ceil = mid + 1;
                 }
+                ceil = mid + 1;
             }
         }
-        return binarySearch(matrix[index], target);
+        return binarySearch(matrix[i], target);
     }
 
     private boolean binarySearch(int[] arrays, int target) {
