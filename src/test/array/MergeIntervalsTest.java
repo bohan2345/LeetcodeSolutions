@@ -31,6 +31,7 @@ public class MergeIntervalsTest {
         expected.add(new Interval(15, 18));
         assertEquals(expected, test.merge(intervals));
     }
+
     @Test
     public void test2() {
         MergeIntervals test = new MergeIntervals();
@@ -42,6 +43,7 @@ public class MergeIntervalsTest {
         expected.add(new Interval(1, 4));
         assertEquals(expected, test.merge(intervals));
     }
+
     @Test
     public void test3() {
         MergeIntervals test = new MergeIntervals();
