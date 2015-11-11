@@ -41,6 +41,18 @@ public class MajorityElement {
                 candidate = n;
             }
         }
+        // if the majority element not always exists, add a check here
+        /*
+        counter = 0;
+        for (int n : nums) {
+            if (n == candidate)
+                counter++;
+        }
+        if (counter > nums.length / 2)
+            return candidate;
+        else
+            throw new RuntimeException("not exist");
+        */
         return candidate;
     }
 }
