@@ -24,6 +24,9 @@ package main.array;
  */
 public class Search2DMatrix {
     public boolean searchMatrix(int[][] matrix, int target) {
+        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
+            return false;
+        }
         int ceil = 0, floor = matrix.length - 1;
         int i = floor;
         while (ceil <= floor) {
