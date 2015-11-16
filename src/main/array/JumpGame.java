@@ -13,13 +13,10 @@ package main.array;
  */
 public class JumpGame {
 	public boolean canJump(int[] nums) {
-		int stepLeft = 1;
-		int i = -1;
-		while (i < nums.length - 1 && stepLeft > 0) {
-			stepLeft--;
-			i++;
-			stepLeft = Math.max(stepLeft, nums[i]);
+		int steps = 0;
+		for (int i = 0; i < nums.length && steps >= i; i++) {
+			steps = Math.max(steps, nums[i] + i);
 		}
-		return i == nums.length - 1;
+		return steps >= nums.length - 1;
 	}
 }

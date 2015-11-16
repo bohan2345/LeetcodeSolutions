@@ -8,24 +8,17 @@ package main.array;
  * Given main.array A = [2,3,1,1,4] <br>
  * The minimum number of jumps to reach the last index is 2. (Jump 1 step from index 0 to 1, then 3 steps to the last
  * index.)
- * 
- * @author Bohan Zheng
  *
+ * @author Bohan Zheng
  */
 public class JumpGameII {
-	public int jump(int[] nums) {
-		int numOfJumps = 0;
-		int i = 0;
-		int maxLength = nums[i];
-		while (i < nums.length - 1 && i < maxLength) {
-			numOfJumps++;
-			int newMaxLength = maxLength;
-			for (; i < nums.length && i <= maxLength; i++) {
-				newMaxLength = Math.max(newMaxLength, i + nums[i]);
-			}
-			i = maxLength;
-			maxLength = newMaxLength;
-		}
-		return i >= nums.length - 1 ? numOfJumps : -1;
-	}
+    public int jump(int[] nums) {
+        int steps = 0, max = nums[0];
+        for (int i = 1; i < nums.length && max >= i; steps++) {
+            for (int tmpMax = max; i < nums.length && i <= tmpMax; i++) {
+                max = Math.max(max, i + nums[i]);
+            }
+        }
+        return max >= nums.length - 1 ? steps : -1;
+    }
 }
