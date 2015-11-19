@@ -2,6 +2,7 @@ package main.array;
 
 import main.utils.Interval;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -58,5 +59,39 @@ public class InsertInterval {
         }
         intervals.add(newInterval);
         return 0;
+    }
+
+    public List<Interval> insert2(List<Interval> intervals, Interval newInterval) {
+        List<Interval> result = new ArrayList<>();
+        for (int i = 0; i < intervals.size(); i++) {
+            Interval interval = intervals.get(i);
+            if (newInterval == null) {
+                result.add(interval);
+                continue;
+            }
+            if (interval.start <= newInterval.end && interval.end >= newInterval.start) {
+                // merge interval and newInterval then insert into result
+                newInterval = merge(interval, newInterval);
+            } else {
+                if (interval.start < newInterval.start) {
+                    result.add(interval);
+                } else {
+                    result.add(newInterval);
+                    i--;
+                    newInterval = null;
+                }
+            }
+        }
+        if (newInterval != null) {
+            result.add(newInterval);
+        }
+        return result;
+    }
+
+    private Interval merge(Interval i1, Interval i2) {
+        Interval newInterval = new Interval();
+        newInterval.start = Math.min(i1.start, i2.start);
+        newInterval.end = Math.max(i1.end, i2.end);
+        return newInterval;
     }
 }

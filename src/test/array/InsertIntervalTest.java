@@ -55,7 +55,7 @@ public class InsertIntervalTest {
         expected.add(new Interval(1, 5));
         expected.add(new Interval(6, 9));
 
-        assertEquals(expected, test.insert(intervals, newInterval));
+        assertEquals(expected, test.insert2(intervals, newInterval));
     }
 
     @Test
@@ -81,5 +81,18 @@ public class InsertIntervalTest {
         expected.add(new Interval(1, 5));
 
         assertEquals(expected, test.insert(intervals, newInterval));
+    }
+
+    @Test
+    public void testInsert4() {
+        InsertInterval test = new InsertInterval();
+        List<Interval> intervals = new ArrayList<>();
+        intervals.add(new Interval(1, 5));
+        Interval newInterval = new Interval(2, 3);
+
+        List<Interval> expected = new ArrayList<>();
+        expected.add(new Interval(1, 5));
+
+        assertEquals(expected, test.insert2(intervals, newInterval));
     }
 }
