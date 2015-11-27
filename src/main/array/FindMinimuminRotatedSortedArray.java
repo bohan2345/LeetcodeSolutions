@@ -13,24 +13,14 @@ package main.array;
 public class FindMinimuminRotatedSortedArray {
     public int findMin(int[] nums) {
         int left = 0, right = nums.length - 1;
-        while (left <= right) {
+        while (left < right && nums[left] >= nums[right]) {
             int mid = left + (right - left) / 2;
-            if (isMin(nums, mid)) {
-                return nums[mid];
-            }
             if (nums[mid] > nums[right]) {
                 left = mid + 1;
             } else {
-                right = mid - 1;
+                right = mid;
             }
         }
-        return nums[0];
-    }
-
-    private boolean isMin(int[] nums, int i) {
-        return (i > 0 && i < nums.length - 1 && nums[i] < nums[i + 1] && nums[i] < nums[i - 1]) ||
-                (i == 0 && nums.length == 1) ||
-                (i == 0 && nums[i] < nums[i + 1]) ||
-                (i == nums.length - 1 && nums[i] < nums[i - 1]);
+        return nums[left];
     }
 }

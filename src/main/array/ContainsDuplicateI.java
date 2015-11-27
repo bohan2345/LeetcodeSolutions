@@ -12,7 +12,7 @@ import java.util.Set;
  *
  */
 public class ContainsDuplicateI {
-	public boolean solution1(int[] nums) {
+	public boolean containsDuplicate(int[] nums) {
 		Set<Integer> set = new HashSet<>();
 		for (int i : nums) {
 			if (set.contains(i))
