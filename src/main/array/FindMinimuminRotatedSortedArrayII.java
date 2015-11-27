@@ -17,26 +17,11 @@ public class FindMinimuminRotatedSortedArrayII {
     if mid > right there must be a pivot on the right side
     for all other cases, we can't tell, so we can safely left++.
     because if left is the min value, then left < mid will be true.
+    if left < right (left == right we can tell) then the array is in order, return nums[left]
     */
     public int findMin(int[] nums) {
         int left = 0, right = nums.length - 1;
-        while (left <= right) {
-            int mid = left + (right - left) / 2;
-            if (nums[mid] < nums[left]) {
-                right = mid - 1;
-            } else if (nums[mid] > nums[right]) {
-                left = mid + 1;
-            } else {
-                left++;
-            }
-        }
-        return nums[left];
-    }
-
-    // accepted code, TODO: figure this out
-    public int findMin2(int[] nums) {
-        int left = 0, right = nums.length - 1;
-        while (left < right && nums[left] >= nums[right]) {
+        while (left < right && nums[right] <= nums[left]) {
             int mid = left + (right - left) / 2;
             if (nums[mid] < nums[left]) {
                 right = mid;

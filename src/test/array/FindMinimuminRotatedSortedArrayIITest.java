@@ -19,4 +19,21 @@ public class FindMinimuminRotatedSortedArrayIITest {
         int[] nums = {3, 1, 1};
         assertEquals(1, test.findMin(nums));
     }
+
+    @Test
+    public void test2() {
+        int[] nums = {1, 1, 1};
+        assertEquals(1, test.findMin(nums));
+    }
+
+    @Test
+    public void test3() {
+        int[] nums = {1};
+        assertEquals(1, test.findMin(nums));
+    }
+    @Test
+    public void test4() {
+        int[] nums = {3, 1, 3};
+        assertEquals(1, test.findMin(nums));
+    }
 }
