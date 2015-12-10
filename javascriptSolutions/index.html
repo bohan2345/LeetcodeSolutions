@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LiveMockAdmin</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <style>
+    a {
+      cursor: pointer;
+    }
+    #jsonText {
+      width: 567px;
+      height: 247px;
+    }
+  </style>
+</head>
+<body role="document">
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Live Mock</a>
+    </div>
+  </div>
+</nav>
+<div role="main" class="container">
+  <div class="row">
+    <ul class="nav nav-pills pull-right">
+      <li role="presentation"><a>Export</a></li>
+      <li role="presentation"><a>Import</a></li>
+    </ul>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>Method Name</th>
+          <th>isMockEnabled</th>
+          <th>Enable/Disable</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>1</td>
+          <td><a data-toggle="modal" data-target="#myModal">doSomething</a></td>
+          <td>true</td>
+          <td>
+            <button type="button" class="btn btn-default btn-xs" aria-label="Left Align">
+              <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="btn btn-default btn-xs" aria-label="Left Align">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Thornton</td>
+          <td>true</td>
+          <td>
+            <button type="button" class="btn btn-default btn-xs" aria-label="Left Align">
+              <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="btn btn-default btn-xs" aria-label="Left Align">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>the Bird</td>
+          <td>true</td>
+          <td>
+            <button type="button" class="btn btn-default btn-xs" aria-label="Left Align">
+              <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="btn btn-default btn-xs" aria-label="Left Align">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <textarea id="jsonText"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Update Mock Data</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+        crossorigin="anonymous"></script>
+<script>
+  (function () {
+    function RealTypeOf(v) {
+      if (typeof(v) == "object") {
+        if (v === null) return "null";
+        if (v.constructor == (new Array).constructor) return "array";
+        if (v.constructor == (new Date).constructor) return "date";
+        if (v.constructor == (new RegExp).constructor) return "regex";
+        return "object";
+      }
+      return typeof(v);
+    }
+
+    function FormatJSON(oData, sIndent) {
+      if (arguments.length < 2) {
+        var sIndent = "";
+      }
+      var sIndentStyle = "    ";
+      var sDataType = RealTypeOf(oData);
+
+      // open object
+      if (sDataType == "array") {
+        if (oData.length == 0) {
+          return "[]";
+        }
+        var sHTML = "[";
+      } else {
+        var iCount = 0;
+        $.each(oData, function () {
+          iCount++;
+          return;
+        });
+        if (iCount == 0) { // object is empty
+          return "{}";
+        }
+        var sHTML = "{";
+      }
+
+      // loop through items
+      var iCount = 0;
+      $.each(oData, function (sKey, vValue) {
+        if (iCount > 0) {
+          sHTML += ",";
+        }
+        if (sDataType == "array") {
+          sHTML += ("\n" + sIndent + sIndentStyle);
+        } else {
+          sHTML += ("\n" + sIndent + sIndentStyle + "\"" + sKey + "\"" + ": ");
+        }
+
+        // display relevant data type
+        switch (RealTypeOf(vValue)) {
+          case "array":
+          case "object":
+            sHTML += FormatJSON(vValue, (sIndent + sIndentStyle));
+            break;
+          case "boolean":
+          case "number":
+            sHTML += vValue.toString();
+            break;
+          case "null":
+            sHTML += "null";
+            break;
+          case "string":
+            sHTML += ("\"" + vValue + "\"");
+            break;
+          default:
+            sHTML += ("TYPEOF: " + typeof(vValue));
+        }
+
+        // loop
+        iCount++;
+      });
+
+      // close object
+      if (sDataType == "array") {
+        sHTML += ("\n" + sIndent + "]");
+      } else {
+        sHTML += ("\n" + sIndent + "}");
+      }
+
+      // return
+      return sHTML;
+    }
+
+    window.formatJson = FormatJSON;
+
+    var data = {
+          a: 1,
+          b: 2,
+          c: {
+            ca: 1,
+            cb: 2
+          }
+        };
+    var jsonString = window.formatJson(data);
+    $("#jsonText").val(jsonString);
+  })();
+
+</script>
+
+</body>
+</html>
