@@ -37,7 +37,26 @@ public class BinaryTreeUtils {
     }
 
     public TreeNode constructBinaryTree(List<String> nodes) {
-        TreeNode root = new TreeNode(Integer.valueOf(nodes.get(0)));
+        Queue<String> queue = new LinkedList<>(nodes);
+        Queue<TreeNode> nodeQueue = new LinkedList<>();
+        TreeNode root = new TreeNode(Integer.valueOf(queue.poll()));
+        nodeQueue.offer(root);
+        while (!nodeQueue.isEmpty()) {
+            TreeNode node = nodeQueue.poll();
+            if (queue.isEmpty()) {
+                break;
+            }
+            String leftVal = queue.poll();
+            if (leftVal != null && !leftVal.equals("#")) {
+                node.left = new TreeNode(Integer.valueOf(leftVal));
+                nodeQueue.offer(node.left);
+            }
+            String rightVal = queue.poll();
+            if (rightVal != null && !rightVal.equals("#")) {
+                node.right = new TreeNode(Integer.valueOf(rightVal));
+                nodeQueue.offer(node.right);
+            }
+        }
         return root;
     }
 }

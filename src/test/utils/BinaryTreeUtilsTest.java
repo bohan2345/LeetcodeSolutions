@@ -5,6 +5,9 @@ import main.utils.TreeNode;
 import org.hamcrest.collection.IsIterableContainingInOrder;
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.Assert.assertThat;
 
 /**
@@ -16,7 +19,7 @@ import static org.junit.Assert.assertThat;
 public class BinaryTreeUtilsTest {
 
     @Test
-    public void test() {
+    public void testSerializeBinaryTree() {
         BinaryTreeUtils test = new BinaryTreeUtils();
         TreeNode node1 = new TreeNode(1);
         TreeNode node2 = new TreeNode(2);
@@ -28,5 +31,21 @@ public class BinaryTreeUtilsTest {
         node3.left = node4;
         node4.right = node5;
         assertThat(test.serializeBinaryTree(node1), IsIterableContainingInOrder.contains("1", "2", "3", "#", "#", "4", "#", "#", "5"));
+    }
+
+    @Test
+    public void testConstructBinaryTree() {
+        BinaryTreeUtils test = new BinaryTreeUtils();
+        List<String> nodes = Arrays.asList("1", "2", "3", "4", "#", "5");
+        TreeNode root = test.constructBinaryTree(nodes);
+        assertThat(test.serializeBinaryTree(root), IsIterableContainingInOrder.contains("1", "2", "3", "4", "#", "5"));
+    }
+
+    @Test
+    public void testConstructBinaryTree2() {
+        BinaryTreeUtils test = new BinaryTreeUtils();
+        List<String> nodes = Arrays.asList("1", "#", "2", "#", "3", "#", "4", "#", "5");
+        TreeNode root = test.constructBinaryTree(nodes);
+        assertThat(test.serializeBinaryTree(root), IsIterableContainingInOrder.contains("1", "#", "2", "#", "3", "#", "4", "#", "5"));
     }
 }
