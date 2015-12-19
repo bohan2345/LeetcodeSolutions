@@ -13,7 +13,7 @@ import java.util.Queue;
  * @author Bohan Zheng
  */
 public class BinaryTreeUtils {
-    public List<String> serializeBinaryTree(TreeNode root) {
+    public static List<String> serializeBinaryTree(TreeNode root) {
         List<String> res = new ArrayList<>();
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
@@ -36,7 +36,7 @@ public class BinaryTreeUtils {
         return res;
     }
 
-    public TreeNode constructBinaryTree(List<String> nodes) {
+    public static TreeNode constructBinaryTree(List<String> nodes) {
         Queue<String> queue = new LinkedList<>(nodes);
         Queue<TreeNode> nodeQueue = new LinkedList<>();
         TreeNode root = new TreeNode(Integer.valueOf(queue.poll()));
@@ -58,5 +58,13 @@ public class BinaryTreeUtils {
             }
         }
         return root;
+    }
+
+    public static TreeNode constructBinaryTree(int... nums) {
+        List<String> nodes = new ArrayList<>(nums.length);
+        for (int n : nums) {
+            nodes.add(Integer.toString(n));
+        }
+        return constructBinaryTree(nodes);
     }
 }
