@@ -60,10 +60,14 @@ public class BinaryTreeUtils {
         return root;
     }
 
+    /**
+     * @param nums 0 means "#"
+     * @return
+     */
     public static TreeNode constructBinaryTree(int... nums) {
         List<String> nodes = new ArrayList<>(nums.length);
         for (int n : nums) {
-            nodes.add(Integer.toString(n));
+            nodes.add(n == 0 ? "#" : Integer.toString(n));
         }
         return constructBinaryTree(nodes);
     }
