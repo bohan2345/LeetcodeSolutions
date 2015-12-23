@@ -28,4 +28,11 @@ public class SymmetricTreeTest {
         SymmetricTree test = new SymmetricTree();
         assertFalse(test.isSymmetric(root));
     }
+
+    @Test
+    public void test3() {
+        TreeNode root = BinaryTreeUtils.constructBinaryTree(1, 2, 2, 3, 4, 4, 3);
+        SymmetricTree test = new SymmetricTree();
+        assertTrue(test.isSymmetric2(root));
+    }
 }
