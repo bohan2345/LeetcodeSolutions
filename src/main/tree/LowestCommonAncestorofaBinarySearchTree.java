@@ -3,6 +3,8 @@ package main.tree;
 import main.utils.TreeNode;
 
 /**
+ * Given a binary search tree (BST), find the lowest common ancestor (LCA) of two given nodes in the BST.
+ * <p>
  * <p>
  * Created by Bohan Zheng on 1/4/2016.
  *
