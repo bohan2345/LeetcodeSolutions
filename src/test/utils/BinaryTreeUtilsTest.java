@@ -8,6 +8,7 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -47,5 +48,16 @@ public class BinaryTreeUtilsTest {
         List<String> nodes = Arrays.asList("1", "#", "2", "#", "3", "#", "4", "#", "5");
         TreeNode root = test.constructBinaryTree(nodes);
         assertThat(test.serializeBinaryTree(root), IsIterableContainingInOrder.contains("1", "#", "2", "#", "3", "#", "4", "#", "5"));
+    }
+
+    @Test
+    public void testSeriallize() {
+        TreeNode root = BinaryTreeUtils.constructBinaryTree(1,2,3);
+        String actual = BinaryTreeUtils.serialize(root);
+        assertEquals("1,2,3,#,#,#,#", actual);
+        TreeNode newRoot = BinaryTreeUtils.deserialize(actual);
+        assertEquals(1, newRoot.val);
+        assertEquals(2, newRoot.left.val);
+        assertEquals(3, newRoot.right.val);
     }
 }
