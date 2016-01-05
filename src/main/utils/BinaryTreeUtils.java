@@ -61,7 +61,8 @@ public class BinaryTreeUtils {
     }
 
     /**
-     * @param nums 0 means "#"
+     * @param nums
+     *         0 means "#"
      * @return
      */
     public static TreeNode constructBinaryTree(int... nums) {
@@ -74,22 +75,29 @@ public class BinaryTreeUtils {
 
     // Encodes a tree to a single string.
     public static String serialize(TreeNode root) {
-        if (root == null) {
-            return null;
-        }
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
+//        if (root == null) {
+//            return null;
+//        }
+//        Queue<TreeNode> queue = new LinkedList<>();
+//        queue.offer(root);
+//        StringBuilder sb = new StringBuilder();
+//        while (!queue.isEmpty()) {
+//            TreeNode node = queue.poll();
+//            if (node == null) {
+//                sb.append("#");
+//            } else {
+//                sb.append(node.val);
+//                queue.offer(node.left);
+//                queue.offer(node.right);
+//            }
+//            sb.append(",");
+//        }
+//        sb.deleteCharAt(sb.length() - 1);
+//        return sb.toString();
+        List<String> strs = serializeBinaryTree(root);
         StringBuilder sb = new StringBuilder();
-        while (!queue.isEmpty()) {
-            TreeNode node = queue.poll();
-            if (node == null) {
-                sb.append("#");
-            } else {
-                sb.append(node.val);
-                queue.offer(node.left);
-                queue.offer(node.right);
-            }
-            sb.append(",");
+        for (String s : strs) {
+            sb.append(s).append(",");
         }
         sb.deleteCharAt(sb.length() - 1);
         return sb.toString();
