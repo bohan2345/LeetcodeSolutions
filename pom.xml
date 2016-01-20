@@ -6,8 +6,6 @@
   <version>0.0.1</version>
   <build>
     <directory>target</directory>
-    <sourceDirectory>src</sourceDirectory>
-    <testSourceDirectory>src/test</testSourceDirectory>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
