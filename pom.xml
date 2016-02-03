@@ -4,6 +4,9 @@
   <groupId>LeetcodeSolutions</groupId>
   <artifactId>LeetcodeSolutions</artifactId>
   <version>0.0.1</version>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
   <build>
     <directory>target</directory>
     <plugins>
