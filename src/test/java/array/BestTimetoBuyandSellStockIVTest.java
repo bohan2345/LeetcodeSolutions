@@ -1,8 +1,8 @@
 package array;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * <p>
@@ -22,7 +22,7 @@ public class BestTimetoBuyandSellStockIVTest {
     public void test2() {
         BestTimetoBuyandSellStockIV test = new BestTimetoBuyandSellStockIV();
         int[] prices = new int[]{6, 1, 3, 2, 4, 7};
-        assertEquals(7, test.maxProfit(2, prices));
+        assertEquals(7, test.maxProfit2(2, prices));
     }
 
     @Test
@@ -30,5 +30,12 @@ public class BestTimetoBuyandSellStockIVTest {
         BestTimetoBuyandSellStockIV test = new BestTimetoBuyandSellStockIV();
         int[] prices = new int[]{1};
         assertEquals(0, test.maxProfit(10, prices));
+    }
+
+    @Test
+    public void test4() {
+        BestTimetoBuyandSellStockIV test = new BestTimetoBuyandSellStockIV();
+        int[] prices = new int[]{0, 1000, 1000, 1000, 1000, 1000, 1000, 1000};
+        assertEquals(1000, test.maxProfit2(3, prices));
     }
 }
