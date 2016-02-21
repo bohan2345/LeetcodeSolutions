@@ -17,10 +17,7 @@ import utils.TreeNode;
  */
 public class ValidateBinarySearchTree {
     public boolean isValidBST(TreeNode root) {
-        if (root == null) {
-            return true;
-        }
-        return isValidBSTHelper(root)[0] == 1;
+        return root == null || isValidBSTHelper(root)[0] == 1;
     }
 
     /**
@@ -31,7 +28,7 @@ public class ValidateBinarySearchTree {
         if (root == null) {
             return null;
         }
-        int[] res = new int[3];
+        int[] res = new int[3]; // res[0] if this tree is a BST, res[1] largest num, res[2] smallest num
         int[] left = isValidBSTHelper(root.left);
         int[] right = isValidBSTHelper(root.right);
         if (left != null && right != null) {
