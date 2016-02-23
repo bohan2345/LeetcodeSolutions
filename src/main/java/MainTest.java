@@ -1,4 +1,3 @@
-package main.java;
 
 import java.nio.file.AccessDeniedException;
 
@@ -10,9 +9,19 @@ import java.nio.file.AccessDeniedException;
  */
 public class MainTest {
     public static void main(String[] args) {
-        String[] strs = {"123","321"};
-        System.out.println(1 & 1);
-        Exception e = new AccessDeniedException("asdfasdfasdfasdf");
-        System.out.println(e instanceof NullPointerException);
+        B b = new B();
+        callA(b);
+    }
+
+    static void callA(A a) {
+        System.out.println(a.a);
+    }
+
+    public static class A {
+        String a = "A";
+    }
+
+    public static class B extends A {
+        String b = "B";
     }
 }
