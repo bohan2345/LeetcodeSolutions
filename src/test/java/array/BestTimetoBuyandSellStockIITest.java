@@ -1,6 +1,5 @@
 package array;
 
-import array.BestTimetoBuyandSellStockII;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

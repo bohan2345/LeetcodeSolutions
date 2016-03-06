@@ -1,6 +1,5 @@
 package array;
 
-import array.ConstructBinaryTreePreorderInorderTraversal;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

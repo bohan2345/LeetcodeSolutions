@@ -1,6 +1,5 @@
 package array;
 
-import array.LargestRectangleinHistogram;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

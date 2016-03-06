@@ -1,6 +1,5 @@
 package array;
 
-import array.MajorityElementII;
 import org.junit.Test;
 
 import java.util.ArrayList;

@@ -1,10 +1,10 @@
 package linkedlist;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 import utils.LinkedListUtils;
 import utils.ListNode;
+
+import static org.junit.Assert.assertTrue;
 
 /**
  * <p>

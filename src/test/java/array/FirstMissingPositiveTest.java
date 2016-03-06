@@ -1,9 +1,8 @@
 package array;
 
-import static org.junit.Assert.*;
 import org.junit.Test;
 
-import array.FirstMissingPositive;
+import static org.junit.Assert.assertEquals;
 
 public class FirstMissingPositiveTest {
 	@Test

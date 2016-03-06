@@ -1,6 +1,5 @@
 package array;
 
-import array.ProductofArrayExceptSelf;
 import org.junit.Test;
 
 import static org.junit.Assert.assertArrayEquals;

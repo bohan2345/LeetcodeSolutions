@@ -1,10 +1,9 @@
 package tree;
 
-import tree.InvertBinaryTree;
-import utils.BinaryTreeUtils;
-import utils.TreeNode;
 import org.hamcrest.collection.IsIterableContainingInOrder;
 import org.junit.Test;
+import utils.BinaryTreeUtils;
+import utils.TreeNode;
 
 import java.util.Arrays;
 import java.util.List;

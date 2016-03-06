@@ -1,8 +1,7 @@
 package tree;
 
-import tree.SumRoottoLeafNumbers;
-import utils.BinaryTreeUtils;
 import org.junit.Test;
+import utils.BinaryTreeUtils;
 
 import static org.junit.Assert.assertEquals;
 

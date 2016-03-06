@@ -1,6 +1,5 @@
 package array;
 
-import array.InsertInterval;
 import org.junit.Test;
 import utils.Interval;
 

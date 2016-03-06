@@ -1,9 +1,8 @@
 package tree;
 
-import tree.MaximumDepthofBinaryTree;
+import org.junit.Test;
 import utils.BinaryTreeUtils;
 import utils.TreeNode;
-import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 

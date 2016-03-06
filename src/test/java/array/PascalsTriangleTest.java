@@ -1,6 +1,5 @@
 package array;
 
-import array.PascalsTriangle;
 import org.hamcrest.collection.IsIterableContainingInOrder;
 import org.junit.Test;
 

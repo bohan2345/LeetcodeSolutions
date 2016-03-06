@@ -1,6 +1,5 @@
 package array;
 
-import array.RemoveDuplicatesfromSortedArrayII;
 import org.junit.Test;
 
 import java.util.Arrays;

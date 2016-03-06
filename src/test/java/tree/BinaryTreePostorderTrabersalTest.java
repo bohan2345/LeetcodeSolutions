@@ -1,10 +1,9 @@
 package tree;
 
-import tree.BinaryTreePostorderTraversal;
-import utils.BinaryTreeUtils;
-import utils.TreeNode;
 import org.hamcrest.collection.IsIterableContainingInOrder;
 import org.junit.Test;
+import utils.BinaryTreeUtils;
+import utils.TreeNode;
 
 import static org.junit.Assert.assertThat;
 

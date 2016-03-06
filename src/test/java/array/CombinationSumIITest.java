@@ -1,6 +1,5 @@
 package array;
 
-import array.CombinationSumII;
 import org.junit.Test;
 
 import java.util.ArrayList;

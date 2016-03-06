@@ -1,13 +1,10 @@
 package linkedlist;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 import utils.LinkedListUtils;
 import utils.ListNode;
 
-import java.util.ArrayList;
-import java.util.List;
+import static org.junit.Assert.assertEquals;
 
 /**
  * <p>

@@ -1,6 +1,5 @@
 package array;
 
-import array.MinimumPathSum;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

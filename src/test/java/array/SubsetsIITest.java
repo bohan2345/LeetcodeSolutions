@@ -1,6 +1,5 @@
 package array;
 
-import array.SubsetsII;
 import org.hamcrest.collection.IsIterableContainingInAnyOrder;
 import org.junit.Test;
 
