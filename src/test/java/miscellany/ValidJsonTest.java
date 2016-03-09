@@ -20,7 +20,7 @@ public class ValidJsonTest {
     @Test
     public void test2() {
         ValidJson test = new ValidJson();
-        assertTrue(test.isValid("{a :a, c: d }"));
+        assertTrue(test.isValid("{_9 :a, c: d }"));
     }
 
     @Test

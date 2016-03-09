@@ -56,8 +56,8 @@ public class ValidJson {
                 }
                 String key = pair.substring(0, i);
                 String value = pair.substring(i + 1);
-                isValid = isValid && key.matches("\\s*[a-zA-Z]+\\s*");
-                isValid = isValid && (value.matches("\\s*[a-zA-Z]+\\s*") || isValid(value));
+                isValid = isValid && key.matches("\\s*[0-9_a-zA-Z]+\\s*");
+                isValid = isValid && (value.matches("\\s*[0-9_a-zA-Z]+\\s*") || isValid(value));
             }
         }
         return isValid;
