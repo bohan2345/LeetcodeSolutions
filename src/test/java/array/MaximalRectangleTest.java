@@ -1,6 +1,5 @@
 package array;
 
-import array.MaximalRectangle;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

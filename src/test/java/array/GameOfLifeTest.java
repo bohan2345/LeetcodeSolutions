@@ -1,6 +1,5 @@
 package array;
 
-import array.GameOfLife;
 import org.junit.Test;
 
 import static org.junit.Assert.assertArrayEquals;

@@ -1,6 +1,5 @@
 package array;
 
-import array.SetMatrixZeroes;
 import org.junit.Test;
 
 import static org.junit.Assert.assertArrayEquals;

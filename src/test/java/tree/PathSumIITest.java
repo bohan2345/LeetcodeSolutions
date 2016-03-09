@@ -1,10 +1,9 @@
 package tree;
 
-import tree.PathSumII;
-import utils.BinaryTreeUtils;
-import utils.TreeNode;
 import org.hamcrest.collection.IsIterableContainingInAnyOrder;
 import org.junit.Test;
+import utils.BinaryTreeUtils;
+import utils.TreeNode;
 
 import java.util.ArrayList;
 import java.util.Arrays;

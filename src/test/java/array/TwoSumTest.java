@@ -1,10 +1,8 @@
 package array;
 
-import static org.junit.Assert.assertArrayEquals;
-
 import org.junit.Test;
 
-import array.TwoSum;
+import static org.junit.Assert.assertArrayEquals;
 
 public class TwoSumTest {
 	@Test

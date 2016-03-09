@@ -1,13 +1,11 @@
 package array;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Test;
-
-import array.ThreeSum;
+import static org.junit.Assert.assertEquals;
 
 public class ThreeSumTest {
 	@Test

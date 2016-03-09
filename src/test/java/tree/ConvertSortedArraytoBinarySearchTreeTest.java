@@ -1,9 +1,7 @@
 package tree;
 
-import tree.ConvertSortedArraytoBinarySearchTree;
-import tree.ValidateBinarySearchTree;
-import utils.TreeNode;
 import org.junit.Test;
+import utils.TreeNode;
 
 import static org.junit.Assert.assertTrue;
 

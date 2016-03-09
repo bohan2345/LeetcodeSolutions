@@ -2,9 +2,7 @@ package array;
 
 import org.junit.Test;
 
-import array.TrappingRainWater;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class TrappingRainWaterTest {
 	@Test

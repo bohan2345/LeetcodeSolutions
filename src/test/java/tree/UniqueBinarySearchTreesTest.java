@@ -1,6 +1,5 @@
 package tree;
 
-import tree.UniqueBinarySearchTrees;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

@@ -1,6 +1,5 @@
 package array;
 
-import array.MergeIntervals;
 import org.junit.Test;
 import utils.Interval;
 

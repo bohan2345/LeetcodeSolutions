@@ -1,12 +1,12 @@
 package linkedlist;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 import utils.BinaryTreeUtils;
 import utils.LinkedListUtils;
 import utils.ListNode;
 import utils.TreeNode;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * <p>

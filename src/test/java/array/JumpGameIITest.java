@@ -1,10 +1,8 @@
 package array;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Test;
 
-import array.JumpGameII;
+import static org.junit.Assert.assertEquals;
 
 public class JumpGameIITest {
 	@Test
