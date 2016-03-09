@@ -44,6 +44,6 @@ public class ValidJsonTest {
     @Test
     public void test6() {
         ValidJson test = new ValidJson();
-        assertTrue(test.isValid("[{a:a}, {b:b, c:c}]"));
+        assertTrue(test.isValid("[{a:a}, {b:{a:a}, c:c}]"));
     }
 }

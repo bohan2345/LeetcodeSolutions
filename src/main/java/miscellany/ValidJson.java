@@ -34,16 +34,16 @@ public class ValidJson {
             sb.deleteCharAt(0).deleteCharAt(sb.length() - 1);
             // validate each object
             String str = sb.toString();
-            Pattern pattern = Pattern.compile("}\\s*,\\s*");
+            Pattern pattern = Pattern.compile("\\s*,\\s*\\{");
             Matcher matcher = pattern.matcher(sb.toString());
-            int start = 0, end = 0;
+            int start = 0, end = 1;
             while (matcher.find(end)) {
                 start = matcher.start();
-                String obj = str.substring(end, start + 1);
+                String obj = str.substring(end - 1, start);
                 end = matcher.end();
                 isValid = isValid && isValid(obj);
             }
-            isValid = isValid && isValid(str.substring(end));
+            isValid = isValid && isValid(str.substring(end - 1));
         } else {
             isValid = sb.charAt(0) == '{' && sb.charAt(sb.length() - 1) == '}';
             sb.deleteCharAt(0).deleteCharAt(sb.length() - 1);
