@@ -1,4 +1,4 @@
-package hashtable;
+package backtrack;
 
 import static org.junit.Assert.*;
 
