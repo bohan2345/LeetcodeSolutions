@@ -16,4 +16,10 @@ public class ZigZagConversionTest {
         ZigZagConversion test = new ZigZagConversion();
         assertEquals("PAHNAPLSIIGYIR", test.convert("PAYPALISHIRING", 3));
     }
+
+    @Test
+    public void test2() {
+        ZigZagConversion test = new ZigZagConversion();
+        assertEquals("A", test.convert("A", 1));
+    }
 }
