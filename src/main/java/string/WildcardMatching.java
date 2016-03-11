@@ -25,7 +25,7 @@ package string;
 public class WildcardMatching {
     /**
      * f(s,p) = f(s - 1, p - 1), p == s or p == ?
-     *          f(s - 1, p - 1) or f(s - 1, p) or f(s, p - 1), p == *
+     * f(s - 1, p - 1) or f(s - 1, p) or f(s, p - 1), p == *
      */
     public boolean isMatch(String s, String p) {
         boolean[][] table = new boolean[s.length() + 1][p.length() + 1];
@@ -48,10 +48,44 @@ public class WildcardMatching {
     }
 
     public boolean isMatchII(String s, String p) {
-        int i = 0, j = 0;
-        while (i < s.length() && j < p.length()) {
-
+        int slen = s.length();
+        int plen = p.length();
+        if (plen == 0) {
+            return slen == 0;
         }
-        return i == s.length() && j == p.length();
+        int i = 0;
+        int j = 0;
+        int nxts = -1;
+        int nxtp = -1;
+        // here only use i as ending condition, for the case j reach the end with no match,
+        // it can go back to recorded index and match again
+        while (i < slen) {
+            if (j < plen && (p.charAt(j) == '?' || p.charAt(j) == s.charAt(i))) {
+                i++;
+                j++;
+            } else if (j < plen && p.charAt(j) == '*') {
+                // record index i, j; all characters before i, j is matched
+                nxtp = j;
+                nxts = i;
+                // only increase j, skip '*' (try use '*' to match 0 character)
+                j++;
+            } else {
+                if (nxtp == -1) {
+                    // don't have '*' in pattern
+                    return false;
+                } else {
+                    nxts++;
+                    i = nxts;
+                    // only increase i by 1 from previous recorded index, try use '*' to match one more character
+                    // which means include s[i] to the match of '*'. (not set i up to the failure point)
+                    j = nxtp + 1;
+                }
+            }
+        }
+        // if p has character left, only can be true if all the left are *
+        while (j < plen && p.charAt(j) == '*') {
+            j++;
+        }
+        return j == plen;
     }
 }
