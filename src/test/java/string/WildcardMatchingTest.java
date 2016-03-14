@@ -15,7 +15,7 @@ public class WildcardMatchingTest {
 
     @Test
     public void test() {
-        assertTrue(test.isMatch("abc", "abc"));
+        assertTrue(test.isMatchII("abc", "abc"));
     }
 
     @Test
@@ -25,21 +25,36 @@ public class WildcardMatchingTest {
 
     @Test
     public void test3() {
-        assertTrue(test.isMatch("abc", "a*"));
+        assertTrue(test.isMatchII("abc", "a*"));
     }
 
     @Test
     public void test4() {
-        assertTrue(test.isMatch("abc", "*"));
+        assertTrue(test.isMatchII("abc", "*"));
     }
 
     @Test
     public void test5() {
-        assertTrue(test.isMatch("abc", "a*b*c"));
+        assertTrue(test.isMatchII("abc", "a*b*c"));
     }
 
     @Test
     public void test6() {
-        assertTrue(!test.isMatch("abc", "c*b*c*"));
+        assertTrue(!test.isMatchII("abc", "c*b*c*"));
+    }
+
+    @Test
+    public void test7() {
+        assertTrue(!test.isMatchII("aa", "a"));
+    }
+
+    @Test
+    public void test9() {
+        assertTrue(!test.isMatchII("aba", "a*b"));
+    }
+
+    @Test
+    public void test8() {
+        assertTrue(!test.isMatchII("aaabbbaabaaaaababaabaaabbabbbbbbbbaabababbabbbaaaaba", "a********b"));
     }
 }
