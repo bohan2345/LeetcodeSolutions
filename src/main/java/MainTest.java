@@ -6,8 +6,8 @@
  */
 public class MainTest {
     public static void main(String[] args) {
-        B b = new B();
-        callA(b);
+        int x = (int) Math.ceil(3 / (2 * 1.0));
+        System.out.print(x);
     }
 
     static void callA(A a) {
