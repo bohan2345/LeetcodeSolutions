@@ -1,5 +1,7 @@
 package string;
 
+import miscellany.KMPAlgorithm;
+
 /**
  * Given a string S, you are allowed to convert it to a palindrome by adding characters in front of it.
  * Find and return the shortest palindrome you can find by performing this transformation.
@@ -13,20 +15,35 @@ package string;
  * @author Bohan Zheng
  */
 public class ShortestPalindrome {
+    /**
+     * http://www.jiuzhang.com/solutions/shortest-palindrome/
+     */
     public String shortestPalindrome(String s) {
-        StringBuilder sb = new StringBuilder(s);
-        StringBuilder sbReverse = new StringBuilder(s).reverse();
-        while (sb.length() > 0) {
-            if (sb.toString().equals(sbReverse.toString())) {
-                break;
+        int j = 0;
+        for (int i = s.length() - 1; i >= 0; i--) {
+            if (s.charAt(i) == s.charAt(j)) {
+                j++;
             }
-            sb.deleteCharAt(sb.length() - 1);
-            sbReverse.deleteCharAt(0);
         }
-        sb = new StringBuilder(s);
-        for (int i = 0; i < s.length() - sbReverse.length(); i++) {
-            sb.insert(0, s.charAt(s.length() - 1 - i));
+        if (j == s.length()) {
+            return s;
         }
-        return sb.toString();
+        String suffix = s.substring(j);
+        String prefix = new StringBuilder(suffix).reverse().toString();
+        String mid = shortestPalindrome(s.substring(0, j));
+        return prefix + mid + suffix;
+    }
+
+    /**
+     * solve with KMP
+     */
+    public String shortestPalindrome2(String s) {
+        StringBuilder sb = new StringBuilder(s);
+        String reverse = sb.reverse().toString();
+        String ss = s + "&" + reverse + "$";
+        int[] next = new KMPAlgorithm().KMPTable(ss.toCharArray());
+        String suffix = s.substring(next[next.length - 1]);
+        StringBuilder prefix = new StringBuilder(suffix).reverse();
+        return prefix.append(s).toString();
     }
 }
