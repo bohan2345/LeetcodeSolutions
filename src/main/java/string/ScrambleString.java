@@ -69,4 +69,63 @@ public class ScrambleString {
         }
         return map.isEmpty();
     }
+
+    /**
+     * 三维动态规划题目：
+     * <p>
+     * 我们提出维护量res[i][j][n]，其中i是s1的起始字符，j是s2的起始字符，而n是当前的字符串长度，res[i][j][len]表示的是以i和j分别为
+     * s1和s2起点的长度为len的字符串是不是互为scramble。有了维护量我们接下来看看递推式，也就是怎么根据历史信息来得到res[i][j][len]。
+     * 判断这个是不是满足，其实我们首先是把当前s1[i...i+len-1]字符串劈一刀分成两部分，然后分两种情况：
+     * 第一种是左边和s2[j...j+len-1]左边部分是不是scramble，以及右边和s2[j...j+len-1]右边部分是不是scramble；
+     * 第二种情况是左边和s2[j...j+len-1]右边部分是不是scramble，以及右边和s2[j...j+len-1]左边部分是不是scramble。
+     * 如果以上两种情况有一种成立，说明s1[i...i+len-1]和s2[j...j+len-1]是scramble的。
+     * 而对于判断这些左右部分是不是scramble我们是有历史信息的，因为长度小于n的所有情况我们都在前面求解过了（也就是长度是最外层循环）。
+     * 上面说的是劈一刀的情况，对于s1[i...i+len-1]我们有len-1种劈法，在这些劈法中只要有一种成立，那么两个串就是scramble的。
+     * 总结起来递推式是res[i][j][len] = || (res[i][j][k]&&res[i+k][j+k][len-k] || res[i][j+len-k][k]&&res[i+k][j][len-k])
+     * 对于所有1<=k如此总时间复杂度因为是三维动态规划，需要三层循环，加上每一步需要线行时间求解递推式，所以是O(n^4)。
+     * 虽然已经比较高了，但是至少不是指数量级的，动态规划还是相当有用的，空间复杂度是O(n^3)。代码如下：
+     *
+     * Another way is to use DP. I use a three dimension array scramble[][][] to save the states.
+     * What scramble[k][i][j] means is that two substrings of length k, one starts from i of string s1,
+     * another one starts from j of string s2, are scramble. We are trying to find scramble[L][0][0].
+     * For every length k, we try to divide the string to two parts differently, checking if there is a way that can make it true.
+     */
+    public static boolean isScramble2(String s1, String s2) {
+        if (s1 == null || s2 == null) {
+            return false;
+        }
+
+        int len = s1.length();
+
+        if (s2.length() != len) {
+            return false;
+        }
+
+        boolean[][][] D = new boolean[len][len][len + 1];
+
+        // D[i][j][k] = D[i][]
+        for (int k = 1; k <= len; k++) {
+            // 注意这里的边界选取。 如果选的不对，就会发生越界的情况.. orz..
+            // attention: should use "<="
+            for (int i = 0; i <= len - k; i++) {
+                for (int j = 0; j <= len - k; j++) {
+                    if (k == 1) {
+                        D[i][j][k] = s1.charAt(i) == s2.charAt(j);
+                        continue;
+                    }
+
+                    D[i][j][k] = false;
+                    for (int l = 1; l <= k - 1; l++) {
+                        if (D[i][j][l] && D[i + l][j + l][k - l]
+                                || D[i][j + k - l][l] && D[i + l][j][k - l]) {
+                            D[i][j][k] = true;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        return D[0][0][len];
+    }
 }
