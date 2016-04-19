@@ -1,8 +1,5 @@
 package string;
 
-import java.util.HashSet;
-import java.util.Set;
-
 /**
  * Given a string, find the length of the longest substring without repeating characters.
  * <p>
