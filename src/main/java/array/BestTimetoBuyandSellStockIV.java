@@ -71,6 +71,17 @@ public class BestTimetoBuyandSellStockIV {
      * in implementation, because f(k, ) is only depend on f(k - 1, ) and f(k, )
      * so we can use a one dimensional array and loop k from 1 to k, no need to keep all the value before k - 1 level.
      * g(k, n) is only depends on values in f() from 1 to n on k - 1 level, so we only need to track the max value.
+     * ***********************************************************************************
+     * Here is another way to understand this approach:
+     * let f(i) denotes the max profit you can get on day i,
+     * so for one transaction, let's calculate the value for each i = 0 ... n in f(i)
+     * let moneyLeft denotes the maximum amount of money left if we buy the stock before day i
+     * so f(i) = moneyLeft + prices[i]            # if we sell the stock on day i
+     *         = f(i - 1)                         # f(i - 1) is the max profit we got the day before,
+     *                                              if we can't get a higher profit, we won't sell the stock.
+     * after the first transction f(i) denotes the max profit on day i after one transaction.
+     * we can base on these values calculate the max profit for the second transaction, for each i = 0 ... n
+     * init step is to let moneyLeft = f(0) - prices[0]   # if we buy stock on day 0, how much money we left
      */
     public int maxProfit2(int k, int[] prices) {
         if (prices == null || prices.length == 0) {
@@ -80,13 +91,12 @@ public class BestTimetoBuyandSellStockIV {
         if (k > (n / 2)) return quickSolve(prices);
         int[] f = new int[n];
         for (int j = 1; j <= k; j++) {
-            int tmp = f[0] - prices[0];
-            f[0] = 0;
+            int moneyLeft = f[0] - prices[0];
             for (int i = 1; i < n; i++) {
-                //tmp means if we buy stock on day i, the max profit
-                tmp = Math.max(tmp, f[i] - prices[i]);
+                //moneyLeft means if we buy stock on day i, the max profit
+                moneyLeft = Math.max(moneyLeft, f[i] - prices[i]);
                 //sell
-                f[i] = Math.max(f[i - 1], tmp + prices[i]);
+                f[i] = Math.max(f[i - 1], moneyLeft + prices[i]);
             }
         }
         return f[n - 1];
