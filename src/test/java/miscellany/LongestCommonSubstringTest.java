@@ -1,4 +1,4 @@
-package string;
+package miscellany;
 
 import static org.junit.Assert.*;
 

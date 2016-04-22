@@ -49,6 +49,9 @@ public class KMPAlgorithm {
         int[] next = new int[w.length];
         int cnd = 0, pos = 2;
         next[0] = -1;
+        if (w.length == 1) {
+            return next;
+        }
         next[1] = 0;
         while (pos < w.length) {
             if (w[pos - 1] == w[cnd]) {

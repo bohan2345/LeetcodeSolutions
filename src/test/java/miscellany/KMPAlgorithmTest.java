@@ -14,8 +14,15 @@ public class KMPAlgorithmTest {
     @Test
     public void test() {
         KMPAlgorithm test = new KMPAlgorithm();
-        String pattern = "ABABAAAC";
-        System.out.println(pattern.substring(2,5));
+        String pattern = "ABCDABD";
+//        System.out.println(pattern.substring(2,5));
         assertEquals(15, test.findMatch("ABC ABCDAB ABCDABCDABDE", pattern));
+    }
+    @Test
+    public void test2() {
+        KMPAlgorithm test = new KMPAlgorithm();
+        String pattern = "a";
+//        System.out.println(pattern.substring(2,5));
+        assertEquals(0, test.findMatch("a", pattern));
     }
 }
