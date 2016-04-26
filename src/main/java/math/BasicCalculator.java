@@ -26,7 +26,7 @@ public class BasicCalculator {
             if (c == ' ') {
                 continue;
             }
-            if ('0' <= c && c <= '9') {
+            if (Character.isDigit(c)) {
                 int tmp = i;
                 i = getNum(s, i);
                 stack.push(s.substring(tmp, i + 1));
@@ -43,7 +43,7 @@ public class BasicCalculator {
     private int getNum(String s, int i) {
         for (; i < s.length(); i++) {
             char c = s.charAt(i);
-            if (!('0' <= c && c <= '9')) {
+            if (!Character.isDigit(c)) {
                 break;
             }
         }
