@@ -2,6 +2,7 @@ package hashtable;
 
 import org.junit.Test;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -14,6 +15,11 @@ public class ValidAnagramTest {
     @Test
     public void test() {
         ValidAnagram test = new ValidAnagram();
-        assertTrue(test.isAnagram("", ""));
+        assertTrue(test.isAnagram2("ab", "ba"));
+    }
+    @Test
+    public void test2() {
+        ValidAnagram test = new ValidAnagram();
+        assertFalse(test.isAnagram2("aaaaaa", "bbbbbb"));
     }
 }

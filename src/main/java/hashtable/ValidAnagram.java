@@ -49,4 +49,20 @@ public class ValidAnagram {
         }
         return true;
     }
+
+    public boolean isAnagram2(String s, String t) {
+        if (s.length() != t.length())
+            return false;
+        char[] cs = s.toCharArray();
+        char[] ct = t.toCharArray();
+        int[] map = new int[127];
+        int count = 0;
+        for (int i = 0; i < cs.length; i++) {
+            if (++map[cs[i]] == 1)
+                count++;
+            if (--map[ct[i]] == 0)
+                count--;
+        }
+        return count == 0;
+    }
 }
