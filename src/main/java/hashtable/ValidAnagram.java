@@ -55,12 +55,12 @@ public class ValidAnagram {
             return false;
         char[] cs = s.toCharArray();
         char[] ct = t.toCharArray();
-        int[] map = new int[127];
+        int[] map = new int[26];
         int count = 0;
         for (int i = 0; i < cs.length; i++) {
-            if (++map[cs[i]] == 1)
+            if (++map[cs[i] - 'a'] == 1)
                 count++;
-            if (--map[ct[i]] == 0)
+            if (--map[ct[i] - 'a'] == 0)
                 count--;
         }
         return count == 0;
