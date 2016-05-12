@@ -1,8 +1,5 @@
 package google;
 
-import java.util.HashSet;
-import java.util.Set;
-
 /**
  * Given two integers representing the numerator and denominator of a fraction, return the fraction in string format.
  * <p>
@@ -20,27 +17,6 @@ import java.util.Set;
  */
 public class FractiontoRecurringDecimal {
     public String fractionToDecimal(int numerator, int denominator) {
-        int num = numerator / denominator;
-        numerator = numerator % denominator;
-        String frac = fractionHelper(numerator, denominator, new StringBuilder(), new HashSet<>());
-        return frac.equals("0") ? Integer.toString(num) : Integer.toString(num) + "." + frac;
-    }
-
-    private String fractionHelper(int numerator, int denominator, StringBuilder sb, Set<Integer> set) {
-        numerator *= 10;
-        int num = numerator / denominator;
-        numerator = numerator % denominator;
-        if (numerator == 0) {
-            sb.append(num);
-            return sb.toString();
-        } else {
-            if (set.contains(numerator)) {
-                return sb.insert(0, '(').append(')').toString();
-            } else {
-                sb.append(num);
-                set.add(numerator);
-                return fractionHelper(numerator, denominator, sb, set);
-            }
-        }
+        return new math.FractiontoRecurringDecimal().fractionToDecimal(numerator, denominator);
     }
 }
