@@ -1,4 +1,4 @@
-package math;
+package google;
 
 import org.junit.Test;
 
@@ -13,13 +13,13 @@ import static org.junit.Assert.assertEquals;
 public class FractiontoRecurringDecimalTest {
     @Test
     public void test() {
-        FractiontoRecurringDecimal test = new FractiontoRecurringDecimal();
+        math.FractiontoRecurringDecimal test = new math.FractiontoRecurringDecimal();
         assertEquals("0.(6)", test.fractionToDecimal(2, 3));
     }
 
     @Test
     public void test2() {
-        FractiontoRecurringDecimal test = new FractiontoRecurringDecimal();
+        math.FractiontoRecurringDecimal test = new math.FractiontoRecurringDecimal();
         assertEquals("0", test.fractionToDecimal(0, 3));
     }
 }
