@@ -1,8 +1,8 @@
 package string;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * <p>
@@ -16,6 +16,7 @@ public class MultiplyStringsTest {
         MultiplyStrings test = new MultiplyStrings();
         assertEquals("484", test.multiply("22", "22"));
     }
+
     @Test
     public void test2() {
         MultiplyStrings test = new MultiplyStrings();

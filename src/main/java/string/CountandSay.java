@@ -28,7 +28,7 @@ public class CountandSay {
         for (int i = 0; i < str.length(); ++i) {
             char c = str.charAt(i);
             int count = 1;
-            while (i + 1 < str.length() && str.charAt(i + 1) == c){
+            while (i + 1 < str.length() && str.charAt(i + 1) == c) {
                 count++;
                 i++;
             }

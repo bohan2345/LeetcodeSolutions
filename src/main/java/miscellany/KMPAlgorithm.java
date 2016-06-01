@@ -2,7 +2,7 @@ package miscellany;
 
 /**
  * A string matching algorithm wants to find the starting index m in string S[] that matches the search word W[]
- *
+ * <p>
  * For Example:
  * S = ABC ABCDAB ABCDABCDABDE
  * W = ABCDABD
@@ -39,11 +39,13 @@ public class KMPAlgorithm {
     /**
      * Generate the Partial match table
      * http://www.rudy-yuan.net/archives/182/
-     * @param w word pattern
+     *
+     * @param w
+     *         word pattern
      * @return array with the same length of the pattern,
-     *         for each value v for a given index i means, the substring from i - v to i match the beginning of the string with length v.
-     *         if matching fails at index i, the next start search index should be m + i - v.
-     *         m denotes last start search index.
+     * for each value v for a given index i means, the substring from i - v to i match the beginning of the string with length v.
+     * if matching fails at index i, the next start search index should be m + i - v.
+     * m denotes last start search index.
      */
     public int[] KMPTable(char[] w) {
         int[] next = new int[w.length];

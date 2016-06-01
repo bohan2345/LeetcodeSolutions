@@ -23,7 +23,7 @@ public class BinaryTreeInorderTraversal {
         TreeNode n = root.left;
         while (!stack.isEmpty() || n != null) {
             if (n == null) {
-            // node is the most left child
+                // node is the most left child
                 TreeNode node = stack.pop();
                 res.add(node.val);
                 n = node.right;

@@ -29,7 +29,7 @@ public class TextJustificationTest {
     @Test
     public void test2() {
         TextJustification test = new TextJustification();
-        String[] words = {"What","must","be","shall","be."};
+        String[] words = {"What", "must", "be", "shall", "be."};
         List<String> expected = new ArrayList<>();
         expected.add("What must be");
         expected.add("shall be.   ");

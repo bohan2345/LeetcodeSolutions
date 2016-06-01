@@ -7,9 +7,8 @@ import java.util.Arrays;
  * Return the sum of the three integers. You may assume that each input would have exactly one solution.<br>
  * <b>For example</b>, given array S = {-1 2 1 -4}, and target = 1.<br>
  * The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).
- * 
- * @author Bohan Zheng
  *
+ * @author Bohan Zheng
  */
 public class ThreeSumClosest {
     public int threeSumClosest(int[] nums, int target) {
@@ -28,7 +27,7 @@ public class ThreeSumClosest {
         }
         return closeSum;
     }
-    
+
     int twoSumClosest(int[] nums, int target, int j, int k) {
         int closeSum = nums[j] + nums[k];
         while (j < k) {
@@ -42,7 +41,7 @@ public class ThreeSumClosest {
         }
         return closeSum;
     }
-    
+
     int getCloseSum(int sum, int closeSum, int target) {
         return Math.abs(sum - target) < Math.abs(closeSum - target) ? sum : closeSum;
     }

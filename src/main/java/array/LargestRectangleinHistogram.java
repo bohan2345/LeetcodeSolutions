@@ -28,6 +28,7 @@ public class LargestRectangleinHistogram {
      * the new area will increase or not, so we compute the new max area in this case.<p>
      * And in this case the height of the rectangle is decreasing, so we pop the last highest height.<br>
      * (the height of the rectangle is determined by the lowest one)
+     *
      * @param height
      *         a list of height
      * @return the area of largest rectangle in the histogram

@@ -11,18 +11,18 @@ import java.util.List;
  * If the number of spaces on a line do not divide evenly between words, the empty slots on the left
  * will be assigned more spaces than the slots on the right.For the last line of text, it should be left
  * justified and no extra space is inserted between words.
- *
+ * <p>
  * For example,
  * words: ["This", "is", "an", "example", "of", "text", "justification."]
  * L: 16.
- *
+ * <p>
  * Return the formatted lines as:
  * [
  * "This    is    an",
  * "example  of text",
  * "justification.  "
  * ]
- *
+ * <p>
  * Note: Each word is guaranteed not to exceed L in length.
  * <p>
  * Created by Bohan Zheng on 3/14/2016.

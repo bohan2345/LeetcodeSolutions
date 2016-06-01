@@ -11,8 +11,8 @@ import utils.TreeNode;
  * <p>
  * For example,
  * <p>
- *   1
- *  / \
+ * 1
+ * / \
  * 2   3
  * The root-to-leaf path 1->2 represents the number 12.
  * The root-to-leaf path 1->3 represents the number 13.

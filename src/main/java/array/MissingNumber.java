@@ -14,7 +14,7 @@ package array;
  */
 public class MissingNumber {
     public int missingNumber(int[] nums) {
-        for(int i = 0; i < nums.length;) {
+        for (int i = 0; i < nums.length; ) {
             if (nums[i] >= nums.length || nums[i] < 0 || nums[i] == nums[nums[i]]) {
                 i++;
                 continue;

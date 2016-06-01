@@ -14,6 +14,7 @@ public class BestTimetoBuyandSellStock {
     /**
      * max profit on day n = f(n) = max(f(n - 1), prices[n] - minPrice(n - 1))
      * min price on day n = minPrice(n) = min(prices[n], minPrice(n - 1))
+     *
      * @param prices
      * @return
      */

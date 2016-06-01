@@ -7,16 +7,15 @@ package array;
  * <b>For example</b>:<br>
  * A = [2,3,1,1,4], return true. <br>
  * A = [3,2,1,0,4], return false.
- * 
- * @author Bohan Zheng
  *
+ * @author Bohan Zheng
  */
 public class JumpGame {
-	public boolean canJump(int[] nums) {
-		int steps = 0;
-		for (int i = 0; i < nums.length && steps >= i; i++) {
-			steps = Math.max(steps, nums[i] + i);
-		}
-		return steps >= nums.length - 1;
-	}
+    public boolean canJump(int[] nums) {
+        int steps = 0;
+        for (int i = 0; i < nums.length && steps >= i; i++) {
+            steps = Math.max(steps, nums[i] + i);
+        }
+        return steps >= nums.length - 1;
+    }
 }

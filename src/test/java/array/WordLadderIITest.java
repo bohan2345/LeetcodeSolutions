@@ -33,13 +33,13 @@ public class WordLadderIITest {
 
     @Test
     public void test2() {
-        String[] wordListArray = {"ted","tex","red","tax","tad","den","rex","pee"};
+        String[] wordListArray = {"ted", "tex", "red", "tax", "tad", "den", "rex", "pee"};
         Set<String> wordList = new HashSet<>(Arrays.asList(wordListArray));
         List<List<String>> actual = test.findLadders("red", "tax", wordList);
         List<List<String>> expected = new ArrayList<>(2);
-        expected.add(Arrays.asList(new String[]{"red","ted","tad","tax"}));
-        expected.add(Arrays.asList(new String[]{"red","ted","tex","tax"}));
-        expected.add(Arrays.asList(new String[]{"red","rex","tex","tax"}));
+        expected.add(Arrays.asList(new String[]{"red", "ted", "tad", "tax"}));
+        expected.add(Arrays.asList(new String[]{"red", "ted", "tex", "tax"}));
+        expected.add(Arrays.asList(new String[]{"red", "rex", "tex", "tax"}));
 
         Assert.assertThat(actual, IsIterableContainingInAnyOrder.containsInAnyOrder(expected.toArray()));
     }

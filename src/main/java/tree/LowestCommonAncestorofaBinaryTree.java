@@ -4,7 +4,7 @@ import utils.TreeNode;
 
 /**
  * Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
- *
+ * <p>
  * <p>
  * Created by Bohan Zheng on 1/4/2016.
  *

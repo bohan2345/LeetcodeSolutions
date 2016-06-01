@@ -13,7 +13,7 @@ public class MinimumDepthofBinaryTree {
         if (root == null) {
             return 0;
         }
-        int[] minHeight = new int[] {Integer.MAX_VALUE};
+        int[] minHeight = new int[]{Integer.MAX_VALUE};
         dfsHelper(root, 1, minHeight);
         return minHeight[0];
     }

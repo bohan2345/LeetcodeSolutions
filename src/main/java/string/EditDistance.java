@@ -17,9 +17,9 @@ public class EditDistance {
     /**
      * f(i, j) denotes edit distance of word1 0...i and word2 0...j
      * f(i, j) = f(i - 1, j - 1)                                if word1.charAt(i) == word2.charAt(j)
-     *         = f(i - 1, j) + 1                                if word1.charAt(i) != word2.charAt(j)
-     *           f(i, j - 1) + 1
-     *           f(i - 1, j - 1) + 1
+     * = f(i - 1, j) + 1                                if word1.charAt(i) != word2.charAt(j)
+     * f(i, j - 1) + 1
+     * f(i - 1, j - 1) + 1
      */
     public int minDistance(String word1, String word2) {
         int[][] table = new int[word1.length() + 1][word2.length() + 1];

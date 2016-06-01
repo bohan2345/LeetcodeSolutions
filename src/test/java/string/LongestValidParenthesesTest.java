@@ -1,8 +1,8 @@
 package string;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * <p>
@@ -16,11 +16,13 @@ public class LongestValidParenthesesTest {
         LongestValidParentheses test = new LongestValidParentheses();
         assertEquals(4, test.longestValidParentheses("(()()("));
     }
+
     @Test
     public void test2() {
         LongestValidParentheses test = new LongestValidParentheses();
         assertEquals(4, test.longestValidParentheses("(()))"));
     }
+
     @Test
     public void test3() {
         LongestValidParentheses test = new LongestValidParentheses();

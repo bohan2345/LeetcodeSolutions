@@ -1,8 +1,8 @@
 package google;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
+
+import static org.junit.Assert.assertTrue;
 
 /**
  * <p>
@@ -16,6 +16,7 @@ public class FilpGameIITest {
         FilpGameII test = new FilpGameII();
         assertTrue(test.canWin("++++"));
     }
+
     @Test
     public void test2() {
         FilpGameII test = new FilpGameII();

@@ -40,7 +40,7 @@ public class RestoreIPAddress {
                 sb.append(subs).append('.');
                 restoreHelper(res, s, i + n, sb, num + 1);
                 int x = sb.length();
-                sb.delete(x - n - 1 , x);
+                sb.delete(x - n - 1, x);
             }
         }
     }

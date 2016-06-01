@@ -17,6 +17,7 @@ public class ValidAnagramTest {
         ValidAnagram test = new ValidAnagram();
         assertTrue(test.isAnagram2("ab", "ba"));
     }
+
     @Test
     public void test2() {
         ValidAnagram test = new ValidAnagram();

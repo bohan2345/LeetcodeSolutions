@@ -43,7 +43,7 @@ public class SubsetsII {
         }
         for (; i < nums.length; i++) {
             tmp.add(nums[i]);
-            dfsHelper(res,tmp,i + 1, nums);
+            dfsHelper(res, tmp, i + 1, nums);
             int previous = tmp.remove(tmp.size() - 1);
             while (i + 1 < nums.length && nums[i + 1] == previous) {
                 i++;

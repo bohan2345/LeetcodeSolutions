@@ -13,8 +13,8 @@ public class LongestCommonSubstring {
     /**
      * s1.length() == n, s2.length() == m
      * 1. first calculate f(i, j) for each 0<=i<=n, 0<=j<=m pair.
-     *    f(i, j) denotes the length of common substring ending at index i in s1 and index j in s2 (exclusive)
-     *    in other words is the longest common suffix of s1.substring(0, i) and s2.substring(0, j)
+     * f(i, j) denotes the length of common substring ending at index i in s1 and index j in s2 (exclusive)
+     * in other words is the longest common suffix of s1.substring(0, i) and s2.substring(0, j)
      * 2. for each f(i, j) find the max value. Longest common substring is s1.substring(i - f(i, j), i)
      * 3. since there might be multiple substring with the same length, use a List to track all value
      */

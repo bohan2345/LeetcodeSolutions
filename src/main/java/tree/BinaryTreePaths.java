@@ -9,11 +9,11 @@ import java.util.List;
  * Given a binary tree, return all root-to-leaf paths.<p>
  * For example, given the following binary tree:
  * <p>
- *   1
- *  / \
+ * 1
+ * / \
  * 2   3
- *  \
- *   5
+ * \
+ * 5
  * All root-to-leaf paths are:
  * ["1->2->5", "1->3"]
  * <p>
@@ -32,7 +32,7 @@ public class BinaryTreePaths {
 
     private void findPathHelper(TreeNode root, List<String> tmpPath, List<String> paths) {
         tmpPath.add(Integer.toString(root.val));
-        if(root.left == null && root.right == null) {
+        if (root.left == null && root.right == null) {
             paths.add(buildPath(tmpPath));
             tmpPath.remove(tmpPath.size() - 1);
             return;
@@ -51,7 +51,7 @@ public class BinaryTreePaths {
             return "";
         }
         StringBuilder sb = new StringBuilder(path.get(0));
-        for(int i = 1; i < path.size(); i++) {
+        for (int i = 1; i < path.size(); i++) {
             sb.append("->").append(path.get(i));
         }
         return sb.toString();

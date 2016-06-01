@@ -1,8 +1,8 @@
 package string;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * <p>
@@ -22,11 +22,13 @@ public class StringToIntegerTest {
         assertEquals("Integer.MIN_VALUE", Integer.MIN_VALUE, test.myAtoi("-222222222222222222222222222222222222222"));
         assertEquals("-1", -1, test.myAtoi("-00000000001"));
     }
+
     @Test
     public void test2() {
         StringToInteger test = new StringToInteger();
         assertEquals("+-2", 0, test.myAtoi("+-2"));
     }
+
     @Test
     public void test3() {
         StringToInteger test = new StringToInteger();

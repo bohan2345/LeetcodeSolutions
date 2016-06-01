@@ -15,8 +15,8 @@ import static org.junit.Assert.assertEquals;
 public class AddTwoNumbersTest {
     @Test
     public void test() {
-        ListNode l1 = LinkedListUtils.constructLinkedList(5,5);
-        ListNode l2 = LinkedListUtils.constructLinkedList(5,5);
+        ListNode l1 = LinkedListUtils.constructLinkedList(5, 5);
+        ListNode l2 = LinkedListUtils.constructLinkedList(5, 5);
         AddTwoNumbers test = new AddTwoNumbers();
         assertEquals("0,1,1", LinkedListUtils.serialize(test.addTwoNumbers(l1, l2)));
     }

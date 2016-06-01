@@ -1,7 +1,5 @@
 package design;
 
-import java.util.List;
-
 /**
  * <p>
  * Created by Bohan Zheng on 4/20/2016.
@@ -68,6 +66,7 @@ public class Trie {
         private int prefixes; // number of words have this node as prefix
         private TrieNode[] children;
         private char value;
+
         // Initialize your data structure here.
         public TrieNode(char c) {
             value = c;

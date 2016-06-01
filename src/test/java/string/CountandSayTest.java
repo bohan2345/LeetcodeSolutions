@@ -1,8 +1,8 @@
 package string;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * <p>
@@ -16,6 +16,7 @@ public class CountandSayTest {
         CountandSay test = new CountandSay();
         assertEquals("1", test.countAndSay(1));
     }
+
     @Test
     public void test2() {
         CountandSay test = new CountandSay();

@@ -13,63 +13,62 @@ import java.util.Arrays;
  * 1,2,3 → 1,3,2<br>
  * 3,2,1 → 1,2,3<br>
  * 1,1,5 → 1,5,1
- * 
- * @author Bohan Zheng
  *
+ * @author Bohan Zheng
  */
 public class NextPermutation {
-	/**
-	 * <ul>
-	 * <li>From right to left, find the first number violated the increasing trend, call it PartitionNumber</li>
-	 * <li>From right to left, find the first number greater than PartitionNumber, call it ChangeNumber</li>
-	 * <li>Swap partitionNumber and changeNumber</li>
-	 * <li>revert all number on the right side of the ChangeNumber(partitionNumber index)</li>
-	 * </ul>
-	 * 
-	 * @param nums
-	 */
-	public void nextPermutation(int[] nums) {
-		if (nums == null || nums.length <= 1) {
-			return;
-		}
-		int i = findPartitionNumber(nums);
-		if (i < 0) {
-			Arrays.sort(nums);
-			return;
-		}
-		int j = findChangeNumber(nums, i);
-		int tmp = nums[i];
-		nums[i] = nums[j];
-		nums[j] = tmp;
-		revert(nums, i + 1);
-	}
+    /**
+     * <ul>
+     * <li>From right to left, find the first number violated the increasing trend, call it PartitionNumber</li>
+     * <li>From right to left, find the first number greater than PartitionNumber, call it ChangeNumber</li>
+     * <li>Swap partitionNumber and changeNumber</li>
+     * <li>revert all number on the right side of the ChangeNumber(partitionNumber index)</li>
+     * </ul>
+     *
+     * @param nums
+     */
+    public void nextPermutation(int[] nums) {
+        if (nums == null || nums.length <= 1) {
+            return;
+        }
+        int i = findPartitionNumber(nums);
+        if (i < 0) {
+            Arrays.sort(nums);
+            return;
+        }
+        int j = findChangeNumber(nums, i);
+        int tmp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tmp;
+        revert(nums, i + 1);
+    }
 
-	int findPartitionNumber(int[] nums) {
-		for (int i = nums.length - 2; i >= 0; --i) {
-			if (nums[i] < nums[i + 1]) {
-				return i;
-			}
-		}
-		return -1;
-	}
+    int findPartitionNumber(int[] nums) {
+        for (int i = nums.length - 2; i >= 0; --i) {
+            if (nums[i] < nums[i + 1]) {
+                return i;
+            }
+        }
+        return -1;
+    }
 
-	int findChangeNumber(int[] nums, int i) {
-		for (int j = nums.length - 1; j > i; --j) {
-			if (nums[j] > nums[i]) {
-				return j;
-			}
-		}
-		return -1;
-	}
+    int findChangeNumber(int[] nums, int i) {
+        for (int j = nums.length - 1; j > i; --j) {
+            if (nums[j] > nums[i]) {
+                return j;
+            }
+        }
+        return -1;
+    }
 
-	void revert(int[] nums, int i) {
-		int j = nums.length - 1;
-		while (i < j) {
-			int tmp = nums[i];
-			nums[i] = nums[j];
-			nums[j] = tmp;
-			i++;
-			j--;
-		}
-	}
+    void revert(int[] nums, int i) {
+        int j = nums.length - 1;
+        while (i < j) {
+            int tmp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = tmp;
+            i++;
+            j--;
+        }
+    }
 }

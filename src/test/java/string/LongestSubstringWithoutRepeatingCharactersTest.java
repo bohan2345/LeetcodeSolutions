@@ -1,8 +1,8 @@
 package string;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * <p>
@@ -16,11 +16,13 @@ public class LongestSubstringWithoutRepeatingCharactersTest {
         LongestSubstringWithoutRepeatingCharacters test = new LongestSubstringWithoutRepeatingCharacters();
         assertEquals(3, test.lengthOfLongestSubstring("abcabcbb"));
     }
+
     @Test
     public void test2() {
         LongestSubstringWithoutRepeatingCharacters test = new LongestSubstringWithoutRepeatingCharacters();
         assertEquals(1, test.lengthOfLongestSubstring("bbbbb"));
     }
+
     @Test
     public void test3() {
         LongestSubstringWithoutRepeatingCharacters test = new LongestSubstringWithoutRepeatingCharacters();

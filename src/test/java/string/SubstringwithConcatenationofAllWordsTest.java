@@ -22,7 +22,7 @@ public class SubstringwithConcatenationofAllWordsTest {
     @Test
     public void test2() {
         SubstringwithConcatenationofAllWords test = new SubstringwithConcatenationofAllWords();
-        assertThat(test.findSubstring("wordgoodgoodgoodbestword", new String[]{"word","good","best","good"}),
+        assertThat(test.findSubstring("wordgoodgoodgoodbestword", new String[]{"word", "good", "best", "good"}),
                 IsIterableContainingInAnyOrder.containsInAnyOrder(8));
     }
 }

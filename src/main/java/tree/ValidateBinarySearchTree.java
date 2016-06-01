@@ -21,7 +21,8 @@ public class ValidateBinarySearchTree {
     }
 
     /**
-     * @param root root
+     * @param root
+     *         root
      * @return {isValid ? 1 : 0, minValue, maxValue}
      */
     public int[] isValidBSTHelper(TreeNode root) {
@@ -53,6 +54,7 @@ public class ValidateBinarySearchTree {
 
     /**
      * solution 2 in-order traversal.
+     *
      * @param root
      * @return
      */

@@ -30,6 +30,7 @@ public class FindMinimuminRotatedSortedArrayIITest {
         int[] nums = {1};
         assertEquals(1, test.findMin(nums));
     }
+
     @Test
     public void test4() {
         int[] nums = {3, 1, 3};

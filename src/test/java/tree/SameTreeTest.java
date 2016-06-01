@@ -20,7 +20,7 @@ public class SameTreeTest {
         TreeNode root2 = BinaryTreeUtils.constructBinaryTree(1, 2, 3);
         assertTrue(test.isSameTree(root, root2));
     }
-    
+
     @Test
     public void test2() {
         SameTree test = new SameTree();

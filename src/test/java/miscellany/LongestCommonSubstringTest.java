@@ -1,13 +1,12 @@
 package miscellany;
 
-import static org.junit.Assert.*;
-
-import miscellany.LongestCommonSubstring;
 import org.hamcrest.collection.IsIterableContainingInAnyOrder;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.junit.Assert.assertThat;
 
 /**
  * <p>

@@ -84,7 +84,7 @@ public class ScrambleString {
      * 总结起来递推式是res[i][j][len] = || (res[i][j][k]&&res[i+k][j+k][len-k] || res[i][j+len-k][k]&&res[i+k][j][len-k])
      * 对于所有1<=k如此总时间复杂度因为是三维动态规划，需要三层循环，加上每一步需要线行时间求解递推式，所以是O(n^4)。
      * 虽然已经比较高了，但是至少不是指数量级的，动态规划还是相当有用的，空间复杂度是O(n^3)。代码如下：
-     *
+     * <p>
      * Another way is to use DP. I use a three dimension array scramble[][][] to save the states.
      * What scramble[k][i][j] means is that two substrings of length k, one starts from i of string s1,
      * another one starts from j of string s2, are scramble. We are trying to find scramble[L][0][0].

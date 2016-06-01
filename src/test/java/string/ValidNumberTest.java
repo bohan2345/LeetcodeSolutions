@@ -71,6 +71,7 @@ public class ValidNumberTest {
         ValidNumber test = new ValidNumber();
         assertFalse(test.isNumber("-e58 "));
     }
+
     @Test
     public void test11() {
         ValidNumber test = new ValidNumber();

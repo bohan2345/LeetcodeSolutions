@@ -50,7 +50,7 @@ public class BinaryTreeUtilsTest {
 
     @Test
     public void testSeriallize() {
-        TreeNode root = BinaryTreeUtils.constructBinaryTree(1,2,3);
+        TreeNode root = BinaryTreeUtils.constructBinaryTree(1, 2, 3);
         String actual = BinaryTreeUtils.serialize(root);
         assertEquals("1,2,3", actual);
         TreeNode newRoot = BinaryTreeUtils.deserialize(actual);

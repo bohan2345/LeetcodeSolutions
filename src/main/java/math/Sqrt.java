@@ -16,6 +16,6 @@ public class Sqrt {
             sqrt = (sqrt + x / sqrt) / 2.0;
         }
         // just for passing leetcode test case!!!
-        return (int)Math.floor(sqrt);
+        return (int) Math.floor(sqrt);
     }
 }

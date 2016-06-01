@@ -29,7 +29,7 @@ public class RotateList {
             return head;
         }
         int n = length - k;
-        ListNode node  = head;
+        ListNode node = head;
         while (n > 1) {
             node = node.next;
             n--;

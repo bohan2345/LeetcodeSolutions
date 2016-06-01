@@ -1,8 +1,8 @@
 package miscellany;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * <p>
@@ -18,6 +18,7 @@ public class KMPAlgorithmTest {
 //        System.out.println(pattern.substring(2,5));
         assertEquals(15, test.findMatch("ABC ABCDAB ABCDABCDABDE", pattern));
     }
+
     @Test
     public void test2() {
         KMPAlgorithm test = new KMPAlgorithm();

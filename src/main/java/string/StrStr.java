@@ -18,7 +18,7 @@ public class StrStr {
         char[] h = haystack.toCharArray(), n = needle.toCharArray();
         for (int i = 0; i <= h.length - n.length; i++) {
             int j = 0;
-            for (; j < n.length && h[i + j] == n[j]; j++);
+            for (; j < n.length && h[i + j] == n[j]; j++) ;
             if (j == n.length) {
                 return i;
             }

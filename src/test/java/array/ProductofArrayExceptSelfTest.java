@@ -16,6 +16,6 @@ public class ProductofArrayExceptSelfTest {
     @Test
     public void test() {
         int[] actual = test.productExceptSelf(new int[]{1, 2, 3, 4});
-        assertArrayEquals(new int[] {24,12,8,6}, actual);
+        assertArrayEquals(new int[]{24, 12, 8, 6}, actual);
     }
 }

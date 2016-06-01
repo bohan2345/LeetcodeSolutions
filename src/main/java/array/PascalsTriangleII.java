@@ -18,9 +18,9 @@ public class PascalsTriangleII {
         if (rowIndex < 0) {
             throw new IllegalArgumentException();
         }
-        List<Integer> res= new ArrayList<>(rowIndex);
+        List<Integer> res = new ArrayList<>(rowIndex);
         res.add(1);
-        for(int i = 1; i <= rowIndex; i++) {
+        for (int i = 1; i <= rowIndex; i++) {
             List<Integer> tmp = new ArrayList<>(i + 1);
             tmp.add(1);
             for (int j = 1; j < i; j++) {

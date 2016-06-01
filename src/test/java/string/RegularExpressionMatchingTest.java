@@ -53,16 +53,19 @@ public class RegularExpressionMatchingTest {
         RegularExpressionMatching test = new RegularExpressionMatching();
         assertTrue(test.isMatch("aab", ".*"));
     }
+
     @Test
     public void test8() {
         RegularExpressionMatching test = new RegularExpressionMatching();
         assertFalse(test.isMatch("aab", ""));
     }
+
     @Test
     public void test9() {
         RegularExpressionMatching test = new RegularExpressionMatching();
         assertTrue(test.isMatch("", "a*"));
     }
+
     @Test
     public void test10() {
         RegularExpressionMatching test = new RegularExpressionMatching();

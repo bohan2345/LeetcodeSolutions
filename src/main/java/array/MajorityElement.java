@@ -20,11 +20,12 @@ public class MajorityElement {
      * Because the majority element must more than other elements, set a counter and iterate through the element, every
      * time see a majority element counter++, counter-- on other elements, after iteration counter will be greater than 0.
      * And all other element is less than majority element, their counter will less than 0.
-     *
+     * <p>
      * 1. suppose the 1st element n is majority element, counter = 0;
      * 2. iterate throught the array, if nums[i] == n counter++ else counter--
      * 3. if counter == 0, set the current element as a new majority element candidiate.
      * 4. the element left after the iteration must be the majority element.
+     *
      * @param nums
      * @return
      */

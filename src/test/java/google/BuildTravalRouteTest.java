@@ -1,13 +1,13 @@
 package google;
 
-import static org.junit.Assert.*;
-
 import org.hamcrest.collection.IsIterableContainingInOrder;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import static org.junit.Assert.assertThat;
 
 /**
  * <p>
