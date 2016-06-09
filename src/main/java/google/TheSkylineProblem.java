@@ -31,18 +31,30 @@ public class TheSkylineProblem {
             walls.add(new Wall(building[0], true, building[2]));
             walls.add(new Wall(building[1], false, building[2]));
         }
-        Collections.sort(walls, (o1, o2) -> new Integer(o1.x).compareTo(o2.x));
+        Collections.sort(walls, (a, b) -> {
+            if (a.x != b.x)
+                return Integer.compare(a.x, b.x);
+            if (a.isLeft && b.isLeft) {
+                return Integer.compare(b.height, a.height);
+            }
+            if (!a.isLeft && !b.isLeft) {
+                return Integer.compare(a.height, b.height);
+            }
+            return a.isLeft ? -1 : 1;
+        });
         List<int[]> res = new ArrayList<>();
         queue.offer(0);
         for (Wall wall : walls) {
             if (wall.isLeft) {
-                if (wall.height > queue.peek())
+                if (wall.height > queue.peek()) {
                     res.add(new int[]{wall.x, wall.height});
+                }
                 queue.offer(wall.height);
             } else {
                 queue.remove(wall.height);
-                if (queue.peek() < wall.height)
+                if (queue.peek() < wall.height) {
                     res.add(new int[]{wall.x, queue.peek()});
+                }
             }
         }
         return res;
