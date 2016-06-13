@@ -28,4 +28,29 @@ public class TrappingRainWater {
         }
         return sum;
     }
+
+    // two pointer
+    public int trapII(int[] height) {
+        int sum = 0;
+        int left = 0, right = height.length - 1;
+        int lower = 0;
+        while (left < right) {
+            if (height[left] < height[right]) {
+                lower = height[left];
+                while (left < right && height[left] < height[right]) {
+                    sum += Math.max(0, lower - height[left]);
+                    lower = Math.max(lower, height[left]);
+                    left++;
+                }
+            } else {
+                lower = height[right];
+                while (left < right && height[left] >= height[right]) {
+                    sum += Math.max(0, lower - height[right]);
+                    lower = Math.max(lower, height[right]);
+                    right--;
+                }
+            }
+        }
+        return sum;
+    }
 }
