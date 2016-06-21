@@ -37,7 +37,7 @@ public class ValidPalindrome {
         return true;
     }
 
-    boolean isAlpha(char c) {
+    private boolean isAlpha(char c) {
         return (c <= 'z' && c >= 'a') || (c >= '0' && c <= '9');
     }
 
