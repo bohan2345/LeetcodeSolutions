@@ -21,39 +21,24 @@ public class LongestIncreasingPathInMatrix {
         // init all value to 1
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                longestPath[i][j] = 1;
+                longestPath[i][j] = -1;
             }
         }
-        int[] position = {0, 0};
+
+        int[][] visited = new int[matrix.length][matrix[0].length];
         int max = 0;
-        // scan for up and left;
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                if (i - 1 >= 0 && matrix[i][j] < matrix[i - 1][j])
-                    longestPath[i][j] = Math.max(longestPath[i - 1][j] + 1, longestPath[i][j]);
-                if (j - 1 >= 0 && matrix[i][j] < matrix[i][j - 1])
-                    longestPath[i][j] = Math.max(longestPath[i][j - 1] + 1, longestPath[i][j]);
-                if (longestPath[i][j] > max) {
+        int[] position = {0, 0};
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                int tmpmax = search(matrix, new int[]{i, j}, longestPath, visited);
+                if (tmpmax > max) {
+                    max = tmpmax;
                     position[0] = i;
                     position[1] = j;
-                    max = longestPath[i][j];
                 }
             }
         }
-        // scan for right and down
-        for (int i = m - 1; i >= 0; i--) {
-            for (int j = n - 1; j >= 0; j--) {
-                if (i + 1 < m && matrix[i][j] < matrix[i + 1][j])
-                    longestPath[i][j] = Math.max(longestPath[i + 1][j] + 1, longestPath[i][j]);
-                if (j + 1 < n && matrix[i][j] < matrix[i][j + 1])
-                    longestPath[i][j] = Math.max(longestPath[i][j + 1] + 1, longestPath[i][j]);
-                if (longestPath[i][j] > max) {
-                    position[0] = i;
-                    position[1] = j;
-                    max = longestPath[i][j];
-                }
-            }
-        }
+
         List<Integer> path = new ArrayList<>(max);
         while (max > 0) {
             max--;
@@ -74,5 +59,31 @@ public class LongestIncreasingPathInMatrix {
             }
         }
         return path;
+    }
+
+    private int search(int[][] matrix, int[] position, int[][] longestPath, int[][] visited) {
+        int i = position[0], j = position[1];
+        if (longestPath[i][j] != -1) {
+            return longestPath[i][j];
+        }
+        int max = 0;
+        int[] dx = {-1, 0, 1, 0};
+        int[] dy = {0, -1, 0, 1};
+        for (int x = 0; x < 4; x++) {
+            int di = i + dx[x];
+            int dj = j + dy[x];
+            if (di == -1 || dj == -1 || di == matrix.length || dj == matrix[0].length || visited[di][dj] == 1) {
+                continue;
+            }
+            int length = 1;
+            if (matrix[i][j] < matrix[di][dj]) {
+                visited[i][j] = 1;
+                length = search(matrix, new int[]{di, dj}, longestPath, visited) + 1;
+                visited[i][j] = 0;
+            }
+            max = Math.max(length, max);
+        }
+        longestPath[i][j] = max;
+        return max;
     }
 }
