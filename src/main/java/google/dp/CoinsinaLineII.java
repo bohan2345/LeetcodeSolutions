@@ -1,4 +1,4 @@
-package dp;
+package google.dp;
 
 /**
  * There are n coins with different value in a line. Two players take turns to take one

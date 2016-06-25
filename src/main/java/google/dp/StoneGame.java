@@ -1,4 +1,4 @@
-package dp;
+package google.dp;
 
 /**
  * 在一个圆形操场的四周摆放着n堆石子(n<= 100)，现要将石子有次序地合并成一堆。规定每次只能选取相邻的两堆合并成新的一堆,
@@ -22,11 +22,9 @@ public class StoneGame {
         int[][] f = new int[n][n];
         int[][] sum = new int[n][n];
         for (int i = 0; i < n; i++) {
-            for (int j = i; j < n; j++) {
-                if (i == j)
-                    sum[i][j] = stones[j];
-                else
-                    sum[i][j] = sum[i][j - 1] + stones[j];
+            sum[i][i] = stones[i];
+            for (int j = i + 1; j < n; j++) {
+                sum[i][j] = sum[i][j - 1] + stones[j];
             }
         }
         for (int i = n - 2; i >= 0; i--) {

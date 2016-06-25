@@ -1,4 +1,4 @@
-package dp;
+package google.dp;
 
 /**
  * You are given coins of different denominations and a total amount of money amount.

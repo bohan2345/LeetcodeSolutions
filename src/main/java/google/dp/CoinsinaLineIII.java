@@ -1,4 +1,4 @@
-package dp;
+package google.dp;
 
 /**
  * There are n coins in a line. (Assume n is even). Two players take turns to take a coin from one

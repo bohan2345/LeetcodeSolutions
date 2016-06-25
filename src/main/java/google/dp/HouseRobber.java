@@ -1,4 +1,4 @@
-package dp;
+package google.dp;
 
 /**
  * You are a professional robber planning to rob houses along a street.

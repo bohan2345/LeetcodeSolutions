@@ -1,8 +1,8 @@
-package dp;
-
-import static org.junit.Assert.*;
+package google.dp;
 
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * <p>
