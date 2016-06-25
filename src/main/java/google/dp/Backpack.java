@@ -16,8 +16,8 @@ package google.dp;
  */
 public class Backpack {
     /**
-     * f(i) denotes the minimum remain spaces in backpack of size i
-     * f(i) = MIN(f(i - x)), x ∈ A
+     * f(i, j) denotes with the first i items can fill up the backpack of size i
+     * f(i) = f(i - 1, j) || f(i - 1, j - A[i - 1])
      *
      * @param m:
      *         An integer m denotes the size of a backpack
@@ -27,35 +27,22 @@ public class Backpack {
      */
     public int backPack(int m, int[] A) {
         // write your code here
-        int[] f = new int[m + 1];
-        for (int i = 1; i <= m; i++) {
-            f[i] = -1;
+        boolean[][] f = new boolean[A.length + 1][m + 1];
+        for (int i = 0; i <= A.length; i++) {
+            f[i][0] = true;
         }
-        search(m, f, A, new boolean[A.length]);
-        return m - f[m];
-    }
-
-    private void search(int m, int[] f, int[] A, boolean[] used) {
-        if (m < 0) {
-            return;
+        for (int i = 1; i <= A.length; i++) {
+            for (int j = 0; j <= m; j++) {
+                if (j - A[i - 1] >= 0) {
+                    f[i][j] = f[i - 1][j] || f[i - 1][j - A[i - 1]];
+                } else {
+                    f[i][j] = f[i - 1][j];
+                }
+            }
         }
-        int min = m;
-        for (int i = 0; i < A.length; i++) {
-            int x = m - A[i];
-            if (used[i] || x < 0) {
-                continue;
-            }
-            if (x == 0) {
-                min = 0;
-                break;
-            }
-            if (f[x] == -1) {
-                used[i] = true;
-                search(x, f, A, used);
-                used[i] = false;
-            }
-            min = Math.min(f[x], min);
+        for (int j = m; j >= 0; j--) {
+            if (f[A.length][j]) return j;
         }
-        f[m] = min;
+        return 0;
     }
 }
