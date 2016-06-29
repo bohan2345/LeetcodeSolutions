@@ -64,7 +64,7 @@ public class SuperMatrix {
         long getSum(long x1, long x2) {
             long sum = 0;
             Map.Entry<Long, MatrixPoint> x = row.ceilingEntry(x1);
-            while (x.getKey() < x2) {
+            while (x != null && x.getKey() < x2) {
                 sum += x.getValue().value;
                 x = row.higherEntry(x.getKey());
             }
