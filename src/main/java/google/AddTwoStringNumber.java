@@ -56,6 +56,8 @@ public class AddTwoStringNumber {
             for (int k = 0; k < sb.length() - 1; k++) {
                 if (sb.charAt(k) == '0') {
                     sb.deleteCharAt(k);
+                } else {
+                    break;
                 }
             }
             return sb.toString();
