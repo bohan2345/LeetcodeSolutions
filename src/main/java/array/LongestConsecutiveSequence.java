@@ -37,4 +37,18 @@ public class LongestConsecutiveSequence {
         }
         return maxLength;
     }
+/*    same code, a little refactor, runs faster */
+//    public int longestConsecutive(int[] nums) {
+//        Set<Integer> set = new HashSet<>(nums.length);
+//        for (int n : nums) set.add(n);
+//        int maxLength = 0;
+//        for (int n : nums) {
+//            if (set.isEmpty()) break;
+//            int next = n + 1, prev = n - 1, length = 1;
+//            while (set.remove(next++)) length++;
+//            while (set.remove(prev--)) length++;
+//            maxLength = Math.max(maxLength, length);
+//        }
+//        return maxLength;
+//    }
 }
