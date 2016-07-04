@@ -14,6 +14,6 @@ public class FileTransferTotalCostTest {
     @Test
     public void test() {
         FileTransferTotalCost test = new FileTransferTotalCost();
-        assertEquals(15, test.totalCost(new int[][]{{1, 2}, {3, 4}}));
+        assertEquals(11, test.totalCost(new int[][]{{1, 2}, {3, 4}}));
     }
 }
