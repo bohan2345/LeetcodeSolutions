@@ -40,4 +40,14 @@ public class ShortestPalindromeTest {
         ShortestPalindrome test = new ShortestPalindrome();
         assertEquals("baab", test.shortestPalindrome2("aab"));
     }
+//    @Test
+//    public void test6() {
+//        ShortestPalindrome test = new ShortestPalindrome();
+//        assertEquals("baababbabaab", test.shortestPalindrome3("abbabaab"));
+//    }
+//    @Test
+//    public void test7() {
+//        ShortestPalindrome test = new ShortestPalindrome();
+//        assertEquals("aaacecaaa", test.shortestPalindrome3("aacecaaa"));
+//    }
 }

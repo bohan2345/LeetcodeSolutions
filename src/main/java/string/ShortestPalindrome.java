@@ -46,4 +46,29 @@ public class ShortestPalindrome {
         StringBuilder prefix = new StringBuilder(suffix).reverse();
         return prefix.append(s).toString();
     }
+//
+//    public String shortestPalindrome3(String s) {
+//        int leng = s.length();
+//        if (leng < 2) {
+//            return s;
+//        }
+//        int[] next = new int[leng + 2];
+//        int i = 0, j = leng - 1;
+//        while (j >= 0) {
+//            if (s.charAt(i) == s.charAt(j)) {
+//                j--;
+//                next[leng - j] = ++i;
+//            } else if (i > 0) {
+//                i = next[i];
+//            } else {
+//                j--;
+//            }
+//        }
+//        StringBuilder sb = new StringBuilder();
+//        for (int x = leng - 1; x >= next[leng + 1]; x--) {
+//            sb.append(s.charAt(x));
+//        }
+//        return sb.append(s).toString();
+//    }
+
 }

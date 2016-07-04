@@ -23,7 +23,13 @@ public class KMPAlgorithmTest {
     public void test2() {
         KMPAlgorithm test = new KMPAlgorithm();
         String pattern = "a";
-//        System.out.println(pattern.substring(2,5));
         assertEquals(0, test.findMatch("a", pattern));
+    }
+
+    @Test
+    public void test3() {
+        KMPAlgorithm test = new KMPAlgorithm();
+        String pattern = "aacecaaa";
+        test.KMPTable(pattern.toCharArray());
     }
 }

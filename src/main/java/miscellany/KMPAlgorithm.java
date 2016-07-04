@@ -49,23 +49,32 @@ public class KMPAlgorithm {
      */
     public int[] KMPTable(char[] w) {
         int[] next = new int[w.length];
-        int cnd = 0, pos = 2;
         next[0] = -1;
         if (w.length == 1) {
             return next;
         }
         next[1] = 0;
-        while (pos < w.length) {
-            if (w[pos - 1] == w[cnd]) {
-                next[pos] = cnd + 1;
-                cnd++;
-                pos++;
-            } else if (cnd > 0) {
-                cnd = next[cnd];
-            } else {
-                next[pos] = 0;
-                pos++;
+//        int cnd = 0, pos = 2;
+//        while (pos < w.length) {
+//            if (w[pos - 1] == w[cnd]) {
+//                next[pos] = cnd + 1;
+//                cnd++;
+//                pos++;
+//            } else if (cnd > 0) {
+//                cnd = next[cnd];
+//            } else {
+//                next[pos] = 0;
+//                pos++;
+//            }
+//        }
+        int i = 0, j = 1;
+        while (j < w.length - 1) {
+            while (i >= 0 && w[i] != w[j]) {
+                i = next[i];
             }
+            i++;
+            j++;
+            next[j] = i;
         }
         return next;
     }
