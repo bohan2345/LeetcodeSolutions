@@ -1,5 +1,7 @@
 package google.dp;
 
+import java.util.Arrays;
+
 /**
  * Given an unsorted array of integers, find the length of longest increasing subsequence.
  * <p>
@@ -41,5 +43,27 @@ public class LongestIncreasingSubsequence {
             res = Math.max(f[i], res);
         }
         return res;
+    }
+
+    /**
+     * dp[] is a increasing sequence,
+     * for each number n in nums[],
+     * find its insertion place i in dp[] from 0 to leng, dp[i] = n
+     * dp[0] -> dp[i] is the longest increasion subsequence which end with element n
+     * dp[0] -> dp[leng] will always be sorted.
+     */
+    public int lengthOfLISII(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        int[] dp = new int[nums.length];
+        int len = 0;
+        for(int x : nums) {
+            int i = Arrays.binarySearch(dp, 0, len, x);
+            if(i < 0) i = -(i + 1);
+            dp[i] = x;
+            if(i == len) len++;
+        }
+        return len;
     }
 }
