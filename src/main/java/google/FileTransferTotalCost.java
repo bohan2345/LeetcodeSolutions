@@ -7,34 +7,13 @@ package google;
  * @author Bohan Zheng
  */
 public class FileTransferTotalCost {
-    public int totalCost(int[][] matrix) {
-        int[][] costTable = new int[matrix.length][matrix[0].length];
-        int totalSum = 0;
-        for (int i = 1; i < matrix.length; i++) {
-            costTable[i][0] = Math.min(costTable[i - 1][0] + matrix[i][0], i * matrix[i][0]);
-            totalSum += costTable[i][0];
-        }
-        for (int j = 1; j < matrix[0].length; j++) {
-            costTable[0][j] = Math.min(costTable[0][j - 1] + matrix[0][j], j * matrix[0][j]);
-            totalSum += costTable[0][j];
-        }
-        for (int i = 1; i < matrix.length; i++) {
-            for (int j = 1; j < matrix[0].length; j++) {
-                costTable[i][j] = Math.min((i + j) * matrix[i][j],
-                        Math.min(costTable[i - 1][j] + matrix[i][j], costTable[i][j - 1] + matrix[i][j]));
-                totalSum += costTable[i][j];
-            }
-        }
-        return totalSum;
-    }
-
     /**
      * Greedy:
-     * from the start machine (i, j). transfer the file to the lowwest cost machine. cost1 = distance[(x1, y1), (i, j)] * matrix[x][y]
-     * find the next machine (x2, y2) using machine (i, j) and (x1, y1) as start point. and so on.
+     * from the start machine p0. transfer the file to the lowwest cost machine. cost1 = distance[p0, p1] * p1
+     * find the next machine p2 using machine p0 and p1 as start point. and so on.
      * #######################################################################
      * Proof:
-     * let say we transfer file first to (x2, y2), then (x1, y1). cost2' >= cost1
+     * let say we transfer file first to p2, then p1. cost2' >= cost1
      * cost2' = distance[p0, p2] * p2
      * then, cost1' = MIN(
      * #    distance[p1, p2] * p1 + distance[p0, p2] * p2,
@@ -42,7 +21,7 @@ public class FileTransferTotalCost {
      * )
      * because distance[p0, p1] * p1 <= distance[p0, p2] * p2,
      * cost1' = distance[p0, p1] * p1;
-     *
+     * <p>
      * totalCost' = distance[p0, p1] * p1 + distance[p0, p2] * p2
      * ##########################################################################
      * cost1 = distance[p0, p1] * p1
@@ -51,11 +30,74 @@ public class FileTransferTotalCost {
      * #    distance[p0, p2] * p2
      * )
      * totalCost = cost1 + cost2 <= distance[p0, p1] * p1 + distance[p0, p2] * p2
-     *
+     * <p>
      * totalCost <= totalCost'
-     *
+     * <p>
      * So, this Greedy is one OPTIMAL solution.
      */
+    public int totalCost(int[][] matrix) {
+        int m = matrix.length;
+        int n = matrix[0].length;
+        int[][] minCostMatrix = new int[m][n];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++)
+                minCostMatrix[i][j] = Integer.MAX_VALUE;
+        }
+        int[] p = {0, 0};
+        minCostMatrix[0][0] = 0;
+        int sum = 0;
+        boolean[][] transfered = new boolean[m][n];
+        transfered[0][0] = true;
+        for (int i = 0; i < m * n; i++) {
+            p = updateMinCostMatrix(matrix, minCostMatrix, transfered, p[0], p[1]);
+            transfered[p[0]][p[1]] = true;
+            sum += minCostMatrix[p[0]][p[1]];
+        }
+        return sum;
+    }
 
+    private int distance(int x1, int y1, int x2, int y2) {
+        return Math.abs(x1 - x2) + Math.abs(y1 - y2);
+    }
 
+    /**
+     * tansfer from (x, y) to updateMinCostMatrix
+     *
+     * @return min cost position
+     */
+    private int[] updateMinCostMatrix(int[][] matrix, int[][] minCostMatrix, boolean[][] transfered, int x, int y) {
+        int[] pos = {0, 0};
+        int minvalue = Integer.MAX_VALUE;
+//        for (int i = 0; i < minCostMatrix.length; i++) {
+//            for (int j = 0; j < minCostMatrix[0].length; j++) {
+//                if (!transfered[i][j] && minCostMatrix[i][j] < minvalue) {
+//                    minvalue = minCostMatrix[i][j];
+//                    pos[0] = i;
+//                    pos[1] = j;
+//                }
+//            }
+//        }
+        for (int i = 0; i < minCostMatrix.length; i++) {
+            for (int j = 0; j < minCostMatrix[0].length; j++) {
+                if (transfered[i][j]) {
+                    continue;
+                }
+                if (minCostMatrix[i][j] < minvalue) {
+                    minvalue = minCostMatrix[i][j];
+                    pos[0] = i;
+                    pos[1] = j;
+                }
+                int cost = distance(i, j, x, y) * matrix[i][j] + minCostMatrix[x][y];
+                if (cost < minCostMatrix[i][j]) {
+                    minCostMatrix[i][j] = cost;
+                }
+                if (cost < minvalue) {
+                    minvalue = minCostMatrix[i][j];
+                    pos[0] = i;
+                    pos[1] = j;
+                }
+            }
+        }
+        return pos;
+    }
 }
