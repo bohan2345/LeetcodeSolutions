@@ -27,4 +27,35 @@ public class FileTransferTotalCost {
         }
         return totalSum;
     }
+
+    /**
+     * Greedy:
+     * from the start machine (i, j). transfer the file to the lowwest cost machine. cost1 = distance[(x1, y1), (i, j)] * matrix[x][y]
+     * find the next machine (x2, y2) using machine (i, j) and (x1, y1) as start point. and so on.
+     * #######################################################################
+     * Proof:
+     * let say we transfer file first to (x2, y2), then (x1, y1). cost2' >= cost1
+     * cost2' = distance[p0, p2] * p2
+     * then, cost1' = MIN(
+     * #    distance[p1, p2] * p1 + distance[p0, p2] * p2,
+     * #    distance[p0, p1] * p1
+     * )
+     * because distance[p0, p1] * p1 <= distance[p0, p2] * p2,
+     * cost1' = distance[p0, p1] * p1;
+     *
+     * totalCost' = distance[p0, p1] * p1 + distance[p0, p2] * p2
+     * ##########################################################################
+     * cost1 = distance[p0, p1] * p1
+     * cost2 = MIN(
+     * #    distance[p1, p2] * p2 + distance[p0, p1] * p1,
+     * #    distance[p0, p2] * p2
+     * )
+     * totalCost = cost1 + cost2 <= distance[p0, p1] * p1 + distance[p0, p2] * p2
+     *
+     * totalCost <= totalCost'
+     *
+     * So, this Greedy is one OPTIMAL solution.
+     */
+
+
 }
