@@ -3,6 +3,7 @@ package miscellany;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * <p>
@@ -31,5 +32,13 @@ public class KMPAlgorithmTest {
         KMPAlgorithm test = new KMPAlgorithm();
         String pattern = "aacecaaa";
         test.KMPTable(pattern.toCharArray());
+    }
+
+    @Test
+    public void test4() {
+        KMPAlgorithm test = new KMPAlgorithm();
+        String pattern = "mtvmtvmt";
+        int[] t = test.KMPTable(pattern.toCharArray());
+        assertTrue(true);
     }
 }

@@ -48,7 +48,7 @@ public class KMPAlgorithm {
      * m denotes last start search index.
      */
     public int[] KMPTable(char[] w) {
-        int[] next = new int[w.length];
+        int[] next = new int[w.length + 1];
         next[0] = -1;
         if (w.length == 1) {
             return next;
@@ -68,7 +68,7 @@ public class KMPAlgorithm {
 //            }
 //        }
         int i = 0, j = 1;
-        while (j < w.length - 1) {
+        while (j < w.length) {
             while (i >= 0 && w[i] != w[j]) {
                 i = next[i];
             }
