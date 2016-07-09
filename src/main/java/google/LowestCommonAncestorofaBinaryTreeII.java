@@ -8,7 +8,7 @@ import utils.TreeNode;
  *
  * @author Bohan Zheng
  */
-public class LowestCommonAncestorofaBinarySearchTreeII {
+public class LowestCommonAncestorofaBinaryTreeII {
     public TreeNode commonAncestor(TreeNode root, TreeNode node1, TreeNode node2) {
         boolean[] finded = {false, false};
         TreeNode ancestor = search(root, node1, node2, finded);
