@@ -25,4 +25,9 @@ public class RangeSumBSTTest {
         RangeSumBST test = new RangeSumBST();
         Assert.assertEquals(22, test.rangeSum(root, 7, 4));
     }
+
+    @Test
+    public void test3() {
+        Assert.assertTrue("a".compareTo("b") > 0);
+    }
 }
