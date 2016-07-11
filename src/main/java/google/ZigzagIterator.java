@@ -12,6 +12,7 @@ import java.util.List;
  */
 public class ZigzagIterator<T> implements Iterator<T> {
     private List<T[]> A;
+
     private int size;
     private int count;
     private int i;
@@ -56,9 +57,43 @@ public class ZigzagIterator<T> implements Iterator<T> {
                 i = 0;
                 j++;
             }
+            count--;
             res = next();
         }
         count++;
         return res;
     }
+
+    //public class ZigzagIterator {
+//    private List<Iterator<Integer>> list;
+//    private int i = 0;
+//
+//    public ZigzagIterator(List<Integer> v1, List<Integer> v2) {
+//        list = new ArrayList<>();
+//        list.add(v1.iterator());
+//        list.add(v2.iterator());
+//    }
+//
+//    public int next() {
+//        Iterator<Integer> x = list.get(i);
+//        if (i < list.size() - 1) {
+//            i++;
+//        } else {
+//            i = 0;
+//        }
+//        if (x.hasNext()) {
+//            return x.next();
+//        } else {
+//            return next();
+//        }
+//    }
+//
+//    public boolean hasNext() {
+//        boolean x = false;
+//        for (Iterator<Integer> iterator : list) {
+//            x = x || iterator.hasNext();
+//        }
+//        return x;
+//    }
+//}
 }

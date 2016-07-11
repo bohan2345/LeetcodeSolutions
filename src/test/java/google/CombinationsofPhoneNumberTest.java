@@ -3,7 +3,9 @@ package google;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -17,6 +19,8 @@ public class CombinationsofPhoneNumberTest {
     public void test() {
         CombinationsofPhoneNumber test = new CombinationsofPhoneNumber();
         Set<String> dic = new HashSet<>();
+        List<Integer> x = new ArrayList<>();
+        x.iterator();
         dic.add("target");
         dic.add("tar");
         dic.add("ta");
