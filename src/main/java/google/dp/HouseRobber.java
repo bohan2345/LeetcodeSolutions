@@ -17,6 +17,8 @@ package google.dp;
  */
 public class HouseRobber {
     /**
+     * f(i) = Max(f(i - 1),             not rob
+     * #      f(i - 2) + nums[i]),      rob
      * @param nums:
      *         An array of non-negative integers.
      *         return: The maximum amount of money you can rob tonight

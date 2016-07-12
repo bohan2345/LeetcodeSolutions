@@ -14,44 +14,43 @@ package array;
  */
 public class BestTimetoBuyandSellStockIV {
     /**
-     * 1. If K is greater or equal to n / 2, then we can make one transaction every other day.
-     * Then go with the approach in BestTimetoBuyandSellStockII
-     * 2. if K is smaller than n / 2:
-     * max profit in the first n days with k transaction doesn't have sell on day n: f(n, k)
-     * max profit in the first n days with k transaction and must sell on day n: p(n, k)
+     * The basic idea is to create two tables. hold and unhold.
      * <p>
-     * p(n, k) = f(n - 1, k - 1) + prices[n] - prices[n - 1]  # buy stock on day n - 1
-     * p(n - 1, k) - prices[n - 1] + prices[n]      # buy stock before day n - 1,
-     * p(n - 1, k) is sell the kth stock on day n - 1
-     * p(n - 1, k) - prices[n - 1] is buy it back after sell, same as not sell
+     * hold[i][j] means the maximum profit with at most j transaction for 0 to i-th day.
+     * hold means you have a stock in your hand.
+     * unhold[i][j] means the maximum profit with at most j transaction for 0 to i-th day.
+     * unhold means you don't have a stock in your hand.
      * <p>
-     * f(n, k) = Max(f(n - 1, k), p(n, k))
+     * The equation is
+     * hold[i][j] = Math.max(unhold[i-1][j] - prices[i], hold[i-1][j]);
+     * unhold[i][j] = Math.max(hold[i-1][j-1] + prices[i], unhold[i-1][j]);
+     * <p>
+     * when you sell your stock this is a transaction but when you buy a stock, it is not considered as a full transaction.
+     * so this is why the two equation look a little different.
+     * And we have to initiate hold table when k = 0.
+     * When the situation is you can not buy a new stock at the same day when you sell it. For example you can only buy a
+     * new stock after one day you sell it. The same idea. Another situation is when you have to pay a transaction fee for
+     * each transaction, just make a modification when you sell it, So just change the unhold equation a little.
      */
     public int maxProfit(int k, int[] prices) {
-        if (k == 0) {
-            return 0;
-        }
-        int n = prices.length;
-        if (k >= (n / 2)) {
+        if (k > prices.length / 2)
             return quickSolve(prices);
-        }
-        int[][] mustsell = new int[n + 1][n + 1];   // mustSell[i][j] 表示前i天，至多进行j次交易，第i天必须sell的最大获益
-        int[][] globalbest = new int[n + 1][n + 1];  // globalbest[i][j] 表示前i天，至多进行j次交易，第i天可以不sell的最大获益
+        int[][] hold = new int[prices.length][k + 1];
+        int[][] unhold = new int[prices.length][k + 1];
+        hold[0][0] = -prices[0];
+        for (int i = 1; i < prices.length; i++)
+            hold[i][0] = Math.max(hold[i - 1][0], -prices[i]);
 
-        mustsell[0][0] = globalbest[0][0] = 0;
-        for (int i = 1; i <= k; i++) {
-            mustsell[0][i] = globalbest[0][i] = 0;
-        }
+        for (int j = 1; j <= k; j++)
+            hold[0][j] = -prices[0];
 
-        for (int i = 1; i < n; i++) {
-            int gainorlose = prices[i] - prices[i - 1];
-            mustsell[i][0] = 0;
+        for (int i = 1; i < prices.length; i++) {
             for (int j = 1; j <= k; j++) {
-                mustsell[i][j] = Math.max(globalbest[i - 1][j - 1] + gainorlose, mustsell[i - 1][j] + gainorlose);
-                globalbest[i][j] = Math.max(globalbest[i - 1][j], mustsell[i][j]);
+                hold[i][j] = Math.max(unhold[i - 1][j] - prices[i], hold[i - 1][j]);
+                unhold[i][j] = Math.max(hold[i - 1][j - 1] + prices[i], unhold[i - 1][j]);
             }
         }
-        return globalbest[n - 1][k];
+        return unhold[prices.length - 1][k];
     }
 
     /**
