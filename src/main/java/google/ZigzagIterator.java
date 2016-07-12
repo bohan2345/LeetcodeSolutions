@@ -1,5 +1,6 @@
 package google;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -64,36 +65,41 @@ public class ZigzagIterator<T> implements Iterator<T> {
         return res;
     }
 
-    //public class ZigzagIterator {
-//    private List<Iterator<Integer>> list;
-//    private int i = 0;
-//
-//    public ZigzagIterator(List<Integer> v1, List<Integer> v2) {
-//        list = new ArrayList<>();
-//        list.add(v1.iterator());
-//        list.add(v2.iterator());
-//    }
-//
-//    public int next() {
-//        Iterator<Integer> x = list.get(i);
-//        if (i < list.size() - 1) {
-//            i++;
-//        } else {
-//            i = 0;
-//        }
-//        if (x.hasNext()) {
-//            return x.next();
-//        } else {
-//            return next();
-//        }
-//    }
-//
-//    public boolean hasNext() {
-//        boolean x = false;
-//        for (Iterator<Integer> iterator : list) {
-//            x = x || iterator.hasNext();
-//        }
-//        return x;
-//    }
-//}
+
+    public static class ZigzagIteratorII {
+        private List<Iterator<Integer>> list;
+        private int i = 0;
+
+        public ZigzagIteratorII(List<Integer> v1, List<Integer> v2) {
+            list = new ArrayList<>();
+            Iterator<Integer> i1 = v1.iterator();
+            Iterator<Integer> i2 = v2.iterator();
+            if (i1.hasNext()) list.add(i1);
+            if (i2.hasNext()) list.add(i2);
+        }
+
+        public int next() {
+            if(!hasNext()){
+                return 0;
+            }
+            Iterator<Integer> x = list.get(i);
+            int res = x.next();
+            if (!x.hasNext()) {
+                list.remove(x);
+                i--;
+            }
+            if (i < list.size() - 1) {
+                i++;
+            } else {
+                i = 0;
+            }
+
+            return res;
+        }
+
+        public boolean hasNext() {
+            return list.size() > 0;
+        }
+    }
 }
+
