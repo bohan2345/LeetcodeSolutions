@@ -13,28 +13,43 @@ import static org.junit.Assert.assertArrayEquals;
 public class ArraySortTest {
     @Test
     public void test() {
-        int[] nums = {5, 4, 3, 2, 1};
-        int[] expected = {1, 2, 3, 4, 5};
-        ArraySort test = new ArraySort();
-        test.mergeSort(nums);
-        assertArrayEquals(expected, nums);
+        RandomArray randomArray = new RandomArray();
+        for (int i = 0; i < 10; i++) {
+            int[] nums = randomArray.randomArray(10);
+//            Arrays.stream(nums).forEach(System.out::print);
+//            System.out.println("");
+            int[] expected = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+            ArraySort test = new ArraySort();
+            test.mergeSort(nums);
+            assertArrayEquals(expected, nums);
+        }
     }
 
     @Test
     public void test2() {
-        int[] nums = {5, 4, 3, 2, 1};
-        int[] expected = {1, 2, 3, 4, 5};
-        ArraySort test = new ArraySort();
-        test.quickSort(nums);
-        assertArrayEquals(expected, nums);
+        RandomArray randomArray = new RandomArray();
+        for (int i = 0; i < 10; i++) {
+            int[] nums = randomArray.randomArray(10);
+//            Arrays.stream(nums).forEach(System.out::print);
+//            System.out.println("");
+            int[] expected = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+            ArraySort test = new ArraySort();
+            test.heapSort(nums);
+            assertArrayEquals(expected, nums);
+        }
     }
 
     @Test
     public void test3() {
-        int[] nums = {4, 5, 1, 3, 2};
-        int[] expected = {1, 2, 3, 4, 5};
-        ArraySort test = new ArraySort();
-        test.quickSort(nums);
-        assertArrayEquals(expected, nums);
+        RandomArray randomArray = new RandomArray();
+        for (int i = 0; i < 10; i++) {
+            int[] nums = randomArray.randomArray(10);
+//            Arrays.stream(nums).forEach(System.out::print);
+//            System.out.println("");
+            int[] expected = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+            ArraySort test = new ArraySort();
+            test.quickSort(nums);
+            assertArrayEquals(expected, nums);
+        }
     }
 }

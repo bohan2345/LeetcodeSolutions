@@ -68,7 +68,7 @@ public class AddTwoStringNumber {
         }
         if (num < 0) {
             carry = 1;
-            num = num * -1;
+            num = 10 + num;
         } else {
             carry = 0;
         }

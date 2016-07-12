@@ -1,6 +1,10 @@
 package google.dp;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Given a string s and a dictionary of words dict, add spaces in s to construct a sentence where each word is a valid dictionary word.
@@ -18,12 +22,8 @@ import java.util.*;
  * @author Bohan Zheng
  */
 public class WordBreakII {
-
     public List<String> wordBreakIII(String s, Set<String> dict) {
-        // Note: The Solution object is instantiated only once and is reused by each test case.
-        Map<String, List<String>> map = new HashMap<>();
-        List<String> res = search(s, dict, map);
-        return res;
+        return search(s, dict, new HashMap<>());
     }
 
     private List<String> search(String s, Set<String> dict, Map<String, List<String>> cache) {

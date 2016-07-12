@@ -40,4 +40,10 @@ public class AddTwoStringNumberTest {
         AddTwoStringNumber test = new AddTwoStringNumber();
         assertEquals("0", test.add("-11", "11"));
     }
+
+    @Test
+    public void test6() {
+        AddTwoStringNumber test = new AddTwoStringNumber();
+        assertEquals("99", test.add("100", "-1"));
+    }
 }
