@@ -109,7 +109,7 @@ public class DecodeStringII {
     }
 
 
-    public int[] KMPTable(String w, int offset) {
+    private int[] KMPTable(String w, int offset) {
         int[] next = new int[w.length() + 1 - offset];
         next[0] = -1;
         if (w.length() == 1) {

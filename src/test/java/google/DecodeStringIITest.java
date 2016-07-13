@@ -18,6 +18,12 @@ public class DecodeStringIITest {
     }
 
     @Test
+    public void test4() {
+        DecodeStringII test = new DecodeStringII();
+        assertEquals("aaabbbaaabbb", test.decode("2[3a3b]"));
+    }
+
+    @Test
     public void test2() {
         DecodeStringII test = new DecodeStringII();
         assertEquals("3a2[mt3[vx]]ac", test.encode("aaamtvxvxvxmtvxvxvxac"));

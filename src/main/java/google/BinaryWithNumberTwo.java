@@ -8,10 +8,10 @@ package google;
  */
 public class BinaryWithNumberTwo {
     /**
-     * f(i, n) denotes using i digits total representation of number n
-     * f(i, n) = f(i - 1, n) + ,             digits[i] = 0
-     * #         f(i - 1, n - 2 ^ i) + ,     digits[i] = 1 && n - 2 ^ i >= 0
-     * #         f(i - 1, n - 2 * 2 ^ i),    digits[i] = 2 && n - 2 * 2 ^ i >= 0
+     * f(i + 1, n) denotes using i digits total representation of number n
+     * f(i + 1, n) = f(i, n) +             , digits[i] = 0
+     * #             f(i, n - 2 ^ i) +     , digits[i] = 1 && n - 2 ^ i >= 0
+     * #             f(i, n - 2 * 2 ^ i)   , digits[i] = 2 && n - 2 * 2 ^ i >= 0
      */
     public int totalNumber(int n) {
         // log (base 2) (n) = log(n) / log(2)
