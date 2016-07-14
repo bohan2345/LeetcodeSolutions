@@ -16,6 +16,6 @@ public class RussianDollEnvelopesTest {
         //[[5,4],[6,4],[6,7],[2,3]]
         RussianDollEnvelopes test = new RussianDollEnvelopes();
         int[][] envelopes = {{5,4},{6,4},{6,7},{2,3}};
-        assertEquals(0, test.maxEnvelopes(envelopes));
+        assertEquals(3, test.maxEnvelopes(envelopes));
     }
 }
