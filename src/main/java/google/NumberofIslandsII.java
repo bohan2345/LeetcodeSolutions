@@ -46,94 +46,55 @@ import java.util.Set;
  * @author Bohan Zheng
  */
 public class NumberofIslandsII {
-    private class DisjointSet {
-        int[][] positions;
-
-        DisjointSet(int m, int n) {
-            positions = new int[m][n];
-            int counter = 0;
-            for (int i = 0; i < m; i++) {
-                for (int j = 0; j < n; j++) {
-                    positions[i][j] = counter++;
+    public List<Integer> numIslands2(int m, int n, int[][] positions) {
+        DisjointSet ds = new DisjointSet(m * n);
+        Set<Integer> islands = new HashSet<>(positions.length);
+        List<Integer> res = new ArrayList<>(positions.length);
+        int island = 0;
+        int[] dx = {1, -1, 0, 0};
+        int[] dy = {0, 0, 1, -1};
+        for (int[] position : positions) {
+            island++;
+            int a = position[0] * n + position[1];
+            for (int d = 0; d < 4; d++) {
+                int[] adjcentPosition = {position[0] + dx[d], position[1] + dy[d]};
+                if (adjcentPosition[0] < 0 || adjcentPosition[1] < 0 || adjcentPosition[0] >= m || adjcentPosition[1] >= n) {
+                    continue;
+                }
+                int b = adjcentPosition[0] * n + adjcentPosition[1];
+                if (islands.contains(b) && ds.find(a) != ds.find(b)) {
+                    ds.union(a, b);
+                    island--;
                 }
             }
-        }
-
-        void union(int ai, int aj, int bi, int bj) {
-            int tmp = positions[ai][aj];
-            for (int i = 0; i < positions.length; i++) {
-                for (int j = 0; j < positions[i].length; j++) {
-                    if (positions[i][j] == tmp) {
-                        positions[i][j] = positions[bi][bj];
-                    }
-                }
-            }
-        }
-
-        boolean find(int ai, int aj, int bi, int bj) {
-            return positions[ai][aj] == positions[bi][bj];
-        }
-    }
-
-    public List<Integer> numIslands2(int m, int n, List<Position> positions) {
-        DisjointSet ds = new DisjointSet(m, n);
-        Set<Position> grid = new HashSet<>(positions.size());
-        int numIslands = 0;
-        List<Integer> res = new ArrayList<>(positions.size());
-        for (Position position : positions) {
-            int x = position.x, y = position.y;
-            grid.add(position);
-            numIslands++;
-            Position up = new Position(x - 1, y);
-            Position bottom = new Position(x + 1, y);
-            Position left = new Position(x, y - 1);
-            Position right = new Position(x, y + 1);
-            if (grid.contains(up)) {
-                ds.union(up.x, up.y, position.x, position.y);
-                numIslands--;
-            }
-            if (grid.contains(bottom)) {
-                ds.union(bottom.x, bottom.y, position.x, position.y);
-                numIslands--;
-            }
-            if (grid.contains(left)) {
-                ds.union(left.x, left.y, position.x, position.y);
-                numIslands--;
-            }
-            if (grid.contains(right)) {
-                ds.union(right.x, right.y, position.x, position.y);
-                numIslands--;
-            }
-            res.add(numIslands);
+            islands.add(a);
+            res.add(island);
         }
         return res;
     }
 
-    static class Position {
-        int x;
-        int y;
+    private class DisjointSet {
+        private int[] positions;
 
-        Position(int x, int y) {
-            this.x = x;
-            this.y = y;
+        private DisjointSet(int n) {
+            positions = new int[n];
+            int counter = 0;
+            for (int i = 0; i < n; i++) {
+                positions[i] = counter++;
+            }
         }
 
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-
-            Position position = (Position) o;
-
-            return x == position.x && y == position.y;
-
+        private void union(int a, int b) {
+            int tmp = find(a);
+            positions[tmp] = find(b);
         }
 
-        @Override
-        public int hashCode() {
-            int result = x;
-            result = 31 * result + y;
-            return result;
+        private int find(int a) {
+            while (a != positions[a]) {
+                positions[a] = positions[positions[a]];
+                a = positions[a];
+            }
+            return a;
         }
     }
 }

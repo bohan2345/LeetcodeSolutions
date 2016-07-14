@@ -1,12 +1,8 @@
 package google;
 
 import org.hamcrest.collection.IsIterableContainingInOrder;
+import org.junit.Assert;
 import org.junit.Test;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.junit.Assert.assertThat;
 
 /**
  * <p>
@@ -18,11 +14,12 @@ public class NumberofIslandsIITest {
     @Test
     public void test() {
         NumberofIslandsII test = new NumberofIslandsII();
-        List<NumberofIslandsII.Position> positions = new ArrayList<>();
-        positions.add(new NumberofIslandsII.Position(0, 0));
-        positions.add(new NumberofIslandsII.Position(0, 1));
-        positions.add(new NumberofIslandsII.Position(1, 2));
-        positions.add(new NumberofIslandsII.Position(2, 1));
-        assertThat(test.numIslands2(3, 3, positions), IsIterableContainingInOrder.contains(1, 1, 2, 3));
+//        int[] x = {0,0};
+//        HashSet<int[]> xx = new HashSet<>();
+//        xx.add(new int[]{0,0});
+//        System.out.print(xx.contains(x));
+
+        int[][] positions = {{0, 0}, {0, 1}, {1, 2}, {2, 1}};
+        Assert.assertThat(test.numIslands2(3, 3, positions), IsIterableContainingInOrder.contains(1, 1, 2, 3));
     }
 }
