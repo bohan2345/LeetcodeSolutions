@@ -1,5 +1,6 @@
 package google;
 
+import org.hamcrest.collection.IsIterableContainingInAnyOrder;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -25,6 +26,7 @@ public class CombinationsofPhoneNumberTest {
         dic.add("tar");
         dic.add("ta");
         dic.add("get");
-        Assert.assertEquals("800target12", test.findAllCombinations("80082743812", dic).get(0));
+        Assert.assertThat(test.findAllCombinations("80082743812", dic),
+                IsIterableContainingInAnyOrder.containsInAnyOrder("800ta743812", "800tar43812", "800target12", "800827get12"));
     }
 }

@@ -10,16 +10,16 @@ import static org.junit.Assert.assertEquals;
  *
  * @author Bohan Zheng
  */
-public class GeometricPcrogressionTest {
+public class GeometricProgressionTest {
     @Test
     public void test() {
-        GeometricPcrogression test = new GeometricPcrogression();
+        GeometricProgression test = new GeometricProgression();
         assertEquals(9223372036854775807L, test.sumII(2, 62));
     }
 
     @Test
     public void test2() {
-        GeometricPcrogression test = new GeometricPcrogression();
+        GeometricProgression test = new GeometricProgression();
         assertEquals(9223372036854775807L, test.sum(2, 62));
     }
 }

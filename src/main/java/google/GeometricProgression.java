@@ -6,7 +6,7 @@ package google;
  *
  * @author Bohan Zheng
  */
-public class GeometricPcrogression {
+public class GeometricProgression {
     public long sum(long n, int p) {
         if (p == 0) {
             return 1;
