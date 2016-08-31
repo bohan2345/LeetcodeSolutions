@@ -13,10 +13,10 @@ import static org.junit.Assert.assertEquals;
  * @author Bohan Zheng
  */
 public class RemoveDuplicatesfromSortedListIITest {
-    @Test
-    public void test() {
-        ListNode head = LinkedListUtils.constructLinkedList(1, 1, 2, 3, 3);
-        RemoveDuplicatesfromSortedListII test = new RemoveDuplicatesfromSortedListII();
-        assertEquals("2", LinkedListUtils.serialize(test.deleteDuplicates(head)));
-    }
+  @Test
+  public void test() {
+    ListNode head = LinkedListUtils.constructLinkedList(1, 1, 2, 3, 3);
+    RemoveDuplicatesfromSortedListII test = new RemoveDuplicatesfromSortedListII();
+    assertEquals("2", LinkedListUtils.serialize(test.deleteDuplicates(head)));
+  }
 }

@@ -19,27 +19,27 @@ import java.util.List;
  * @author Bohan Zheng
  */
 public class ArrayPatch {
-    /**
-     * Greedy algrithm
-     * if nums[0 -> k] can sum up to all integers from 0 to m
-     * then if we add m + 1 to the nums, nums can sum up to all intergers from 0 to m + m + 1
-     * this is the optimal option
-     */
-    public int numOfPatches(int[] nums, int n) {
-        List<Integer> numList = new ArrayList<>();
-        int sum = 0;
-        for (int i = 0; i < nums.length - 1; i++) {
-            sum += nums[i];
-            while (sum < nums[i + 1]) {
-                numList.add(sum + 1);
-                sum += sum + 1;
-            }
-        }
-        sum += nums[nums.length - 1];
-        while (sum < n) {
-            numList.add(sum + 1);
-            sum += sum + 1;
-        }
-        return numList.size();
+  /**
+   * Greedy algrithm
+   * if nums[0 -> k] can sum up to all integers from 0 to m
+   * then if we add m + 1 to the nums, nums can sum up to all intergers from 0 to m + m + 1
+   * this is the optimal option
+   */
+  public int numOfPatches(int[] nums, int n) {
+    List<Integer> numList = new ArrayList<>();
+    int sum = 0;
+    for (int i = 0; i < nums.length - 1; i++) {
+      sum += nums[i];
+      while (sum < nums[i + 1]) {
+        numList.add(sum + 1);
+        sum += sum + 1;
+      }
     }
+    sum += nums[nums.length - 1];
+    while (sum < n) {
+      numList.add(sum + 1);
+      sum += sum + 1;
+    }
+    return numList.size();
+  }
 }

@@ -12,21 +12,21 @@ import static org.junit.Assert.assertTrue;
  * @author Bohan Zheng
  */
 public class ScrambleStringTest {
-    @Test
-    public void test() {
-        ScrambleString test = new ScrambleString();
-        assertTrue(test.isScramble("great", "rgeat"));
-    }
+  @Test
+  public void test() {
+    ScrambleString test = new ScrambleString();
+    assertTrue(test.isScramble("great", "rgeat"));
+  }
 
-    @Test
-    public void test2() {
-        ScrambleString test = new ScrambleString();
-        assertTrue(test.isScramble("great", "rgtae"));
-    }
+  @Test
+  public void test2() {
+    ScrambleString test = new ScrambleString();
+    assertTrue(test.isScramble("great", "rgtae"));
+  }
 
-    @Test
-    public void test3() {
-        ScrambleString test = new ScrambleString();
-        assertFalse(test.isScramble("abcdefghijklmnopq", "efghijklmnopqcadb"));
-    }
+  @Test
+  public void test3() {
+    ScrambleString test = new ScrambleString();
+    assertFalse(test.isScramble("abcdefghijklmnopq", "efghijklmnopqcadb"));
+  }
 }

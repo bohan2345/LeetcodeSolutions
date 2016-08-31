@@ -11,12 +11,12 @@ import static org.junit.Assert.assertArrayEquals;
  * @author Bohan Zheng
  */
 public class SetMatrixZerosTest {
-    @Test
-    public void test() {
-        SetMatrixZeroes test = new SetMatrixZeroes();
-        int[][] matrix = {{1, 1, 1, 0}, {1, 1, 1, 1}, {1, 0, 1, 1}, {1, 1, 1, 1}};
-        int[][] expected = {{0, 0, 0, 0}, {1, 0, 1, 0}, {0, 0, 0, 0}, {1, 0, 1, 0}};
-        test.setZeroes(matrix);
-        assertArrayEquals(expected, matrix);
-    }
+  @Test
+  public void test() {
+    SetMatrixZeroes test = new SetMatrixZeroes();
+    int[][] matrix = {{1, 1, 1, 0}, {1, 1, 1, 1}, {1, 0, 1, 1}, {1, 1, 1, 1}};
+    int[][] expected = {{0, 0, 0, 0}, {1, 0, 1, 0}, {0, 0, 0, 0}, {1, 0, 1, 0}};
+    test.setZeroes(matrix);
+    assertArrayEquals(expected, matrix);
+  }
 }

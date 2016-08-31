@@ -20,48 +20,48 @@ import java.util.Stack;
  * @author Bohan Zheng
  */
 public class BasicCalculatorII {
-    public int calculate(String s) {
-        Stack<String> stack = new Stack<>();
-        for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
-            if (Character.isDigit(c)) {
-                int tmp = i;
-                i = getNum(s, i);
-                stack.push(s.substring(tmp, i + 1).trim());
-            } else if (c == '+' || c == '-') {
-                stack.push(Character.toString(c));
-            } else if (c == '*' || c == '/') {
-                int tmp = i + 1;
-                i = getNum(s, i + 1);
-                int b = Integer.valueOf(s.substring(tmp, i + 1).trim());
-                int a = Integer.valueOf(stack.pop());
-                int n = c == '*' ? a * b : a / b;
-                stack.push(String.valueOf(n));
-            }
-        }
-        int sum = 0;
-        while (!stack.isEmpty()) {
-            String tmpStr = stack.pop();
-            int a = Integer.valueOf(tmpStr);
-            if (stack.isEmpty() || stack.pop().equals("+")) {
-                sum += a;
-            } else {
-                sum -= a;
-            }
-        }
-        return sum;
+  public int calculate(String s) {
+    Stack<String> stack = new Stack<>();
+    for (int i = 0; i < s.length(); i++) {
+      char c = s.charAt(i);
+      if (Character.isDigit(c)) {
+        int tmp = i;
+        i = getNum(s, i);
+        stack.push(s.substring(tmp, i + 1).trim());
+      } else if (c == '+' || c == '-') {
+        stack.push(Character.toString(c));
+      } else if (c == '*' || c == '/') {
+        int tmp = i + 1;
+        i = getNum(s, i + 1);
+        int b = Integer.valueOf(s.substring(tmp, i + 1).trim());
+        int a = Integer.valueOf(stack.pop());
+        int n = c == '*' ? a * b : a / b;
+        stack.push(String.valueOf(n));
+      }
     }
+    int sum = 0;
+    while (!stack.isEmpty()) {
+      String tmpStr = stack.pop();
+      int a = Integer.valueOf(tmpStr);
+      if (stack.isEmpty() || stack.pop().equals("+")) {
+        sum += a;
+      } else {
+        sum -= a;
+      }
+    }
+    return sum;
+  }
 
-    private int getNum(String s, int i) {
-        for (; i < s.length(); i++) {
-            char c = s.charAt(i);
-            if (c == ' ') {
-                continue;
-            }
-            if (!Character.isDigit(c)) {
-                break;
-            }
-        }
-        return i - 1;
+  private int getNum(String s, int i) {
+    for (; i < s.length(); i++) {
+      char c = s.charAt(i);
+      if (c == ' ') {
+        continue;
+      }
+      if (!Character.isDigit(c)) {
+        break;
+      }
     }
+    return i - 1;
+  }
 }

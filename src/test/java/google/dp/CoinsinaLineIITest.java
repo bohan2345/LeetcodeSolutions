@@ -12,16 +12,17 @@ import static org.junit.Assert.assertTrue;
  * @author Bohan Zheng
  */
 public class CoinsinaLineIITest {
-    @Test
-    public void test() {
-        CoinsinaLineII test = new CoinsinaLineII();
-        int[] values = {1, 2, 2};
-        assertTrue(test.firstWillWin(values));
-    }
-    @Test
-    public void test2() {
-        CoinsinaLineII test = new CoinsinaLineII();
-        int[] values = {1, 2, 4};
-        assertFalse(test.firstWillWin(values));
-    }
+  @Test
+  public void test() {
+    CoinsinaLineII test = new CoinsinaLineII();
+    int[] values = {1, 2, 2};
+    assertTrue(test.firstWillWin(values));
+  }
+
+  @Test
+  public void test2() {
+    CoinsinaLineII test = new CoinsinaLineII();
+    int[] values = {1, 2, 4};
+    assertFalse(test.firstWillWin(values));
+  }
 }

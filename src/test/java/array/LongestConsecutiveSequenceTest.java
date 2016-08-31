@@ -11,11 +11,11 @@ import static org.junit.Assert.assertEquals;
  * @author Bohan Zheng
  */
 public class LongestConsecutiveSequenceTest {
-    LongestConsecutiveSequence test = new LongestConsecutiveSequence();
+  LongestConsecutiveSequence test = new LongestConsecutiveSequence();
 
-    @Test
-    public void test() {
-        int[] arrays = {100, 4, 200, 1, 3, 2};
-        assertEquals(4, test.longestConsecutive(arrays));
-    }
+  @Test
+  public void test() {
+    int[] arrays = {100, 4, 200, 1, 3, 2};
+    assertEquals(4, test.longestConsecutive(arrays));
+  }
 }

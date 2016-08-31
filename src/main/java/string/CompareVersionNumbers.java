@@ -17,27 +17,27 @@ package string;
  * @author Bohan Zheng
  */
 public class CompareVersionNumbers {
-    public int compareVersion(String version1, String version2) {
-        String[] v1s = version1.split("\\.");
-        String[] v2s = version2.split("\\.");
-        int i = 0;
-        while (i < v1s.length || i < v2s.length) {
-            Integer int1, int2;
-            if (i >= v1s.length) {
-                int1 = 0;
-            } else {
-                int1 = Integer.valueOf(v1s[i]);
-            }
-            if (i >= v2s.length) {
-                int2 = 0;
-            } else {
-                int2 = Integer.valueOf(v2s[i]);
-            }
-            if (!int1.equals(int2)) {
-                return int1.compareTo(int2);
-            }
-            i++;
-        }
-        return 0;
+  public int compareVersion(String version1, String version2) {
+    String[] v1s = version1.split("\\.");
+    String[] v2s = version2.split("\\.");
+    int i = 0;
+    while (i < v1s.length || i < v2s.length) {
+      Integer int1, int2;
+      if (i >= v1s.length) {
+        int1 = 0;
+      } else {
+        int1 = Integer.valueOf(v1s[i]);
+      }
+      if (i >= v2s.length) {
+        int2 = 0;
+      } else {
+        int2 = Integer.valueOf(v2s[i]);
+      }
+      if (!int1.equals(int2)) {
+        return int1.compareTo(int2);
+      }
+      i++;
     }
+    return 0;
+  }
 }

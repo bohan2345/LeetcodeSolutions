@@ -11,10 +11,10 @@ import static org.junit.Assert.assertEquals;
  * @author Bohan Zheng
  */
 public class RandomArrayTest {
-    @Test
-    public void test() {
-        RandomArray test = new RandomArray();
-        int[] r = test.randomArray(9);
-        assertEquals(0, 0);
-    }
+  @Test
+  public void test() {
+    RandomArray test = new RandomArray();
+    int[] r = test.randomArray(9);
+    assertEquals(0, 0);
+  }
 }

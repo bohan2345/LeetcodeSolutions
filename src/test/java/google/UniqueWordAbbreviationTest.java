@@ -10,14 +10,14 @@ import org.junit.Test;
  * @author Bohan Zheng
  */
 public class UniqueWordAbbreviationTest {
-    @Test
-    public void test() {
-        String[] dic = {"deer", "door", "cake", "card"};
-        UniqueWordAbbreviation test = new UniqueWordAbbreviation(dic);
-        Assert.assertFalse(test.isUnique("dear"));
-        Assert.assertTrue(test.isUnique("cart"));
-        Assert.assertFalse(test.isUnique("cane"));
-        Assert.assertTrue(test.isUnique("make"));
-        Assert.assertFalse(test.isUnique("deer"));
-    }
+  @Test
+  public void test() {
+    String[] dic = {"deer", "door", "cake", "card"};
+    UniqueWordAbbreviation test = new UniqueWordAbbreviation(dic);
+    Assert.assertFalse(test.isUnique("dear"));
+    Assert.assertTrue(test.isUnique("cart"));
+    Assert.assertFalse(test.isUnique("cane"));
+    Assert.assertTrue(test.isUnique("make"));
+    Assert.assertFalse(test.isUnique("deer"));
+  }
 }

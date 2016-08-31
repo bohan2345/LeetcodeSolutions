@@ -14,41 +14,41 @@ import utils.ListNode;
  * @author Bohan Zheng
  */
 public class RemoveDuplicatesfromSortedListII {
-    public ListNode deleteDuplicates(ListNode head) {
-        if (head == null) {
-            return null;
-        }
-        ListNode dumy = new ListNode(0);
-        dumy.next = head;
-        ListNode prev = dumy, node = head;
-        boolean isDuplicate = false;
-        while (node.next != null) {
-            if (node.val == node.next.val) {
-                isDuplicate = true;
-                removeAfter(node);
-            } else {
-                if (isDuplicate) {
-                    node = removeAfter(prev);
-                    isDuplicate = false;
-                } else {
-                    prev = node;
-                    node = node.next;
-                }
-            }
-        }
+  public ListNode deleteDuplicates(ListNode head) {
+    if (head == null) {
+      return null;
+    }
+    ListNode dumy = new ListNode(0);
+    dumy.next = head;
+    ListNode prev = dumy, node = head;
+    boolean isDuplicate = false;
+    while (node.next != null) {
+      if (node.val == node.next.val) {
+        isDuplicate = true;
+        removeAfter(node);
+      } else {
         if (isDuplicate) {
-            removeAfter(prev);
+          node = removeAfter(prev);
+          isDuplicate = false;
+        } else {
+          prev = node;
+          node = node.next;
         }
-        return dumy.next;
+      }
     }
+    if (isDuplicate) {
+      removeAfter(prev);
+    }
+    return dumy.next;
+  }
 
-    private ListNode removeAfter(ListNode node) {
-        if (node.next == null) {
-            return node;
-        }
-        ListNode nodetoRemove = node.next;
-        node.next = nodetoRemove.next;
-        nodetoRemove.next = null;
-        return node.next;
+  private ListNode removeAfter(ListNode node) {
+    if (node.next == null) {
+      return node;
     }
+    ListNode nodetoRemove = node.next;
+    node.next = nodetoRemove.next;
+    nodetoRemove.next = null;
+    return node.next;
+  }
 }

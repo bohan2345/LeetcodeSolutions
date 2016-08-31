@@ -22,42 +22,43 @@ import java.util.List;
  * @author Bohan Zheng
  */
 public class MinimumAdjustmentCost {
-    /**
-     * f(i, j) denotes the minimum adjustment cost by adjust the ith element to value j
-     * f(i, j) = MIN(f(i - 1, k) + |j - A[i]|), |j - k| <= target
-     * @param A: An integer array.
-     * @param target: An integer.
-     */
-    public int MinAdjustmentCost(ArrayList<Integer> A, int target) {
-        int max = 0;
-        for (int n : A) {
-            max = Math.max(max, n);
-        }
-        int[][] f = new int[A.size()][max + 1];
-
-        for (int j = 0; j <= max; j++) {
-            f[0][j] = Math.abs(A.get(0) - j);
-        }
-        List<Integer> B = new ArrayList<>(A.size());
-        for (int i = 1; i < A.size(); i++) {
-            for (int j = 0; j <= max; j++) {
-                int minCost = Integer.MAX_VALUE;
-                for (int k = Math.max(j - target, 0); k <= j + target; k++) {
-                    if(k < 0 || k > max) {
-                        continue;
-                    }
-                    minCost = Math.min(f[i - 1][k] + Math.abs(j - A.get(i)), minCost);
-                }
-                f[i][j] = minCost;
-                //B.add(j);
-            }
-        }
-        int len = A.size();
-        int overAllMinCost = f[len - 1][0];
-        for (int j = 0; j <= max; j++) {
-            overAllMinCost = Math.min(overAllMinCost, f[len - 1][j]);
-        }
-        return overAllMinCost;
+  /**
+   * f(i, j) denotes the minimum adjustment cost by adjust the ith element to value j
+   * f(i, j) = MIN(f(i - 1, k) + |j - A[i]|), |j - k| <= target
+   *
+   * @param A:      An integer array.
+   * @param target: An integer.
+   */
+  public int MinAdjustmentCost(ArrayList<Integer> A, int target) {
+    int max = 0;
+    for (int n : A) {
+      max = Math.max(max, n);
     }
+    int[][] f = new int[A.size()][max + 1];
+
+    for (int j = 0; j <= max; j++) {
+      f[0][j] = Math.abs(A.get(0) - j);
+    }
+    List<Integer> B = new ArrayList<>(A.size());
+    for (int i = 1; i < A.size(); i++) {
+      for (int j = 0; j <= max; j++) {
+        int minCost = Integer.MAX_VALUE;
+        for (int k = Math.max(j - target, 0); k <= j + target; k++) {
+          if (k < 0 || k > max) {
+            continue;
+          }
+          minCost = Math.min(f[i - 1][k] + Math.abs(j - A.get(i)), minCost);
+        }
+        f[i][j] = minCost;
+        //B.add(j);
+      }
+    }
+    int len = A.size();
+    int overAllMinCost = f[len - 1][0];
+    for (int j = 0; j <= max; j++) {
+      overAllMinCost = Math.min(overAllMinCost, f[len - 1][j]);
+    }
+    return overAllMinCost;
+  }
 
 }

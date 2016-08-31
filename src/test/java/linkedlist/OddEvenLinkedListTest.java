@@ -13,10 +13,10 @@ import static org.junit.Assert.assertEquals;
  * @author Bohan Zheng
  */
 public class OddEvenLinkedListTest {
-    @Test
-    public void test() {
-        ListNode head = LinkedListUtils.constructLinkedList(1, 2, 3, 4, 5);
-        OddEvenLinkedList test = new OddEvenLinkedList();
-        assertEquals("1,3,5,2,4", LinkedListUtils.serialize(test.oddEvenList(head)));
-    }
+  @Test
+  public void test() {
+    ListNode head = LinkedListUtils.constructLinkedList(1, 2, 3, 4, 5);
+    OddEvenLinkedList test = new OddEvenLinkedList();
+    assertEquals("1,3,5,2,4", LinkedListUtils.serialize(test.oddEvenList(head)));
+  }
 }

@@ -17,41 +17,41 @@ import java.util.Set;
  * @author Bohan Zheng
  */
 public class ValidSudoku {
-    public boolean isValidSudoku(char[][] board) {
-        Map<Integer, Set<Character>> rowMap = buildMap();
-        Map<Integer, Set<Character>> columnMap = buildMap();
-        Map<Integer, Set<Character>> boxMap = buildMap();
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
-                char c = board[i][j];
-                if (c == '.') {
-                    continue;
-                }
-                if (rowMap.get(i).contains(c)) {
-                    return false;
-                } else {
-                    rowMap.get(i).add(c);
-                }
-                if (columnMap.get(j).contains(c)) {
-                    return false;
-                } else {
-                    columnMap.get(j).add(c);
-                }
-                if (boxMap.get((i / 3) * 3 + j / 3).contains(c)) {
-                    return false;
-                } else {
-                    boxMap.get((i / 3) * 3 + j / 3).add(c);
-                }
-            }
+  public boolean isValidSudoku(char[][] board) {
+    Map<Integer, Set<Character>> rowMap = buildMap();
+    Map<Integer, Set<Character>> columnMap = buildMap();
+    Map<Integer, Set<Character>> boxMap = buildMap();
+    for (int i = 0; i < 9; i++) {
+      for (int j = 0; j < 9; j++) {
+        char c = board[i][j];
+        if (c == '.') {
+          continue;
         }
-        return true;
+        if (rowMap.get(i).contains(c)) {
+          return false;
+        } else {
+          rowMap.get(i).add(c);
+        }
+        if (columnMap.get(j).contains(c)) {
+          return false;
+        } else {
+          columnMap.get(j).add(c);
+        }
+        if (boxMap.get((i / 3) * 3 + j / 3).contains(c)) {
+          return false;
+        } else {
+          boxMap.get((i / 3) * 3 + j / 3).add(c);
+        }
+      }
     }
+    return true;
+  }
 
-    private Map<Integer, Set<Character>> buildMap() {
-        Map<Integer, Set<Character>> map = new HashMap<>(9);
-        for (int i = 0; i < 9; i++) {
-            map.put(i, new HashSet<>());
-        }
-        return map;
+  private Map<Integer, Set<Character>> buildMap() {
+    Map<Integer, Set<Character>> map = new HashMap<>(9);
+    for (int i = 0; i < 9; i++) {
+      map.put(i, new HashSet<>());
     }
+    return map;
+  }
 }

@@ -11,9 +11,9 @@ import static org.junit.Assert.assertEquals;
  * @author Bohan Zheng
  */
 public class LengthOfLastWordTest {
-    @Test
-    public void test() {
-        LengthofLastWord test = new LengthofLastWord();
-        assertEquals(5, test.lengthOfLastWord("Hello World     "));
-    }
+  @Test
+  public void test() {
+    LengthofLastWord test = new LengthofLastWord();
+    assertEquals(5, test.lengthOfLastWord("Hello World     "));
+  }
 }

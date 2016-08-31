@@ -13,11 +13,11 @@ import static org.junit.Assert.assertEquals;
  * @author Bohan Zheng
  */
 public class ReorderListTest {
-    @Test
-    public void test() {
-        ReorderList test = new ReorderList();
-        ListNode head = LinkedListUtils.constructLinkedList(1, 2, 3, 4, 5);
-        test.reorderList(head);
-        assertEquals("1,5,2,4,3", LinkedListUtils.serialize(head));
-    }
+  @Test
+  public void test() {
+    ReorderList test = new ReorderList();
+    ListNode head = LinkedListUtils.constructLinkedList(1, 2, 3, 4, 5);
+    test.reorderList(head);
+    assertEquals("1,5,2,4,3", LinkedListUtils.serialize(head));
+  }
 }

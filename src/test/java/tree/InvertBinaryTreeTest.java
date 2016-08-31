@@ -17,12 +17,12 @@ import static org.junit.Assert.assertThat;
  * @author Bohan Zheng
  */
 public class InvertBinaryTreeTest {
-    @Test
-    public void test() {
-        InvertBinaryTree test = new InvertBinaryTree();
-        List<String> expected = Arrays.asList("2", "3", "1");
-        TreeNode root = BinaryTreeUtils.constructBinaryTree(2, 1, 3);
-        test.invertTree(root);
-        assertThat(BinaryTreeUtils.serializeBinaryTree(root), IsIterableContainingInOrder.contains(expected.toArray()));
-    }
+  @Test
+  public void test() {
+    InvertBinaryTree test = new InvertBinaryTree();
+    List<String> expected = Arrays.asList("2", "3", "1");
+    TreeNode root = BinaryTreeUtils.constructBinaryTree(2, 1, 3);
+    test.invertTree(root);
+    assertThat(BinaryTreeUtils.serializeBinaryTree(root), IsIterableContainingInOrder.contains(expected.toArray()));
+  }
 }

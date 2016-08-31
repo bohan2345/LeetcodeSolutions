@@ -32,40 +32,40 @@ import java.util.Set;
  * @author Bohan Zheng
  */
 public class WordLadder {
-    // use bfs to get the shortest distance
-    public int ladderLength(String beginWord, String endWord, Set<String> wordList) {
-        Queue<String> queue = new LinkedList<>();
-        queue.offer(beginWord);
-        int step = 1, cur = 1, next = 0;
-        while (!queue.isEmpty()) {
-            String str = queue.poll();
-            StringBuilder sb = new StringBuilder(str);
-            cur--;
-            for (int i = 0; i < sb.length(); i++) {
-                char originalChar = sb.charAt(i);
-                for (char c = 'a'; c <= 'z'; c++) {
-                    if (c == originalChar) {
-                        continue;
-                    }
-                    sb.setCharAt(i, c);
-                    String newStr = sb.toString();
-                    if (newStr.equals(endWord)) {
-                        return step + 1;
-                    }
-                    if (wordList.contains(newStr)) {
-                        queue.offer(newStr);
-                        wordList.remove(newStr);
-                        next++;
-                    }
-                }
-                sb.setCharAt(i, originalChar);
-            }
-            if (cur == 0) {
-                step++;
-                cur = next;
-                next = 0;
-            }
+  // use bfs to get the shortest distance
+  public int ladderLength(String beginWord, String endWord, Set<String> wordList) {
+    Queue<String> queue = new LinkedList<>();
+    queue.offer(beginWord);
+    int step = 1, cur = 1, next = 0;
+    while (!queue.isEmpty()) {
+      String str = queue.poll();
+      StringBuilder sb = new StringBuilder(str);
+      cur--;
+      for (int i = 0; i < sb.length(); i++) {
+        char originalChar = sb.charAt(i);
+        for (char c = 'a'; c <= 'z'; c++) {
+          if (c == originalChar) {
+            continue;
+          }
+          sb.setCharAt(i, c);
+          String newStr = sb.toString();
+          if (newStr.equals(endWord)) {
+            return step + 1;
+          }
+          if (wordList.contains(newStr)) {
+            queue.offer(newStr);
+            wordList.remove(newStr);
+            next++;
+          }
         }
-        return 0;
+        sb.setCharAt(i, originalChar);
+      }
+      if (cur == 0) {
+        step++;
+        cur = next;
+        next = 0;
+      }
     }
+    return 0;
+  }
 }

@@ -12,17 +12,17 @@ import utils.TreeNode;
  * @author Bohan Zheng
  */
 public class RangeSumBSTTest {
-    @Test
-    public void test() {
-        TreeNode root = BinaryTreeUtils.deserialize("4,2,6,1,3,5,7");
-        RangeSumBST test = new RangeSumBST();
-        Assert.assertEquals(13, test.rangeSum(root, 7, 6));
-    }
+  @Test
+  public void test() {
+    TreeNode root = BinaryTreeUtils.deserialize("4,2,6,1,3,5,7");
+    RangeSumBST test = new RangeSumBST();
+    Assert.assertEquals(13, test.rangeSum(root, 7, 6));
+  }
 
-    @Test
-    public void test2() {
-        TreeNode root = BinaryTreeUtils.deserialize("4,2,6,1,3,5,7");
-        RangeSumBST test = new RangeSumBST();
-        Assert.assertEquals(22, test.rangeSum(root, 7, 4));
-    }
+  @Test
+  public void test2() {
+    TreeNode root = BinaryTreeUtils.deserialize("4,2,6,1,3,5,7");
+    RangeSumBST test = new RangeSumBST();
+    Assert.assertEquals(22, test.rangeSum(root, 7, 4));
+  }
 }

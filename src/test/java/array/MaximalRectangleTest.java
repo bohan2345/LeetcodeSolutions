@@ -11,17 +11,17 @@ import static org.junit.Assert.assertEquals;
  * @author Bohan Zheng
  */
 public class MaximalRectangleTest {
-    MaximalRectangle test = new MaximalRectangle();
+  MaximalRectangle test = new MaximalRectangle();
 
-    @Test
-    public void test() {
-        char[][] matrix = {{'1', '0', '1', '0', '0'}, {'1', '0', '1', '1', '1'}, {'1', '1', '1', '1', '1'}, {'1', '0', '0', '1', '0'}};
-        assertEquals(6, test.maximalRectangle(matrix));
-    }
+  @Test
+  public void test() {
+    char[][] matrix = {{'1', '0', '1', '0', '0'}, {'1', '0', '1', '1', '1'}, {'1', '1', '1', '1', '1'}, {'1', '0', '0', '1', '0'}};
+    assertEquals(6, test.maximalRectangle(matrix));
+  }
 
-    @Test
-    public void test2() {
-        char[][] matrix = {{'0'}};
-        assertEquals(0, test.maximalRectangle(matrix));
-    }
+  @Test
+  public void test2() {
+    char[][] matrix = {{'0'}};
+    assertEquals(0, test.maximalRectangle(matrix));
+  }
 }

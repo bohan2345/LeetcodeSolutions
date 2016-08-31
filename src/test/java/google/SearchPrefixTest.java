@@ -13,12 +13,12 @@ import static org.junit.Assert.assertArrayEquals;
  * @author Bohan Zheng
  */
 public class SearchPrefixTest {
-    @Test
-    public void test() {
-        SearchPrefix test = new SearchPrefix();
-        String[] exptected = {"asdf", "asdg", "asdh"};
-        String[] strs = {"asdf", "asdg", "asdh", "asss", "fdsa", "dsfsf"};
-        Arrays.sort(strs);
-        assertArrayEquals(exptected, test.searchPrefix(strs, "asd"));
-    }
+  @Test
+  public void test() {
+    SearchPrefix test = new SearchPrefix();
+    String[] exptected = {"asdf", "asdg", "asdh"};
+    String[] strs = {"asdf", "asdg", "asdh", "asss", "fdsa", "dsfsf"};
+    Arrays.sort(strs);
+    assertArrayEquals(exptected, test.searchPrefix(strs, "asd"));
+  }
 }

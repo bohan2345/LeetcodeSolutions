@@ -1,11 +1,6 @@
 package string;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Given an array of strings, group anagrams together.
@@ -26,25 +21,25 @@ import java.util.Map;
  * @author Bohan Zheng
  */
 public class GroupAnagrams {
-    public List<List<String>> groupAnagrams(String[] strs) {
-        List<List<String>> res = new ArrayList<>();
-        Map<String, List<String>> map = new HashMap<>();
-        for (String s : strs) {
-            char[] chars = s.toCharArray();
-            Arrays.sort(chars);
-            String key = String.valueOf(chars);
-            if (map.containsKey(key)) {
-                map.get(key).add(s);
-            } else {
-                List<String> tmp = new ArrayList<>();
-                tmp.add(s);
-                map.put(key, tmp);
-            }
-        }
-        for (String key : map.keySet()) {
-            Collections.sort(map.get(key));
-            res.add(map.get(key));
-        }
-        return res;
+  public List<List<String>> groupAnagrams(String[] strs) {
+    List<List<String>> res = new ArrayList<>();
+    Map<String, List<String>> map = new HashMap<>();
+    for (String s : strs) {
+      char[] chars = s.toCharArray();
+      Arrays.sort(chars);
+      String key = String.valueOf(chars);
+      if (map.containsKey(key)) {
+        map.get(key).add(s);
+      } else {
+        List<String> tmp = new ArrayList<>();
+        tmp.add(s);
+        map.put(key, tmp);
+      }
     }
+    for (String key : map.keySet()) {
+      Collections.sort(map.get(key));
+      res.add(map.get(key));
+    }
+    return res;
+  }
 }

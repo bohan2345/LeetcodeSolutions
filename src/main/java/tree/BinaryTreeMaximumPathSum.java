@@ -21,20 +21,20 @@ import utils.TreeNode;
  * @author Bohan Zheng
  */
 public class BinaryTreeMaximumPathSum {
-    public int maxPathSum(TreeNode root) {
-        int[] max = {Integer.MIN_VALUE};
-        maxPathFromRoot(root, max);
-        return max[0];
-    }
+  public int maxPathSum(TreeNode root) {
+    int[] max = {Integer.MIN_VALUE};
+    maxPathFromRoot(root, max);
+    return max[0];
+  }
 
-    public int maxPathFromRoot(TreeNode root, int[] max) {
-        if (root == null) {
-            return 0;
-        }
-        int leftPath = Math.max(maxPathFromRoot(root.left, max), 0);
-        int rightPath = Math.max(maxPathFromRoot(root.right, max), 0);
-        max[0] = Math.max(max[0], root.val + leftPath + rightPath);
-
-        return Math.max(leftPath, rightPath) + root.val;
+  public int maxPathFromRoot(TreeNode root, int[] max) {
+    if (root == null) {
+      return 0;
     }
+    int leftPath = Math.max(maxPathFromRoot(root.left, max), 0);
+    int rightPath = Math.max(maxPathFromRoot(root.right, max), 0);
+    max[0] = Math.max(max[0], root.val + leftPath + rightPath);
+
+    return Math.max(leftPath, rightPath) + root.val;
+  }
 }

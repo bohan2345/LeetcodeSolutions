@@ -14,12 +14,12 @@ import static org.junit.Assert.assertThat;
  * @author Bohan Zheng
  */
 public class RecoverBinarySearchTreeTest {
-    @Test
-    public void test() {
-        RecoverBinarySearchTree test = new RecoverBinarySearchTree();
-        TreeNode root = BinaryTreeUtils.constructBinaryTree(1, 2, 3);
-        test.recoverTree(root);
+  @Test
+  public void test() {
+    RecoverBinarySearchTree test = new RecoverBinarySearchTree();
+    TreeNode root = BinaryTreeUtils.constructBinaryTree(1, 2, 3);
+    test.recoverTree(root);
 //        System.out.print(BinaryTreeUtils.serializeBinaryTree(root));
-        assertThat(BinaryTreeUtils.serializeBinaryTree(root), IsIterableContainingInOrder.contains("2", "1", "3"));
-    }
+    assertThat(BinaryTreeUtils.serializeBinaryTree(root), IsIterableContainingInOrder.contains("2", "1", "3"));
+  }
 }

@@ -1,10 +1,6 @@
 package google.dp;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Given a string s and a dictionary of words dict, add spaces in s to construct a sentence where each word is a valid dictionary word.
@@ -22,28 +18,28 @@ import java.util.Set;
  * @author Bohan Zheng
  */
 public class WordBreakII {
-    public List<String> wordBreakIII(String s, Set<String> dict) {
-        return search(s, dict, new HashMap<>());
-    }
+  public List<String> wordBreakII(String s, Set<String> dict) {
+    return search(s, dict, new HashMap<>());
+  }
 
-    private List<String> search(String s, Set<String> dict, Map<String, List<String>> cache) {
-        if (cache.containsKey(s)) return cache.get(s);
-        List<String> res = new ArrayList<>();
-        if (dict.contains(s)) {
-            res.add(s);
-        }
-        for (int i = 1; i < s.length(); i++) {
-            String sub = s.substring(i);
-            if (dict.contains(sub)) {
-                List<String> tmp = search(s.substring(0, i), dict, cache);
-                sub = " " + sub;
-                for (String tmpstr : tmp) {
-                    String str = tmpstr + sub;
-                    res.add(str);
-                }
-            }
-        }
-        cache.put(s, res);
-        return res;
+  private List<String> search(String s, Set<String> dict, Map<String, List<String>> cache) {
+    if (cache.containsKey(s)) return cache.get(s);
+    List<String> res = new ArrayList<>();
+    if (dict.contains(s)) {
+      res.add(s);
     }
+    for (int i = 1; i < s.length(); i++) {
+      String sub = s.substring(i);
+      if (dict.contains(sub)) {
+        List<String> tmp = search(s.substring(0, i), dict, cache);
+        sub = " " + sub;
+        for (String tmpstr : tmp) {
+          String str = tmpstr + sub;
+          res.add(str);
+        }
+      }
+    }
+    cache.put(s, res);
+    return res;
+  }
 }
