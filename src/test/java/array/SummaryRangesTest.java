@@ -15,12 +15,12 @@ import static org.junit.Assert.assertThat;
  * @author Bohan Zheng
  */
 public class SummaryRangesTest {
-  SummaryRanges test = new SummaryRanges();
+    SummaryRanges test = new SummaryRanges();
 
-  @Test
-  public void test() {
-    List<String> expected = Arrays.asList("0->2", "4->5", "7");
-    List<String> actual = test.summaryRanges(new int[]{0, 1, 2, 4, 5, 7});
-    assertThat(actual, IsIterableContainingInOrder.contains(expected.toArray()));
-  }
+    @Test
+    public void test() {
+        List<String> expected = Arrays.asList("0->2", "4->5", "7");
+        List<String> actual = test.summaryRanges(new int[]{0, 1, 2, 4, 5, 7});
+        assertThat(actual, IsIterableContainingInOrder.contains(expected.toArray()));
+    }
 }

@@ -13,24 +13,24 @@ import static org.junit.Assert.assertTrue;
  * @author Bohan Zheng
  */
 public class BalancedBinaryTreeTest {
-  @Test
-  public void test() {
-    BalancedBinaryTree test = new BalancedBinaryTree();
-    TreeNode root = BinaryTreeUtils.constructBinaryTree(1, 1, 1, 1, 1);
-    assertTrue(test.isBalanced(root));
-  }
+    @Test
+    public void test() {
+        BalancedBinaryTree test = new BalancedBinaryTree();
+        TreeNode root = BinaryTreeUtils.constructBinaryTree(1, 1, 1, 1, 1);
+        assertTrue(test.isBalanced(root));
+    }
 
-  @Test
-  public void test2() {
-    BalancedBinaryTree test = new BalancedBinaryTree();
-    TreeNode root = BinaryTreeUtils.constructBinaryTree(1);
-    assertTrue(test.isBalanced(root));
-  }
+    @Test
+    public void test2() {
+        BalancedBinaryTree test = new BalancedBinaryTree();
+        TreeNode root = BinaryTreeUtils.constructBinaryTree(1);
+        assertTrue(test.isBalanced(root));
+    }
 
-  @Test
-  public void test3() {
-    BalancedBinaryTree test = new BalancedBinaryTree();
-    TreeNode root = BinaryTreeUtils.constructBinaryTree(1, 1, 1, 1, 1, 0, 0, 1);
-    assertTrue(!test.isBalanced(root));
-  }
+    @Test
+    public void test3() {
+        BalancedBinaryTree test = new BalancedBinaryTree();
+        TreeNode root = BinaryTreeUtils.constructBinaryTree(1, 1, 1, 1, 1, 0, 0, 1);
+        assertTrue(!test.isBalanced(root));
+    }
 }

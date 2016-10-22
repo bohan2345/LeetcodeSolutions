@@ -11,9 +11,9 @@ import static org.junit.Assert.assertEquals;
  * @author Bohan Zheng
  */
 public class LongestSubstringWithTwoUniqueCharactersTest {
-  @Test
-  public void test() {
-    LongestSubstringWithTwoUniqueCharacters test = new LongestSubstringWithTwoUniqueCharacters();
-    assertEquals("ab", test.maxSubString2UniqueChars("ab"));
-  }
+    @Test
+    public void test() {
+        LongestSubstringWithTwoUniqueCharacters test = new LongestSubstringWithTwoUniqueCharacters();
+        assertEquals("ab", test.maxSubString2UniqueChars("ab"));
+    }
 }

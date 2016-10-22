@@ -7,15 +7,15 @@ package utils;
  * @author Bohan Zheng
  */
 public class ListNode {
-  public int val;
-  public ListNode next;
+    public int val;
+    public ListNode next;
 
-  public ListNode(int x) {
-    val = x;
-  }
+    public ListNode(int x) {
+        val = x;
+    }
 
-  @Override
-  public String toString() {
-    return Integer.toString(val);
-  }
+    @Override
+    public String toString() {
+        return Integer.toString(val);
+    }
 }

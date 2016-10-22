@@ -11,15 +11,15 @@ import static org.junit.Assert.assertTrue;
  * @author Bohan Zheng
  */
 public class FilpGameIITest {
-  @Test
-  public void test() {
-    FilpGameII test = new FilpGameII();
-    assertTrue(test.canWin("++++"));
-  }
+    @Test
+    public void test() {
+        FilpGameII test = new FilpGameII();
+        assertTrue(test.canWin("++++"));
+    }
 
-  @Test
-  public void test2() {
-    FilpGameII test = new FilpGameII();
-    assertTrue(test.canWin2("++++"));
-  }
+    @Test
+    public void test2() {
+        FilpGameII test = new FilpGameII();
+        assertTrue(test.canWin2("++++"));
+    }
 }

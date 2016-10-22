@@ -24,21 +24,21 @@ import java.util.List;
  * @author Bohan Zheng
  */
 public class Triangle {
-  public int minimumTotal(List<List<Integer>> triangle) {
-    List<Integer> minPathes = new ArrayList<>();
-    minPathes.add(triangle.get(0).get(0));
-    for (int i = 1; i < triangle.size(); i++) {
-      List<Integer> level = triangle.get(i);
-      List<Integer> tmp = new ArrayList<>(level.size());
-      for (int j = 1; j < level.size() - 1; j++) {
-        int tmpMin = Math.min(minPathes.get(j - 1), minPathes.get(j));
-        tmp.add(tmpMin + level.get(j));
-      }
-      tmp.add(0, level.get(0) + minPathes.get(0));
-      tmp.add(level.get(level.size() - 1) + minPathes.get(minPathes.size() - 1));
+    public int minimumTotal(List<List<Integer>> triangle) {
+        List<Integer> minPathes = new ArrayList<>();
+        minPathes.add(triangle.get(0).get(0));
+        for (int i = 1; i < triangle.size(); i++) {
+            List<Integer> level = triangle.get(i);
+            List<Integer> tmp = new ArrayList<>(level.size());
+            for (int j = 1; j < level.size() - 1; j++) {
+                int tmpMin = Math.min(minPathes.get(j - 1), minPathes.get(j));
+                tmp.add(tmpMin + level.get(j));
+            }
+            tmp.add(0, level.get(0) + minPathes.get(0));
+            tmp.add(level.get(level.size() - 1) + minPathes.get(minPathes.size() - 1));
 
-      minPathes = tmp;
+            minPathes = tmp;
+        }
+        return Collections.min(minPathes);
     }
-    return Collections.min(minPathes);
-  }
 }

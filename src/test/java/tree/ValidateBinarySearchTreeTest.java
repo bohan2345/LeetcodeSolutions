@@ -13,10 +13,10 @@ import static org.junit.Assert.assertTrue;
  * @author Bohan Zheng
  */
 public class ValidateBinarySearchTreeTest {
-  @Test
-  public void test() {
-    ValidateBinarySearchTree test = new ValidateBinarySearchTree();
-    TreeNode root = BinaryTreeUtils.constructBinaryTree(2, 1, 3);
-    assertTrue(test.isValidBST(root));
-  }
+    @Test
+    public void test() {
+        ValidateBinarySearchTree test = new ValidateBinarySearchTree();
+        TreeNode root = BinaryTreeUtils.constructBinaryTree(2, 1, 3);
+        assertTrue(test.isValidBST(root));
+    }
 }

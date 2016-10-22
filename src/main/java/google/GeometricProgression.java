@@ -7,29 +7,29 @@ package google;
  * @author Bohan Zheng
  */
 public class GeometricProgression {
-  public long sum(long n, int p) {
-    if (p == 0) {
-      return 1;
+    public long sum(long n, int p) {
+        if (p == 0) {
+            return 1;
+        }
+        if (p == 1) {
+            return n + 1;
+        }
+        if (p % 2 == 0) {
+            long temp = sum(n * n, (p - 2) / 2);
+            return 1 + temp * (n + n * n);
+        } else {
+            long temp = sum(n * n, (p - 1) / 2);
+            return temp * (1 + n);
+        }
     }
-    if (p == 1) {
-      return n + 1;
-    }
-    if (p % 2 == 0) {
-      long temp = sum(n * n, (p - 2) / 2);
-      return 1 + temp * (n + n * n);
-    } else {
-      long temp = sum(n * n, (p - 1) / 2);
-      return temp * (1 + n);
-    }
-  }
 
-  public long sumII(int n, int p) {
-    long x = 1;
-    long sum = 1;
-    for (int i = 1; i <= p; i++) {
-      x *= n;
-      sum += x;
+    public long sumII(int n, int p) {
+        long x = 1;
+        long sum = 1;
+        for (int i = 1; i <= p; i++) {
+            x *= n;
+            sum += x;
+        }
+        return sum;
     }
-    return sum;
-  }
 }

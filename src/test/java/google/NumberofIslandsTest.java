@@ -11,10 +11,11 @@ import static org.junit.Assert.assertEquals;
  * @author Bohan Zheng
  */
 public class NumberofIslandsTest {
-  @Test
-  public void test() {
-    NumberofIslands test = new NumberofIslands();
-    char[][] gird = {{'1', '1', '1', '1', '0'}, {'1', '1', '0', '1', '0'}, {'1', '1', '0', '0', '0'}, {'0', '0', '0', '0', '0'}};
-    assertEquals(1, test.numIslands(gird));
-  }
+    @Test
+    public void test() {
+        NumberofIslands test = new NumberofIslands();
+        char[][] gird = {{'1', '1', '1', '1', '0'}, {'1', '1', '0', '1', '0'}, {'1', '1', '0', '0', '0'},
+                {'0', '0', '0', '0', '0'}};
+        assertEquals(1, test.numIslands(gird));
+    }
 }

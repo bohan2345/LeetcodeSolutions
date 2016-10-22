@@ -11,27 +11,27 @@ import static org.junit.Assert.assertTrue;
  * @author Bohan Zheng
  */
 public class ValidPalindromeTest {
-  @Test
-  public void test() {
-    ValidPalindrome test = new ValidPalindrome();
-    assertTrue(test.isPalindrome("A man, a plan, a canal: Panama"));
-  }
+    @Test
+    public void test() {
+        ValidPalindrome test = new ValidPalindrome();
+        assertTrue(test.isPalindrome("A man, a plan, a canal: Panama"));
+    }
 
-  @Test
-  public void test2() {
-    ValidPalindrome test = new ValidPalindrome();
-    assertTrue(test.isPalindrome("...A man, a plan, a canal: Panama"));
-  }
+    @Test
+    public void test2() {
+        ValidPalindrome test = new ValidPalindrome();
+        assertTrue(test.isPalindrome("...A man, a plan, a canal: Panama"));
+    }
 
-  @Test
-  public void test3() {
-    ValidPalindrome test = new ValidPalindrome();
-    assertTrue(test.isPalindrome("."));
-  }
+    @Test
+    public void test3() {
+        ValidPalindrome test = new ValidPalindrome();
+        assertTrue(test.isPalindrome("."));
+    }
 
-  @Test
-  public void test4() {
-    ValidPalindrome test = new ValidPalindrome();
-    assertTrue(test.isPalindrome("aaa"));
-  }
+    @Test
+    public void test4() {
+        ValidPalindrome test = new ValidPalindrome();
+        assertTrue(test.isPalindrome("aaa"));
+    }
 }

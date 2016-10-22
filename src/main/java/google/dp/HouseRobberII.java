@@ -15,32 +15,32 @@ package google.dp;
  * @author Bohan Zheng
  */
 public class HouseRobberII {
-  /**
-   * @param nums: An array of non-negative integers.
-   *              return: The maximum amount of money you can rob tonight
-   */
-  public int rob(int[] nums) {
-    if (nums == null || nums.length == 0) {
-      return 0;
+    /**
+     * @param nums: An array of non-negative integers.
+     *              return: The maximum amount of money you can rob tonight
+     */
+    public int rob(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        int lastlast = nums[0];
+        if (nums.length == 1) {
+            return lastlast;
+        }
+        int last = Math.max(lastlast, nums[1]);
+        for (int i = 2; i < nums.length - 1; i++) {
+            int cur = Math.max(nums[i] + lastlast, last);
+            lastlast = last;
+            last = cur;
+        }
+        int max = last;
+        lastlast = nums[nums.length - 1];
+        last = Math.max(lastlast, nums[nums.length - 2]);
+        for (int i = nums.length - 3; i > 0; i--) {
+            int cur = Math.max(nums[i] + lastlast, last);
+            lastlast = last;
+            last = cur;
+        }
+        return Math.max(max, last);
     }
-    int lastlast = nums[0];
-    if (nums.length == 1) {
-      return lastlast;
-    }
-    int last = Math.max(lastlast, nums[1]);
-    for (int i = 2; i < nums.length - 1; i++) {
-      int cur = Math.max(nums[i] + lastlast, last);
-      lastlast = last;
-      last = cur;
-    }
-    int max = last;
-    lastlast = nums[nums.length - 1];
-    last = Math.max(lastlast, nums[nums.length - 2]);
-    for (int i = nums.length - 3; i > 0; i--) {
-      int cur = Math.max(nums[i] + lastlast, last);
-      lastlast = last;
-      last = cur;
-    }
-    return Math.max(max, last);
-  }
 }

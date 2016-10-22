@@ -16,27 +16,27 @@ package google.dp;
  * @author Bohan Zheng
  */
 public class HouseRobber {
-  /**
-   * f(i) = Max(f(i - 1),             not rob
-   * #      f(i - 2) + nums[i]),      rob
-   *
-   * @param nums: An array of non-negative integers.
-   *              return: The maximum amount of money you can rob tonight
-   */
-  public int rob(int[] nums) {
-    if (nums == null || nums.length == 0) {
-      return 0;
+    /**
+     * f(i) = Max(f(i - 1),             not rob
+     * #      f(i - 2) + nums[i]),      rob
+     *
+     * @param nums: An array of non-negative integers.
+     *              return: The maximum amount of money you can rob tonight
+     */
+    public int rob(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        int lastlast = nums[0];
+        if (nums.length == 1) {
+            return lastlast;
+        }
+        int last = Math.max(lastlast, nums[1]);
+        for (int i = 2; i < nums.length; i++) {
+            int cur = Math.max(nums[i] + lastlast, last);
+            lastlast = last;
+            last = cur;
+        }
+        return last;
     }
-    int lastlast = nums[0];
-    if (nums.length == 1) {
-      return lastlast;
-    }
-    int last = Math.max(lastlast, nums[1]);
-    for (int i = 2; i < nums.length; i++) {
-      int cur = Math.max(nums[i] + lastlast, last);
-      lastlast = last;
-      last = cur;
-    }
-    return last;
-  }
 }

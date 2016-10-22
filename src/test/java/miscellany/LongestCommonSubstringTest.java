@@ -15,12 +15,12 @@ import static org.junit.Assert.assertThat;
  * @author Bohan Zheng
  */
 public class LongestCommonSubstringTest {
-  @Test
-  public void test() {
-    LongestCommonSubstring test = new LongestCommonSubstring();
-    List<String> expected = new ArrayList<>();
-    expected.add("aba");
-    expected.add("bab");
-    assertThat(test.commonSubstring("ababd", "tbaba"), IsIterableContainingInAnyOrder.containsInAnyOrder(expected.toArray()));
-  }
+    @Test
+    public void test() {
+        LongestCommonSubstring test = new LongestCommonSubstring();
+        List<String> expected = new ArrayList<>();
+        expected.add("aba");
+        expected.add("bab");
+        assertThat(test.commonSubstring("ababd", "tbaba"), IsIterableContainingInAnyOrder.containsInAnyOrder(expected.toArray()));
+    }
 }

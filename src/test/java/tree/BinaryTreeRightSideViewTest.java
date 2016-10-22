@@ -14,17 +14,17 @@ import static org.junit.Assert.assertThat;
  * @author Bohan Zheng
  */
 public class BinaryTreeRightSideViewTest {
-  @Test
-  public void test() {
-    BinaryTreeRightSideView test = new BinaryTreeRightSideView();
-    TreeNode root = BinaryTreeUtils.constructBinaryTree(1, 2, 3, 5);
-    assertThat(test.rightSideView(root), IsIterableContainingInOrder.contains(1, 3, 5));
-  }
+    @Test
+    public void test() {
+        BinaryTreeRightSideView test = new BinaryTreeRightSideView();
+        TreeNode root = BinaryTreeUtils.constructBinaryTree(1, 2, 3, 5);
+        assertThat(test.rightSideView(root), IsIterableContainingInOrder.contains(1, 3, 5));
+    }
 
-  @Test
-  public void testDFS() {
-    BinaryTreeRightSideView test = new BinaryTreeRightSideView();
-    TreeNode root = BinaryTreeUtils.constructBinaryTree(1, 2, 3, 5);
-    assertThat(test.rightSideView2(root), IsIterableContainingInOrder.contains(1, 3, 5));
-  }
+    @Test
+    public void testDFS() {
+        BinaryTreeRightSideView test = new BinaryTreeRightSideView();
+        TreeNode root = BinaryTreeUtils.constructBinaryTree(1, 2, 3, 5);
+        assertThat(test.rightSideView2(root), IsIterableContainingInOrder.contains(1, 3, 5));
+    }
 }

@@ -29,25 +29,25 @@ import java.util.List;
  * @author Bohan Zheng
  */
 public class SubsetsII {
-  public List<List<Integer>> subsetsWithDup(int[] nums) {
-    Arrays.sort(nums);
-    List<List<Integer>> res = new ArrayList<>();
-    dfsHelper(res, new ArrayList<>(), 0, nums);
-    return res;
-  }
+    public List<List<Integer>> subsetsWithDup(int[] nums) {
+        Arrays.sort(nums);
+        List<List<Integer>> res = new ArrayList<>();
+        dfsHelper(res, new ArrayList<>(), 0, nums);
+        return res;
+    }
 
-  public void dfsHelper(List<List<Integer>> res, List<Integer> tmp, int i, int[] nums) {
-    res.add(new ArrayList<>(tmp));
-    if (i >= nums.length) {
-      return;
+    public void dfsHelper(List<List<Integer>> res, List<Integer> tmp, int i, int[] nums) {
+        res.add(new ArrayList<>(tmp));
+        if (i >= nums.length) {
+            return;
+        }
+        for (; i < nums.length; i++) {
+            tmp.add(nums[i]);
+            dfsHelper(res, tmp, i + 1, nums);
+            int previous = tmp.remove(tmp.size() - 1);
+            while (i + 1 < nums.length && nums[i + 1] == previous) {
+                i++;
+            }
+        }
     }
-    for (; i < nums.length; i++) {
-      tmp.add(nums[i]);
-      dfsHelper(res, tmp, i + 1, nums);
-      int previous = tmp.remove(tmp.size() - 1);
-      while (i + 1 < nums.length && nums[i + 1] == previous) {
-        i++;
-      }
-    }
-  }
 }

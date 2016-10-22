@@ -13,10 +13,10 @@ import static org.junit.Assert.assertEquals;
  * @author Bohan Zheng
  */
 public class PartitionListTest {
-  @Test
-  public void test() {
-    PartitionList test = new PartitionList();
-    ListNode head = LinkedListUtils.constructLinkedList(5, 4, 3, 2, 1);
-    assertEquals("2,1,5,4,3", LinkedListUtils.serialize(test.partition(head, 3)));
-  }
+    @Test
+    public void test() {
+        PartitionList test = new PartitionList();
+        ListNode head = LinkedListUtils.constructLinkedList(5, 4, 3, 2, 1);
+        assertEquals("2,1,5,4,3", LinkedListUtils.serialize(test.partition(head, 3)));
+    }
 }

@@ -10,18 +10,18 @@ import java.util.List;
  * @author Bohan Zheng
  */
 public class GraphNode {
-  public int value;
-  public List<GraphNode> adjcents;
+    public int value;
+    public List<GraphNode> adjcents;
 
-  public GraphNode(int value) {
-    this.value = value;
-    adjcents = new ArrayList<>();
-  }
+    public GraphNode(int value) {
+        this.value = value;
+        adjcents = new ArrayList<>();
+    }
 
-  @Override
-  public String toString() {
-    return "GraphNode{" +
-        "value=" + value +
-        '}';
-  }
+    @Override
+    public String toString() {
+        return "GraphNode{" +
+                "value=" + value +
+                '}';
+    }
 }

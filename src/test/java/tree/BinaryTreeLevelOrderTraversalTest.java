@@ -18,14 +18,14 @@ import static org.junit.Assert.assertThat;
  * @author Bohan Zheng
  */
 public class BinaryTreeLevelOrderTraversalTest {
-  @Test
-  public void test() {
-    BinaryTreeLevelOrderTraversal test = new BinaryTreeLevelOrderTraversal();
-    TreeNode root = BinaryTreeUtils.constructBinaryTree(3, 9, 20, 0, 0, 15, 7);
-    List<List<Integer>> expected = new ArrayList<>();
-    expected.add(Arrays.asList(3));
-    expected.add(Arrays.asList(9, 20));
-    expected.add(Arrays.asList(15, 7));
-    assertThat(test.levelOrder(root), IsIterableContainingInOrder.contains(expected.toArray()));
-  }
+    @Test
+    public void test() {
+        BinaryTreeLevelOrderTraversal test = new BinaryTreeLevelOrderTraversal();
+        TreeNode root = BinaryTreeUtils.constructBinaryTree(3, 9, 20, 0, 0, 15, 7);
+        List<List<Integer>> expected = new ArrayList<>();
+        expected.add(Arrays.asList(3));
+        expected.add(Arrays.asList(9, 20));
+        expected.add(Arrays.asList(15, 7));
+        assertThat(test.levelOrder(root), IsIterableContainingInOrder.contains(expected.toArray()));
+    }
 }

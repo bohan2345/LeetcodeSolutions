@@ -14,37 +14,37 @@ import java.util.Map;
  * @author Bohan Zheng
  */
 public class LongestSubstringWithKUniqueCharacters {
-  public String longestSubstring(String str, int k) {
-    Map<Character, Integer> map = new HashMap<>();
-    int left = 0, right = 0;
-    int maxLength = 0, a = 0, b = 0;
-    while (right < str.length()) {
-      if (map.keySet().size() > k) {
-        //moveLeft
-        char c = str.charAt(left);
-        int count = map.get(c) - 1;
-        if (count == 0) {
-          map.remove(c);
-        } else {
-          map.put(c, count);
+    public String longestSubstring(String str, int k) {
+        Map<Character, Integer> map = new HashMap<>();
+        int left = 0, right = 0;
+        int maxLength = 0, a = 0, b = 0;
+        while (right < str.length()) {
+            if (map.keySet().size() > k) {
+                //moveLeft
+                char c = str.charAt(left);
+                int count = map.get(c) - 1;
+                if (count == 0) {
+                    map.remove(c);
+                } else {
+                    map.put(c, count);
+                }
+                left++;
+            } else {
+                //moveRight
+                char c = str.charAt(right);
+                if (map.containsKey(c)) {
+                    map.put(c, map.get(c) + 1);
+                } else {
+                    map.put(c, 1);
+                }
+                if (maxLength < right - left) {
+                    maxLength = right - left;
+                    a = right;
+                    b = left;
+                }
+                right++;
+            }
         }
-        left++;
-      } else {
-        //moveRight
-        char c = str.charAt(right);
-        if (map.containsKey(c)) {
-          map.put(c, map.get(c) + 1);
-        } else {
-          map.put(c, 1);
-        }
-        if (maxLength < right - left) {
-          maxLength = right - left;
-          a = right;
-          b = left;
-        }
-        right++;
-      }
+        return str.substring(b, a);
     }
-    return str.substring(b, a);
-  }
 }

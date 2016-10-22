@@ -11,24 +11,24 @@ import static org.junit.Assert.assertArrayEquals;
  * @author Bohan Zheng
  */
 public class SpiralMatrixIITest {
-  @Test
-  public void test() {
-    SpiralMatrixII test = new SpiralMatrixII();
-    int[][] expected = {{1, 2, 3}, {8, 9, 4}, {7, 6, 5}};
-    assertArrayEquals(expected, test.generateMatrix(3));
-  }
+    @Test
+    public void test() {
+        SpiralMatrixII test = new SpiralMatrixII();
+        int[][] expected = {{1, 2, 3}, {8, 9, 4}, {7, 6, 5}};
+        assertArrayEquals(expected, test.generateMatrix(3));
+    }
 
-  @Test
-  public void test2() {
-    SpiralMatrixII test = new SpiralMatrixII();
-    int[][] expected = {{1}};
-    assertArrayEquals(expected, test.generateMatrix(1));
-  }
+    @Test
+    public void test2() {
+        SpiralMatrixII test = new SpiralMatrixII();
+        int[][] expected = {{1}};
+        assertArrayEquals(expected, test.generateMatrix(1));
+    }
 
-  @Test
-  public void test3() {
-    SpiralMatrixII test = new SpiralMatrixII();
-    int[][] expected = {};
-    assertArrayEquals(expected, test.generateMatrix(0));
-  }
+    @Test
+    public void test3() {
+        SpiralMatrixII test = new SpiralMatrixII();
+        int[][] expected = {};
+        assertArrayEquals(expected, test.generateMatrix(0));
+    }
 }

@@ -16,7 +16,7 @@ package google;
  * @author Bohan Zheng
  */
 public class FractiontoRecurringDecimal {
-  public String fractionToDecimal(int numerator, int denominator) {
-    return new math.FractiontoRecurringDecimal().fractionToDecimal(numerator, denominator);
-  }
+    public String fractionToDecimal(int numerator, int denominator) {
+        return new math.FractiontoRecurringDecimal().fractionToDecimal(numerator, denominator);
+    }
 }

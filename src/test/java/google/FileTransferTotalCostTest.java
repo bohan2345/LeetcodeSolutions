@@ -11,9 +11,9 @@ import static org.junit.Assert.assertEquals;
  * @author Bohan Zheng
  */
 public class FileTransferTotalCostTest {
-  @Test
-  public void test() {
-    FileTransferTotalCost test = new FileTransferTotalCost();
-    assertEquals(11, test.totalCost(new int[][]{{1, 2}, {3, 4}}));
-  }
+    @Test
+    public void test() {
+        FileTransferTotalCost test = new FileTransferTotalCost();
+        assertEquals(11, test.totalCost(new int[][]{{1, 2}, {3, 4}}));
+    }
 }

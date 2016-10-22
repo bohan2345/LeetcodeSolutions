@@ -12,29 +12,29 @@ import java.util.List;
  * @author Bohan Zheng
  */
 public class SummaryRanges {
-  public List<String> summaryRanges(int[] nums) {
-    List<String> res = new ArrayList<>();
-    if (nums.length == 0) {
-      return res;
-    }
-    int start = nums[0], end = nums[0];
-    int count = nums[0] + 1;
-    for (int i = 1; i < nums.length; i++) {
-      if (count == nums[i]) {
-        end++;
-      } else {
+    public List<String> summaryRanges(int[] nums) {
+        List<String> res = new ArrayList<>();
+        if (nums.length == 0) {
+            return res;
+        }
+        int start = nums[0], end = nums[0];
+        int count = nums[0] + 1;
+        for (int i = 1; i < nums.length; i++) {
+            if (count == nums[i]) {
+                end++;
+            } else {
+                res.add(generateRangeStr(start, end));
+                start = nums[i];
+                end = nums[i];
+                count = nums[i];
+            }
+            count++;
+        }
         res.add(generateRangeStr(start, end));
-        start = nums[i];
-        end = nums[i];
-        count = nums[i];
-      }
-      count++;
+        return res;
     }
-    res.add(generateRangeStr(start, end));
-    return res;
-  }
 
-  private String generateRangeStr(int start, int end) {
-    return start == end ? Integer.toString(start) : Integer.toString(start) + "->" + Integer.toString(end);
-  }
+    private String generateRangeStr(int start, int end) {
+        return start == end ? Integer.toString(start) : Integer.toString(start) + "->" + Integer.toString(end);
+    }
 }

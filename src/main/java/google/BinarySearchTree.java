@@ -7,7 +7,7 @@ package google;
  * @author Bohan Zheng
  */
 public interface BinarySearchTree {
-  void insert(int val);
+    void insert(int val);
 
-  void delete(int val);
+    void delete(int val);
 }

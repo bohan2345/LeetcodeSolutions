@@ -10,16 +10,16 @@ import java.util.Set;
  * @author Bohan Zheng
  */
 public class FirstDuplicateNumber {
-  public int firstDuplicate(int[] nums) {
-    Set<Integer> set = new HashSet<>(nums.length);
-    int res = nums.length - 1;
-    for (int i = nums.length - 1; i >= 0; i--) {
-      if (set.contains(nums[i])) {
-        res = nums[i];
-      } else {
-        set.add(nums[i]);
-      }
+    public int firstDuplicate(int[] nums) {
+        Set<Integer> set = new HashSet<>(nums.length);
+        int res = nums.length - 1;
+        for (int i = nums.length - 1; i >= 0; i--) {
+            if (set.contains(nums[i])) {
+                res = nums[i];
+            } else {
+                set.add(nums[i]);
+            }
+        }
+        return res;
     }
-    return res;
-  }
 }

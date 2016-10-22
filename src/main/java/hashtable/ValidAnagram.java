@@ -21,48 +21,48 @@ import java.util.Map;
  * @author Bohan Zheng
  */
 public class ValidAnagram {
-  public boolean isAnagram(String s, String t) {
-    if (s.length() != t.length()) {
-      return false;
-    }
-    Map<Character, Integer> map = new HashMap<>();
-    for (int i = 0; i < s.length(); i++) {
-      char c = s.charAt(i);
-      if (map.containsKey(c)) {
-        map.put(c, map.get(c) + 1);
-      } else {
-        map.put(c, 1);
-      }
-    }
-    for (int i = 0; i < t.length(); i++) {
-      char c = t.charAt(i);
-      if (map.containsKey(c)) {
-        int count = map.get(c) - 1;
-        if (count == 0) {
-          map.remove(c);
-        } else {
-          map.put(c, count);
+    public boolean isAnagram(String s, String t) {
+        if (s.length() != t.length()) {
+            return false;
         }
-      } else {
-        return false;
-      }
+        Map<Character, Integer> map = new HashMap<>();
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (map.containsKey(c)) {
+                map.put(c, map.get(c) + 1);
+            } else {
+                map.put(c, 1);
+            }
+        }
+        for (int i = 0; i < t.length(); i++) {
+            char c = t.charAt(i);
+            if (map.containsKey(c)) {
+                int count = map.get(c) - 1;
+                if (count == 0) {
+                    map.remove(c);
+                } else {
+                    map.put(c, count);
+                }
+            } else {
+                return false;
+            }
+        }
+        return true;
     }
-    return true;
-  }
 
-  public boolean isAnagram2(String s, String t) {
-    if (s.length() != t.length())
-      return false;
-    char[] cs = s.toCharArray();
-    char[] ct = t.toCharArray();
-    int[] map = new int[26];
-    int count = 0;
-    for (int i = 0; i < cs.length; i++) {
-      if (++map[cs[i] - 'a'] == 1)
-        count++;
-      if (--map[ct[i] - 'a'] == 0)
-        count--;
+    public boolean isAnagram2(String s, String t) {
+        if (s.length() != t.length())
+            return false;
+        char[] cs = s.toCharArray();
+        char[] ct = t.toCharArray();
+        int[] map = new int[26];
+        int count = 0;
+        for (int i = 0; i < cs.length; i++) {
+            if (++map[cs[i] - 'a'] == 1)
+                count++;
+            if (--map[ct[i] - 'a'] == 0)
+                count--;
+        }
+        return count == 0;
     }
-    return count == 0;
-  }
 }

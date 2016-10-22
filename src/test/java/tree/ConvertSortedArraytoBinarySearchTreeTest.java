@@ -12,12 +12,12 @@ import static org.junit.Assert.assertTrue;
  * @author Bohan Zheng
  */
 public class ConvertSortedArraytoBinarySearchTreeTest {
-  @Test
-  public void test() {
-    ConvertSortedArraytoBinarySearchTree test = new ConvertSortedArraytoBinarySearchTree();
-    int[] array = new int[]{1, 2, 3, 4, 5};
-    TreeNode root = test.sortedArrayToBST(array);
-    ValidateBinarySearchTree validator = new ValidateBinarySearchTree();
-    assertTrue(validator.isValidBST(root));
-  }
+    @Test
+    public void test() {
+        ConvertSortedArraytoBinarySearchTree test = new ConvertSortedArraytoBinarySearchTree();
+        int[] array = new int[]{1, 2, 3, 4, 5};
+        TreeNode root = test.sortedArrayToBST(array);
+        ValidateBinarySearchTree validator = new ValidateBinarySearchTree();
+        assertTrue(validator.isValidBST(root));
+    }
 }

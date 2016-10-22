@@ -11,10 +11,10 @@ import static org.junit.Assert.assertEquals;
  * @author Bohan Zheng
  */
 public class BackpackTest {
-  @Test
-  public void test() {
-    Backpack test = new Backpack();
-    int[] A = {2, 3, 4, 5};
-    assertEquals(10, test.backPack(10, A));
-  }
+    @Test
+    public void test() {
+        Backpack test = new Backpack();
+        int[] A = {2, 3, 4, 5};
+        assertEquals(10, test.backPack(10, A));
+    }
 }

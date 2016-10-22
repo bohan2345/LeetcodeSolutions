@@ -11,11 +11,11 @@ import static org.junit.Assert.assertEquals;
  * @author Bohan Zheng
  */
 public class MissingNumberTest {
-  MissingNumber test = new MissingNumber();
+    MissingNumber test = new MissingNumber();
 
-  @Test
-  public void test() {
-    int actural = test.missingNumber(new int[]{4, 0, 1, 2});
-    assertEquals(3, actural);
-  }
+    @Test
+    public void test() {
+        int actural = test.missingNumber(new int[]{4, 0, 1, 2});
+        assertEquals(3, actural);
+    }
 }

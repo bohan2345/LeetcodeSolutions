@@ -18,14 +18,14 @@ import static org.junit.Assert.assertThat;
  * @author Bohan Zheng
  */
 public class BinaryTreeZigzagLevelOrderTraversalTest {
-  @Test
-  public void test() {
-    BinaryTreeZigzagLevelOrderTraversal test = new BinaryTreeZigzagLevelOrderTraversal();
-    TreeNode root = BinaryTreeUtils.constructBinaryTree(1, 2, 3, 4, 5, 6, 7);
-    List<List<Integer>> expected = new ArrayList<>();
-    expected.add(Arrays.asList(1));
-    expected.add(Arrays.asList(3, 2));
-    expected.add(Arrays.asList(4, 5, 6, 7));
-    assertThat(test.zigzagLevelOrder(root), IsIterableContainingInOrder.contains(expected.toArray()));
-  }
+    @Test
+    public void test() {
+        BinaryTreeZigzagLevelOrderTraversal test = new BinaryTreeZigzagLevelOrderTraversal();
+        TreeNode root = BinaryTreeUtils.constructBinaryTree(1, 2, 3, 4, 5, 6, 7);
+        List<List<Integer>> expected = new ArrayList<>();
+        expected.add(Arrays.asList(1));
+        expected.add(Arrays.asList(3, 2));
+        expected.add(Arrays.asList(4, 5, 6, 7));
+        assertThat(test.zigzagLevelOrder(root), IsIterableContainingInOrder.contains(expected.toArray()));
+    }
 }

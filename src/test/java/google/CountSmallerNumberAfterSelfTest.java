@@ -11,11 +11,11 @@ import static org.junit.Assert.assertArrayEquals;
  * @author Bohan Zheng
  */
 public class CountSmallerNumberAfterSelfTest {
-  @Test
-  public void test() {
-    CountSmallerNumberAfterSelf test = new CountSmallerNumberAfterSelf();
-    int[] nums = {5, 2, 6, 1};
-    int[] expected = {2, 1, 1, 0};
-    assertArrayEquals(expected, test.count(nums));
-  }
+    @Test
+    public void test() {
+        CountSmallerNumberAfterSelf test = new CountSmallerNumberAfterSelf();
+        int[] nums = {5, 2, 6, 1};
+        int[] expected = {2, 1, 1, 0};
+        assertArrayEquals(expected, test.count(nums));
+    }
 }

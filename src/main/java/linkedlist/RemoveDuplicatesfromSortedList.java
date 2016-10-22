@@ -14,27 +14,27 @@ import utils.ListNode;
  * @author Bohan Zheng
  */
 public class RemoveDuplicatesfromSortedList {
-  public ListNode deleteDuplicates(ListNode head) {
-    if (head == null) {
-      return null;
+    public ListNode deleteDuplicates(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+        ListNode node = head;
+        while (node.next != null) {
+            if (node.val == node.next.val) {
+                removeAfter(node);
+            } else {
+                node = node.next;
+            }
+        }
+        return head;
     }
-    ListNode node = head;
-    while (node.next != null) {
-      if (node.val == node.next.val) {
-        removeAfter(node);
-      } else {
-        node = node.next;
-      }
-    }
-    return head;
-  }
 
-  private void removeAfter(ListNode node) {
-    if (node.next == null) {
-      return;
+    private void removeAfter(ListNode node) {
+        if (node.next == null) {
+            return;
+        }
+        ListNode nodeToRemove = node.next;
+        node.next = nodeToRemove.next;
+        nodeToRemove.next = null;
     }
-    ListNode nodeToRemove = node.next;
-    node.next = nodeToRemove.next;
-    nodeToRemove.next = null;
-  }
 }

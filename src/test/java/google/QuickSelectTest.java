@@ -10,24 +10,24 @@ import org.junit.Test;
  * @author Bohan Zheng
  */
 public class QuickSelectTest {
-  @Test
-  public void test() {
-    QuickSelect test = new QuickSelect();
-    int[] nums = {5, 3, 2, 1, 4};
-    Assert.assertEquals(3, test.quickSelect(nums, 3));
-  }
+    @Test
+    public void test() {
+        QuickSelect test = new QuickSelect();
+        int[] nums = {5, 3, 2, 1, 4};
+        Assert.assertEquals(3, test.quickSelect(nums, 3));
+    }
 
-  @Test
-  public void test2() {
-    QuickSelect test = new QuickSelect();
-    int[] nums = {5, 3, 2, 1, 4};
-    Assert.assertEquals(1, test.quickSelect(nums, 1));
-  }
+    @Test
+    public void test2() {
+        QuickSelect test = new QuickSelect();
+        int[] nums = {5, 3, 2, 1, 4};
+        Assert.assertEquals(1, test.quickSelect(nums, 1));
+    }
 
-  @Test
-  public void test3() {
-    QuickSelect test = new QuickSelect();
-    int[] nums = {5, 3, 2, 1, 4};
-    Assert.assertEquals(5, test.quickSelect(nums, 5));
-  }
+    @Test
+    public void test3() {
+        QuickSelect test = new QuickSelect();
+        int[] nums = {5, 3, 2, 1, 4};
+        Assert.assertEquals(5, test.quickSelect(nums, 5));
+    }
 }

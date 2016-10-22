@@ -17,17 +17,17 @@ import static org.junit.Assert.assertThat;
  * @author Bohan Zheng
  */
 public class PascalsTriangleTest {
-  PascalsTriangle test = new PascalsTriangle();
+    PascalsTriangle test = new PascalsTriangle();
 
-  @Test
-  public void test() {
-    List<List<Integer>> expected = new ArrayList<>(5);
-    expected.add(Arrays.asList(1));
-    expected.add(Arrays.asList(1, 1));
-    expected.add(Arrays.asList(1, 2, 1));
-    expected.add(Arrays.asList(1, 3, 3, 1));
-    expected.add(Arrays.asList(1, 4, 6, 4, 1));
-    assertEquals(0, 0);
-    assertThat(test.generate(5), IsIterableContainingInOrder.contains(expected.toArray()));
-  }
+    @Test
+    public void test() {
+        List<List<Integer>> expected = new ArrayList<>(5);
+        expected.add(Arrays.asList(1));
+        expected.add(Arrays.asList(1, 1));
+        expected.add(Arrays.asList(1, 2, 1));
+        expected.add(Arrays.asList(1, 3, 3, 1));
+        expected.add(Arrays.asList(1, 4, 6, 4, 1));
+        assertEquals(0, 0);
+        assertThat(test.generate(5), IsIterableContainingInOrder.contains(expected.toArray()));
+    }
 }

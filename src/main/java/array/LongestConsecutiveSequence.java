@@ -15,28 +15,28 @@ import java.util.Set;
  * @author Bohan Zheng
  */
 public class LongestConsecutiveSequence {
-  public int longestConsecutive(int[] nums) {
-    Set<Integer> set = new HashSet<>(nums.length);
-    for (int n : nums) {
-      set.add(n);
+    public int longestConsecutive(int[] nums) {
+        Set<Integer> set = new HashSet<>(nums.length);
+        for (int n : nums) {
+            set.add(n);
+        }
+        int maxLength = 0;
+        for (int n : nums) {
+            int next = n + 1, prev = n - 1, length = 1;
+            while (set.contains(next)) {
+                set.remove(next);
+                length++;
+                next++;
+            }
+            while (set.contains(prev)) {
+                set.remove(prev);
+                length++;
+                prev--;
+            }
+            maxLength = Math.max(maxLength, length);
+        }
+        return maxLength;
     }
-    int maxLength = 0;
-    for (int n : nums) {
-      int next = n + 1, prev = n - 1, length = 1;
-      while (set.contains(next)) {
-        set.remove(next);
-        length++;
-        next++;
-      }
-      while (set.contains(prev)) {
-        set.remove(prev);
-        length++;
-        prev--;
-      }
-      maxLength = Math.max(maxLength, length);
-    }
-    return maxLength;
-  }
 /*    same code, a little refactor, runs faster */
 //    public int longestConsecutive(int[] nums) {
 //        Set<Integer> set = new HashSet<>(nums.length);

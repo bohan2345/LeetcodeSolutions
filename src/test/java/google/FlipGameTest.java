@@ -12,17 +12,17 @@ import static org.junit.Assert.assertThat;
  * @author Bohan Zheng
  */
 public class FlipGameTest {
-  @Test
-  public void test() {
-    FlipGame test = new FlipGame();
-    assertThat(test.generatePossibleNextMoves("++++"),
-        IsIterableContainingInAnyOrder.containsInAnyOrder("--++", "+--+", "++--"));
-  }
+    @Test
+    public void test() {
+        FlipGame test = new FlipGame();
+        assertThat(test.generatePossibleNextMoves("++++"),
+                IsIterableContainingInAnyOrder.containsInAnyOrder("--++", "+--+", "++--"));
+    }
 
-  @Test
-  public void test2() {
-    FlipGame test = new FlipGame();
-    assertThat(test.generatePossibleNextMoves("+-+++"),
-        IsIterableContainingInAnyOrder.containsInAnyOrder("+---+", "+-+--"));
-  }
+    @Test
+    public void test2() {
+        FlipGame test = new FlipGame();
+        assertThat(test.generatePossibleNextMoves("+-+++"),
+                IsIterableContainingInAnyOrder.containsInAnyOrder("+---+", "+-+--"));
+    }
 }

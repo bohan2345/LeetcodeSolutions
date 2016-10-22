@@ -15,26 +15,26 @@ package array;
  * @author Bohan Zheng
  */
 public class FindtheDuplicateNumber {
-  public int findDuplicate(int[] nums) {
-    int i = 1, j = nums.length - 1;
-    while (i <= j) {
-      int mid = i + (j - i) / 2;
-      int largerNum = 0, smallerNum = 0;
-      for (int n : nums) {
-        if (n > mid && n <= j) {
-          largerNum++;
-        } else if (n < mid && n >= i) {
-          smallerNum++;
+    public int findDuplicate(int[] nums) {
+        int i = 1, j = nums.length - 1;
+        while (i <= j) {
+            int mid = i + (j - i) / 2;
+            int largerNum = 0, smallerNum = 0;
+            for (int n : nums) {
+                if (n > mid && n <= j) {
+                    largerNum++;
+                } else if (n < mid && n >= i) {
+                    smallerNum++;
+                }
+            }
+            if (largerNum > j - mid) {
+                i = mid + 1;
+            } else if (smallerNum > mid - i) {
+                j = mid - 1;
+            } else {
+                return mid;
+            }
         }
-      }
-      if (largerNum > j - mid) {
-        i = mid + 1;
-      } else if (smallerNum > mid - i) {
-        j = mid - 1;
-      } else {
-        return mid;
-      }
+        return -1;
     }
-    return -1;
-  }
 }

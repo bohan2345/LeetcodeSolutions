@@ -14,29 +14,29 @@ import utils.ListNode;
  * @author Bohan Zheng
  */
 public class RotateList {
-  public ListNode rotateRight(ListNode head, int k) {
-    if (head == null) {
-      return null;
+    public ListNode rotateRight(ListNode head, int k) {
+        if (head == null) {
+            return null;
+        }
+        int length = 1;
+        ListNode tail = head;
+        while (tail.next != null) {
+            tail = tail.next;
+            length++;
+        }
+        k %= length;
+        if (k == 0) {
+            return head;
+        }
+        int n = length - k;
+        ListNode node = head;
+        while (n > 1) {
+            node = node.next;
+            n--;
+        }
+        ListNode newHead = node.next;
+        node.next = null;
+        tail.next = head;
+        return newHead;
     }
-    int length = 1;
-    ListNode tail = head;
-    while (tail.next != null) {
-      tail = tail.next;
-      length++;
-    }
-    k %= length;
-    if (k == 0) {
-      return head;
-    }
-    int n = length - k;
-    ListNode node = head;
-    while (n > 1) {
-      node = node.next;
-      n--;
-    }
-    ListNode newHead = node.next;
-    node.next = null;
-    tail.next = head;
-    return newHead;
-  }
 }

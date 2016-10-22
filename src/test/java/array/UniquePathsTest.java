@@ -11,21 +11,21 @@ import static org.junit.Assert.assertEquals;
  * @author Bohan Zheng
  */
 public class UniquePathsTest {
-  UniquePaths test = new UniquePaths();
+    UniquePaths test = new UniquePaths();
 
-  @Test
-  public void test() {
-    assertEquals(1, test.uniquePaths(1, 1));
-  }
+    @Test
+    public void test() {
+        assertEquals(1, test.uniquePaths(1, 1));
+    }
 
-  @Test
-  public void test2() {
-    assertEquals(3, test.uniquePaths(3, 2));
-  }
+    @Test
+    public void test2() {
+        assertEquals(3, test.uniquePaths(3, 2));
+    }
 
-  @Test
-  public void test3() {
-    assertEquals(6, test.uniquePaths(3, 3));
-  }
+    @Test
+    public void test3() {
+        assertEquals(6, test.uniquePaths(3, 3));
+    }
 
 }

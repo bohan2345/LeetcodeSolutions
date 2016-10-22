@@ -11,14 +11,14 @@ import static org.junit.Assert.assertTrue;
  * @author Bohan Zheng
  */
 public class TrieTest {
-  // Trie trie = new Trie();
-  // trie.insert("somestring");
-  // trie.search("key");
+    // Trie trie = new Trie();
+    // trie.insert("somestring");
+    // trie.search("key");
 
-  @Test
-  public void test() {
-    Trie trie = new Trie();
-    trie.insert("test");
-    assertTrue(trie.search("test"));
-  }
+    @Test
+    public void test() {
+        Trie trie = new Trie();
+        trie.insert("test");
+        assertTrue(trie.search("test"));
+    }
 }
