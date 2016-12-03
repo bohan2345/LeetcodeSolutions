@@ -54,6 +54,6 @@ public class WordSearch {
         if (left) return true;
         boolean right = dfsHelper(board, word, i + 1, x, y + 1, used);
         used[x][y] = false;
-        return top || down || left || right;
+        return right;
     }
 }

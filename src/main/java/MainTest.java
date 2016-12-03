@@ -1,3 +1,6 @@
+import java.util.*;
+import java.util.stream.Collectors;
+
 /**
  * <br>
  * Created by Bohan Zheng on 9/10/2015.
@@ -6,19 +9,41 @@
  */
 public class MainTest {
     public static void main(String[] args) {
-        int x = (int) Math.ceil(3 / (2 * 1.0));
-        System.out.print(x);
+        HashMap<String, Integer> map = new HashMap<>();
+        map.put("a", 1);
+        map.put("b", 2);
+        map.put("c", 2);
+        map.put("d", 2);
+
+        for (String str : new MainTest().test(map, 2))
+            System.out.println(str);
+
+        Map<Integer, List<String>> newMap = new MainTest().test2(map);
+        for (Map.Entry<Integer, List<String>> entry : newMap.entrySet()) {
+            for (String str : entry.getValue())
+                System.out.print(str);
+            System.out.println("");
+        }
     }
 
-    static void callA(A a) {
-        System.out.println(a.a);
+    public List<String> test(HashMap<String, Integer> map, int a) {
+        return map.entrySet().stream()
+                .filter(pair -> pair.getValue().equals(a))
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toList());
     }
 
-    public static class A {
-        String a = "A";
-    }
-
-    public static class B extends A {
-        String b = "B";
+    public Map<Integer, List<String>> test2(HashMap<String, Integer> map) {
+        Map<Integer, List<String>> result = new HashMap<>();
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            if (result.containsKey(entry.getValue())) {
+                result.get(entry.getValue()).add(entry.getKey());
+            } else {
+                ArrayList<String> strs = new ArrayList<>();
+                strs.add(entry.getKey());
+                result.put(entry.getValue(), strs);
+            }
+        }
+        return result;
     }
 }
