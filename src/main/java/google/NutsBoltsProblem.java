@@ -24,14 +24,16 @@ public class NutsBoltsProblem {
             if (left >= right) {
                 break;
             }
-            int pivot = partition(bolts, left, right, nuts[right], comparator);
-            partition(nuts, left, right, bolts[right], comparator);
+            int mid = left + (right - 1) / 2;
+            int pivot = partition(bolts, left, right, mid, nuts[mid], comparator);
+            partition(nuts, left, right, mid, bolts[pivot], comparator);
             stack.push(new int[]{left, pivot - 1});
             stack.push(new int[]{pivot + 1, right});
         }
     }
 
-    private int partition(String[] bolts, int left, int right, String pivotValue, NBComparator comparator) {
+    private int partition(String[] bolts, int left, int right, int pivot, String pivotValue, NBComparator comparator) {
+        swap(bolts, right, pivot);
         int storedIndex = left;
         for (int i = left; i <= right; i++) {
             if (comparator.compare(pivotValue, bolts[i]) < 0) {
@@ -39,6 +41,7 @@ public class NutsBoltsProblem {
                 storedIndex++;
             }
         }
+        swap(bolts, storedIndex, right);
         return storedIndex;
     }
 
