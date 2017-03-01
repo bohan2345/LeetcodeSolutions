@@ -24,38 +24,38 @@ import utils.ListNode;
  * @author Bohan Zheng
  */
 public class IntersectionofTwoLinkedLists {
-    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        int lengthA = getLength(headA), lengthB = getLength(headB);
-        int n = 0;
-        if (lengthA > lengthB) {
-            headA = moveForward(headA, lengthA - lengthB);
-        } else {
-            headB = moveForward(headB, lengthB - lengthA);
-        }
-        while (headA != null && headB != null) {
-            if (headA.equals(headB)) {
-                return headA;
-            }
-            headA = headA.next;
-            headB = headB.next;
-        }
-        return null;
+  public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+    int lengthA = getLength(headA), lengthB = getLength(headB);
+    int n = 0;
+    if (lengthA > lengthB) {
+      headA = moveForward(headA, lengthA - lengthB);
+    } else {
+      headB = moveForward(headB, lengthB - lengthA);
     }
+    while (headA != null && headB != null) {
+      if (headA.equals(headB)) {
+        return headA;
+      }
+      headA = headA.next;
+      headB = headB.next;
+    }
+    return null;
+  }
 
-    private ListNode moveForward(ListNode head, int n) {
-        while (n > 0) {
-            n--;
-            head = head.next;
-        }
-        return head;
+  private ListNode moveForward(ListNode head, int n) {
+    while (n > 0) {
+      n--;
+      head = head.next;
     }
+    return head;
+  }
 
-    private int getLength(ListNode head) {
-        int leng = 0;
-        while (head != null) {
-            head = head.next;
-            leng++;
-        }
-        return leng;
+  private int getLength(ListNode head) {
+    int leng = 0;
+    while (head != null) {
+      head = head.next;
+      leng++;
     }
+    return leng;
+  }
 }

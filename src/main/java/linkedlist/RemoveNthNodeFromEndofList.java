@@ -19,22 +19,22 @@ import utils.ListNode;
  * @author Bohan Zheng
  */
 public class RemoveNthNodeFromEndofList {
-    public ListNode removeNthFromEnd(ListNode head, int n) {
-        ListNode node = head;
-        ListNode nodeWaitForRemove = head;
-        for (; n > 0; n--) {
-            node = node.next;
-        }
-        ListNode prev = new ListNode(0);
-        ListNode newHead = prev;
-        prev.next = nodeWaitForRemove;
-        while (node != null) {
-            prev = nodeWaitForRemove;
-            nodeWaitForRemove = nodeWaitForRemove.next;
-            node = node.next;
-        }
-        prev.next = nodeWaitForRemove.next;
-        nodeWaitForRemove.next = null;
-        return newHead.next;
+  public ListNode removeNthFromEnd(ListNode head, int n) {
+    ListNode node = head;
+    ListNode nodeWaitForRemove = head;
+    for (; n > 0; n--) {
+      node = node.next;
     }
+    ListNode prev = new ListNode(0);
+    ListNode newHead = prev;
+    prev.next = nodeWaitForRemove;
+    while (node != null) {
+      prev = nodeWaitForRemove;
+      nodeWaitForRemove = nodeWaitForRemove.next;
+      node = node.next;
+    }
+    prev.next = nodeWaitForRemove.next;
+    nodeWaitForRemove.next = null;
+    return newHead.next;
+  }
 }

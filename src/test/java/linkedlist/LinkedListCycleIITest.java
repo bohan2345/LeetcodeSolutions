@@ -13,12 +13,12 @@ import static org.junit.Assert.assertEquals;
  * @author Bohan Zheng
  */
 public class LinkedListCycleIITest {
-    @Test
-    public void test() {
-        LinkedListCycleII test = new LinkedListCycleII();
-        ListNode head = LinkedListUtils.constructLinkedList(1, 2, 3, 4, 5);
-        ListNode n3 = head.next.next;
-        n3.next.next = n3;
-        assertEquals(n3, test.detectCycle(head));
-    }
+  @Test
+  public void test() {
+    LinkedListCycleII test = new LinkedListCycleII();
+    ListNode head = LinkedListUtils.constructLinkedList(1, 2, 3, 4, 5);
+    ListNode n3 = head.next.next;
+    n3.next.next = n3;
+    assertEquals(n3, test.detectCycle(head));
+  }
 }

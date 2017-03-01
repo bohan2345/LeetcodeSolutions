@@ -21,25 +21,25 @@ import utils.ListNode;
  * @author Bohan Zheng
  */
 public class OddEvenLinkedList {
-    public ListNode oddEvenList(ListNode head) {
-        int i = 0;
-        ListNode head1 = new ListNode(0), head2 = new ListNode(0);
-        ListNode newHead = head1, newHead2 = head2;
-        ListNode node = head;
-        while (node != null) {
-            ListNode next = node.next;
-            node.next = null;
-            if (i % 2 == 0) {
-                head1.next = node;
-                head1 = head1.next;
-            } else {
-                head2.next = node;
-                head2 = head2.next;
-            }
-            node = next;
-            i++;
-        }
-        head1.next = newHead2.next;
-        return newHead.next;
+  public ListNode oddEvenList(ListNode head) {
+    int i = 0;
+    ListNode head1 = new ListNode(0), head2 = new ListNode(0);
+    ListNode newHead = head1, newHead2 = head2;
+    ListNode node = head;
+    while (node != null) {
+      ListNode next = node.next;
+      node.next = null;
+      if (i % 2 == 0) {
+        head1.next = node;
+        head1 = head1.next;
+      } else {
+        head2.next = node;
+        head2 = head2.next;
+      }
+      node = next;
+      i++;
     }
+    head1.next = newHead2.next;
+    return newHead.next;
+  }
 }

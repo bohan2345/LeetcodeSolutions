@@ -10,17 +10,17 @@ package array;
  */
 
 public class RemoveDuplicatesfromSortedArray {
-    public int removeDuplicates(int[] nums) {
-        if (nums.length <= 1) {
-            return nums.length;
-        }
-        int i = 1, j = 1;
-        for (; i < nums.length; i++) {
-            if (nums[i] != nums[i - 1]) {
-                nums[j] = nums[i];
-                j++;
-            }
-        }
-        return j;
+  public int removeDuplicates(int[] nums) {
+    if (nums.length <= 1) {
+      return nums.length;
     }
+    int i = 1, j = 1;
+    for (; i < nums.length; i++) {
+      if (nums[i] != nums[i - 1]) {
+        nums[j] = nums[i];
+        j++;
+      }
+    }
+    return j;
+  }
 }

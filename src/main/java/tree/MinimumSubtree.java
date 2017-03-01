@@ -8,18 +8,6 @@ import utils.TreeNode;
  * @author Bohan Zheng
  */
 public class MinimumSubtree {
-  private class ResultType {
-    int sum;
-    int minSum;
-    TreeNode minSumTreeNode;
-
-    ResultType(int s, int m, TreeNode node) {
-      sum = s;
-      minSum = m;
-      minSumTreeNode = node;
-    }
-  }
-
   public TreeNode findSubtree(TreeNode root) {
     // Write your code here
     return divideAndConquer(root).minSumTreeNode;
@@ -46,6 +34,18 @@ public class MinimumSubtree {
       return new ResultType(sum, leftNode.minSum, leftNode.minSumTreeNode);
     } else {
       return new ResultType(sum, rightNode.minSum, rightNode.minSumTreeNode);
+    }
+  }
+
+  private class ResultType {
+    int sum;
+    int minSum;
+    TreeNode minSumTreeNode;
+
+    ResultType(int s, int m, TreeNode node) {
+      sum = s;
+      minSum = m;
+      minSumTreeNode = node;
     }
   }
 }

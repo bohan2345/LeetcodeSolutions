@@ -11,10 +11,10 @@ import static org.junit.Assert.assertEquals;
  * @author Bohan Zheng
  */
 public class MaximumProductSubarrayTest {
-    MaximumProductSubarray test = new MaximumProductSubarray();
+  MaximumProductSubarray test = new MaximumProductSubarray();
 
-    @Test
-    public void test() {
-        assertEquals(6, test.maxProduct(new int[]{2, 3, -2, 4}));
-    }
+  @Test
+  public void test() {
+    assertEquals(6, test.maxProduct(new int[]{2, 3, -2, 4}));
+  }
 }

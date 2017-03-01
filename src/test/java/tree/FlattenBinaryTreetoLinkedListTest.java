@@ -13,11 +13,11 @@ import static org.junit.Assert.assertEquals;
  * @author Bohan Zheng
  */
 public class FlattenBinaryTreetoLinkedListTest {
-    @Test
-    public void test() {
-        FlattenBinaryTreetoLinkedList test = new FlattenBinaryTreetoLinkedList();
-        TreeNode root = BinaryTreeUtils.constructBinaryTree(1, 2, 5, 3, 4, 0, 6);
-        test.flatten(root);
-        assertEquals("1,#,2,#,3,#,4,#,5,#,6", BinaryTreeUtils.serialize(root));
-    }
+  @Test
+  public void test() {
+    FlattenBinaryTreetoLinkedList test = new FlattenBinaryTreetoLinkedList();
+    TreeNode root = BinaryTreeUtils.constructBinaryTree(1, 2, 5, 3, 4, 0, 6);
+    test.flatten(root);
+    assertEquals("1,#,2,#,3,#,4,#,5,#,6", BinaryTreeUtils.serialize(root));
+  }
 }

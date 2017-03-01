@@ -14,24 +14,24 @@ import utils.ListNode;
  * @author Bohan Zheng
  */
 public class ReverseLinkedListII {
-    public ListNode reverseBetween(ListNode head, int m, int n) {
-        ListNode prev = new ListNode(0);
-        prev.next = head;
-        ListNode node = head;
-        ListNode dumy = prev;
-        int i = 1;
-        while (i < n) {
-            i++;
-            if (i <= m) {
-                prev = node;
-                node = node.next;
-                continue;
-            }
-            ListNode tmp = prev.next;
-            prev.next = node.next;
-            node.next = node.next.next;
-            prev.next.next = tmp;
-        }
-        return dumy.next;
+  public ListNode reverseBetween(ListNode head, int m, int n) {
+    ListNode prev = new ListNode(0);
+    prev.next = head;
+    ListNode node = head;
+    ListNode dumy = prev;
+    int i = 1;
+    while (i < n) {
+      i++;
+      if (i <= m) {
+        prev = node;
+        node = node.next;
+        continue;
+      }
+      ListNode tmp = prev.next;
+      prev.next = node.next;
+      node.next = node.next.next;
+      prev.next.next = tmp;
     }
+    return dumy.next;
+  }
 }

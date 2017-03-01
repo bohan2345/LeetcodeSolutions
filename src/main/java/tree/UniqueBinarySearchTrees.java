@@ -17,13 +17,13 @@ package tree;
  * @author Bohan Zheng
  */
 public class UniqueBinarySearchTrees {
-    public int numTrees(int n) {
-        int[] array = new int[n + 1];
-        array[0] = 1;
-        for (int i = 1; i <= n; i++) {
-            for (int j = 1; j <= i; j++)
-                array[i] += array[j - 1] * array[i - j];
-        }
-        return array[n];
+  public int numTrees(int n) {
+    int[] array = new int[n + 1];
+    array[0] = 1;
+    for (int i = 1; i <= n; i++) {
+      for (int j = 1; j <= i; j++)
+        array[i] += array[j - 1] * array[i - j];
     }
+    return array[n];
+  }
 }

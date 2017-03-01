@@ -16,24 +16,24 @@ package string;
  * @author Bohan Zheng
  */
 public class CountandSay {
-    public String countAndSay(int n) {
-        return countAndSayHelper("1", n);
-    }
+  public String countAndSay(int n) {
+    return countAndSayHelper("1", n);
+  }
 
-    private String countAndSayHelper(String str, int n) {
-        if (n == 1) {
-            return str;
-        }
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < str.length(); ++i) {
-            char c = str.charAt(i);
-            int count = 1;
-            while (i + 1 < str.length() && str.charAt(i + 1) == c) {
-                count++;
-                i++;
-            }
-            sb.append(count).append(c);
-        }
-        return countAndSayHelper(sb.toString(), n - 1);
+  private String countAndSayHelper(String str, int n) {
+    if (n == 1) {
+      return str;
     }
+    StringBuilder sb = new StringBuilder();
+    for (int i = 0; i < str.length(); ++i) {
+      char c = str.charAt(i);
+      int count = 1;
+      while (i + 1 < str.length() && str.charAt(i + 1) == c) {
+        count++;
+        i++;
+      }
+      sb.append(count).append(c);
+    }
+    return countAndSayHelper(sb.toString(), n - 1);
+  }
 }

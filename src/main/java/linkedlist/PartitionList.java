@@ -16,24 +16,24 @@ import utils.ListNode;
  * @author Bohan Zheng
  */
 public class PartitionList {
-    public ListNode partition(ListNode head, int x) {
-        ListNode head1 = new ListNode(0);
-        ListNode head2 = new ListNode(0);
-        ListNode node1 = head1, node2 = head2;
-        while (head != null) {
-            ListNode next = head.next;
-            head.next = null;
-            if (head.val < x) {
-                node1.next = head;
-                node1 = node1.next;
-            } else {
-                node2.next = head;
-                node2 = node2.next;
-            }
-            head = next;
-        }
-        node1.next = head2.next;
-        head2.next = null;
-        return head1.next;
+  public ListNode partition(ListNode head, int x) {
+    ListNode head1 = new ListNode(0);
+    ListNode head2 = new ListNode(0);
+    ListNode node1 = head1, node2 = head2;
+    while (head != null) {
+      ListNode next = head.next;
+      head.next = null;
+      if (head.val < x) {
+        node1.next = head;
+        node1 = node1.next;
+      } else {
+        node2.next = head;
+        node2 = node2.next;
+      }
+      head = next;
     }
+    node1.next = head2.next;
+    head2.next = null;
+    return head1.next;
+  }
 }

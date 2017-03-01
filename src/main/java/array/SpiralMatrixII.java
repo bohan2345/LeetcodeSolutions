@@ -19,36 +19,36 @@ import utils.Directions;
  * @author Bohan Zheng
  */
 public class SpiralMatrixII {
-    public int[][] generateMatrix(int n) {
-        int[][] matrix = new int[n][n];
-        int i = 0, j = 0, count = 0;
-        Directions direction = Directions.RIGHT;
+  public int[][] generateMatrix(int n) {
+    int[][] matrix = new int[n][n];
+    int i = 0, j = 0, count = 0;
+    Directions direction = Directions.RIGHT;
 
-        while (count < n * n) {
-            count++;
-            matrix[i][j] = count;
-            if (direction == Directions.RIGHT) {
-                j++;
-                if (i + j == n - 1) {
-                    direction = Directions.DOWN;
-                }
-            } else if (direction == Directions.DOWN) {
-                i++;
-                if (i == j) {
-                    direction = Directions.LEFT;
-                }
-            } else if (direction == Directions.LEFT) {
-                j--;
-                if (i + j == n - 1) {
-                    direction = Directions.UP;
-                }
-            } else {
-                i--;
-                if (i == j + 1) {
-                    direction = Directions.RIGHT;
-                }
-            }
+    while (count < n * n) {
+      count++;
+      matrix[i][j] = count;
+      if (direction == Directions.RIGHT) {
+        j++;
+        if (i + j == n - 1) {
+          direction = Directions.DOWN;
         }
-        return matrix;
+      } else if (direction == Directions.DOWN) {
+        i++;
+        if (i == j) {
+          direction = Directions.LEFT;
+        }
+      } else if (direction == Directions.LEFT) {
+        j--;
+        if (i + j == n - 1) {
+          direction = Directions.UP;
+        }
+      } else {
+        i--;
+        if (i == j + 1) {
+          direction = Directions.RIGHT;
+        }
+      }
     }
+    return matrix;
+  }
 }

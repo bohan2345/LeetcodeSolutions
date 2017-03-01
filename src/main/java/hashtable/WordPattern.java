@@ -23,32 +23,32 @@ import java.util.Map;
  * @author Bohan Zheng
  */
 public class WordPattern {
-    public boolean wordPattern(String pattern, String str) {
-        String[] strs = str.split(" ");
-        if (strs.length != pattern.length()) {
-            return false;
-        }
-        Map<Character, List<Integer>> patternMap = new HashMap<>();
-        for (int i = 0; i < pattern.length(); i++) {
-            char c = pattern.charAt(i);
-            if (patternMap.containsKey(c)) {
-                patternMap.get(c).add(i);
-            } else {
-                List<Integer> indexList = new ArrayList<>();
-                indexList.add(i);
-                patternMap.put(c, indexList);
-            }
-        }
-        boolean isSame = true;
-        String lastWord = null;
-        for (char c : patternMap.keySet()) {
-            List<Integer> list = patternMap.get(c);
-            isSame = lastWord == null || (!strs[list.get(0)].equals(lastWord) && isSame);
-            lastWord = strs[list.get(0)];
-            for (int i = 1; i < list.size(); i++) {
-                isSame = isSame && strs[list.get(i - 1)].equals(strs[list.get(i)]);
-            }
-        }
-        return isSame;
+  public boolean wordPattern(String pattern, String str) {
+    String[] strs = str.split(" ");
+    if (strs.length != pattern.length()) {
+      return false;
     }
+    Map<Character, List<Integer>> patternMap = new HashMap<>();
+    for (int i = 0; i < pattern.length(); i++) {
+      char c = pattern.charAt(i);
+      if (patternMap.containsKey(c)) {
+        patternMap.get(c).add(i);
+      } else {
+        List<Integer> indexList = new ArrayList<>();
+        indexList.add(i);
+        patternMap.put(c, indexList);
+      }
+    }
+    boolean isSame = true;
+    String lastWord = null;
+    for (char c : patternMap.keySet()) {
+      List<Integer> list = patternMap.get(c);
+      isSame = lastWord == null || (!strs[list.get(0)].equals(lastWord) && isSame);
+      lastWord = strs[list.get(0)];
+      for (int i = 1; i < list.size(); i++) {
+        isSame = isSame && strs[list.get(i - 1)].equals(strs[list.get(i)]);
+      }
+    }
+    return isSame;
+  }
 }

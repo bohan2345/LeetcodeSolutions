@@ -21,30 +21,30 @@ import java.util.List;
  * @author Bohan Zheng
  */
 public class CombinationSumII {
-    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
-        List<List<Integer>> res = new ArrayList<>();
-        if (candidates == null || candidates.length == 0) {
-            return res;
-        }
-        Arrays.sort(candidates);
-        dfsHelper(candidates, target, 0, res, new ArrayList<>(), 0);
-        return res;
+  public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+    List<List<Integer>> res = new ArrayList<>();
+    if (candidates == null || candidates.length == 0) {
+      return res;
     }
+    Arrays.sort(candidates);
+    dfsHelper(candidates, target, 0, res, new ArrayList<>(), 0);
+    return res;
+  }
 
-    private void dfsHelper(int[] candidates, int target, int i, List<List<Integer>> res, List<Integer> tmp, int sum) {
-        if (sum > target) {
-            return;
-        } else if (sum == target) {
-            res.add(new ArrayList<>(tmp));
-            return;
-        }
-        for (; i < candidates.length; i++) {
-            tmp.add(candidates[i]);
-            dfsHelper(candidates, target, i + 1, res, tmp, sum + candidates[i]);
-            tmp.remove(tmp.size() - 1);
-            while (i + 1 < candidates.length && candidates[i + 1] == candidates[i]) {
-                i++;
-            }
-        }
+  private void dfsHelper(int[] candidates, int target, int i, List<List<Integer>> res, List<Integer> tmp, int sum) {
+    if (sum > target) {
+      return;
+    } else if (sum == target) {
+      res.add(new ArrayList<>(tmp));
+      return;
     }
+    for (; i < candidates.length; i++) {
+      tmp.add(candidates[i]);
+      dfsHelper(candidates, target, i + 1, res, tmp, sum + candidates[i]);
+      tmp.remove(tmp.size() - 1);
+      while (i + 1 < candidates.length && candidates[i + 1] == candidates[i]) {
+        i++;
+      }
+    }
+  }
 }

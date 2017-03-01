@@ -12,10 +12,10 @@ import static org.junit.Assert.assertThat;
  * @author Bohan Zheng
  */
 public class PascalsTriangleIITest {
-    PascalsTriangleII test = new PascalsTriangleII();
+  PascalsTriangleII test = new PascalsTriangleII();
 
-    @Test
-    public void test() {
-        assertThat(test.getRow(4), IsIterableContainingInOrder.contains(1, 4, 6, 4, 1));
-    }
+  @Test
+  public void test() {
+    assertThat(test.getRow(4), IsIterableContainingInOrder.contains(1, 4, 6, 4, 1));
+  }
 }

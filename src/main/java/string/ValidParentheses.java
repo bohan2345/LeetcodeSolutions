@@ -13,24 +13,24 @@ import java.util.Stack;
  * @author Bohan Zheng
  */
 public class ValidParentheses {
-    public boolean isValid(String s) {
-        Stack<Character> stack = new Stack<>();
-        Map<Character, Character> map = new HashMap<>(3);
-        map.put(')', '(');
-        map.put(']', '[');
-        map.put('}', '{');
-        for (int i = 0; i < s.length(); i++) {
-            char p = s.charAt(i);
-            if (stack.isEmpty() || !map.containsKey(p)) {
-                stack.push(p);
-                continue;
-            }
-            if (map.get(p) == stack.peek()) {
-                stack.pop();
-            } else {
-                return false;
-            }
-        }
-        return stack.isEmpty();
+  public boolean isValid(String s) {
+    Stack<Character> stack = new Stack<>();
+    Map<Character, Character> map = new HashMap<>(3);
+    map.put(')', '(');
+    map.put(']', '[');
+    map.put('}', '{');
+    for (int i = 0; i < s.length(); i++) {
+      char p = s.charAt(i);
+      if (stack.isEmpty() || !map.containsKey(p)) {
+        stack.push(p);
+        continue;
+      }
+      if (map.get(p) == stack.peek()) {
+        stack.pop();
+      } else {
+        return false;
+      }
     }
+    return stack.isEmpty();
+  }
 }

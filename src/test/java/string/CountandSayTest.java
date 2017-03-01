@@ -11,15 +11,15 @@ import static org.junit.Assert.assertEquals;
  * @author Bohan Zheng
  */
 public class CountandSayTest {
-    @Test
-    public void test() {
-        CountandSay test = new CountandSay();
-        assertEquals("1", test.countAndSay(1));
-    }
+  @Test
+  public void test() {
+    CountandSay test = new CountandSay();
+    assertEquals("1", test.countAndSay(1));
+  }
 
-    @Test
-    public void test2() {
-        CountandSay test = new CountandSay();
-        assertEquals("111221", test.countAndSay(5));
-    }
+  @Test
+  public void test2() {
+    CountandSay test = new CountandSay();
+    assertEquals("111221", test.countAndSay(5));
+  }
 }

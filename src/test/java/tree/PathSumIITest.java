@@ -18,13 +18,13 @@ import static org.junit.Assert.assertThat;
  * @author Bohan Zheng
  */
 public class PathSumIITest {
-    @Test
-    public void test() {
-        PathSumII test = new PathSumII();
-        TreeNode root = BinaryTreeUtils.constructBinaryTree(5, 4, 8, 11, 0, 13, 4, 7, 2, 0, 0, 5, 1);
-        List<List<Integer>> expected = new ArrayList<>();
-        expected.add(Arrays.asList(5, 4, 11, 2));
-        expected.add(Arrays.asList(5, 8, 4, 5));
-        assertThat(test.pathSum(root, 22), IsIterableContainingInAnyOrder.containsInAnyOrder(expected.toArray()));
-    }
+  @Test
+  public void test() {
+    PathSumII test = new PathSumII();
+    TreeNode root = BinaryTreeUtils.constructBinaryTree(5, 4, 8, 11, 0, 13, 4, 7, 2, 0, 0, 5, 1);
+    List<List<Integer>> expected = new ArrayList<>();
+    expected.add(Arrays.asList(5, 4, 11, 2));
+    expected.add(Arrays.asList(5, 8, 4, 5));
+    assertThat(test.pathSum(root, 22), IsIterableContainingInAnyOrder.containsInAnyOrder(expected.toArray()));
+  }
 }

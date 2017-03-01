@@ -12,10 +12,10 @@ import static org.junit.Assert.assertThat;
  * @author Bohan Zheng
  */
 public class GenerateParenthesesTest {
-    @Test
-    public void test() {
-        GenerateParentheses test = new GenerateParentheses();
-        String[] expected = {"((()))", "(()())", "(())()", "()(())", "()()()"};
-        assertThat(test.generateParenthesis(3), IsIterableContainingInAnyOrder.containsInAnyOrder(expected));
-    }
+  @Test
+  public void test() {
+    GenerateParentheses test = new GenerateParentheses();
+    String[] expected = {"((()))", "(()())", "(())()", "()(())", "()()()"};
+    assertThat(test.generateParenthesis(3), IsIterableContainingInAnyOrder.containsInAnyOrder(expected));
+  }
 }

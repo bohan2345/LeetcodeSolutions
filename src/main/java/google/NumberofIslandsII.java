@@ -46,55 +46,55 @@ import java.util.Set;
  * @author Bohan Zheng
  */
 public class NumberofIslandsII {
-    public List<Integer> numIslands2(int m, int n, int[][] positions) {
-        DisjointSet ds = new DisjointSet(m * n);
-        Set<Integer> islands = new HashSet<>(positions.length);
-        List<Integer> res = new ArrayList<>(positions.length);
-        int island = 0;
-        int[] dx = {1, -1, 0, 0};
-        int[] dy = {0, 0, 1, -1};
-        for (int[] position : positions) {
-            island++;
-            int a = position[0] * n + position[1];
-            for (int d = 0; d < 4; d++) {
-                int[] adjcentPosition = {position[0] + dx[d], position[1] + dy[d]};
-                if (adjcentPosition[0] < 0 || adjcentPosition[1] < 0 || adjcentPosition[0] >= m || adjcentPosition[1] >= n) {
-                    continue;
-                }
-                int b = adjcentPosition[0] * n + adjcentPosition[1];
-                if (islands.contains(b) && ds.find(a) != ds.find(b)) {
-                    ds.union(a, b);
-                    island--;
-                }
-            }
-            islands.add(a);
-            res.add(island);
+  public List<Integer> numIslands2(int m, int n, int[][] positions) {
+    DisjointSet ds = new DisjointSet(m * n);
+    Set<Integer> islands = new HashSet<>(positions.length);
+    List<Integer> res = new ArrayList<>(positions.length);
+    int island = 0;
+    int[] dx = {1, -1, 0, 0};
+    int[] dy = {0, 0, 1, -1};
+    for (int[] position : positions) {
+      island++;
+      int a = position[0] * n + position[1];
+      for (int d = 0; d < 4; d++) {
+        int[] adjcentPosition = {position[0] + dx[d], position[1] + dy[d]};
+        if (adjcentPosition[0] < 0 || adjcentPosition[1] < 0 || adjcentPosition[0] >= m || adjcentPosition[1] >= n) {
+          continue;
         }
-        return res;
+        int b = adjcentPosition[0] * n + adjcentPosition[1];
+        if (islands.contains(b) && ds.find(a) != ds.find(b)) {
+          ds.union(a, b);
+          island--;
+        }
+      }
+      islands.add(a);
+      res.add(island);
+    }
+    return res;
+  }
+
+  private class DisjointSet {
+    private int[] positions;
+
+    private DisjointSet(int n) {
+      positions = new int[n];
+      int counter = 0;
+      for (int i = 0; i < n; i++) {
+        positions[i] = counter++;
+      }
     }
 
-    private class DisjointSet {
-        private int[] positions;
-
-        private DisjointSet(int n) {
-            positions = new int[n];
-            int counter = 0;
-            for (int i = 0; i < n; i++) {
-                positions[i] = counter++;
-            }
-        }
-
-        private void union(int a, int b) {
-            int tmp = find(a);
-            positions[tmp] = find(b);
-        }
-
-        private int find(int a) {
-            while (a != positions[a]) {
-                positions[a] = positions[positions[a]];
-                a = positions[a];
-            }
-            return a;
-        }
+    private void union(int a, int b) {
+      int tmp = find(a);
+      positions[tmp] = find(b);
     }
+
+    private int find(int a) {
+      while (a != positions[a]) {
+        positions[a] = positions[positions[a]];
+        a = positions[a];
+      }
+      return a;
+    }
+  }
 }

@@ -16,17 +16,17 @@ import java.util.Set;
  * @author Bohan Zheng
  */
 public class CombinationsofPhoneNumberTest {
-    @Test
-    public void test() {
-        CombinationsofPhoneNumber test = new CombinationsofPhoneNumber();
-        Set<String> dic = new HashSet<>();
-        List<Integer> x = new ArrayList<>();
-        x.iterator();
-        dic.add("target");
-        dic.add("tar");
-        dic.add("ta");
-        dic.add("get");
-        Assert.assertThat(test.findAllCombinations("80082743812", dic),
-                IsIterableContainingInAnyOrder.containsInAnyOrder("800ta743812", "800tar43812", "800target12", "800827get12"));
-    }
+  @Test
+  public void test() {
+    CombinationsofPhoneNumber test = new CombinationsofPhoneNumber();
+    Set<String> dic = new HashSet<>();
+    List<Integer> x = new ArrayList<>();
+    x.iterator();
+    dic.add("target");
+    dic.add("tar");
+    dic.add("ta");
+    dic.add("get");
+    Assert.assertThat(test.findAllCombinations("80082743812", dic),
+        IsIterableContainingInAnyOrder.containsInAnyOrder("800ta743812", "800tar43812", "800target12", "800827get12"));
+  }
 }
