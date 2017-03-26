@@ -12,21 +12,21 @@ package array;
  * @author Bohan Zheng
  */
 public class MinimumSizeSubarraySum {
-    public int minSubArrayLen(int s, int[] nums) {
-        int minLength = nums.length;
-        int left = 0, right = 0, sum = 0;
-        while (right <= nums.length) {
-            if (right < nums.length && sum < s) {
-                sum += nums[right];
-                right++;
-            } else if (sum >= s) {
-                minLength = Math.min(minLength, right - left);
-                sum -= nums[left];
-                left++;
-            } else {
-                right++;
-            }
-        }
-        return left == 0 && sum < s ? 0 : minLength;
+  public int minSubArrayLen(int s, int[] nums) {
+    int minLength = nums.length;
+    int left = 0, right = 0, sum = 0;
+    while (right <= nums.length) {
+      if (right < nums.length && sum < s) {
+        sum += nums[right];
+        right++;
+      } else if (sum >= s) {
+        minLength = Math.min(minLength, right - left);
+        sum -= nums[left];
+        left++;
+      } else {
+        right++;
+      }
     }
+    return left == 0 && sum < s ? 0 : minLength;
+  }
 }

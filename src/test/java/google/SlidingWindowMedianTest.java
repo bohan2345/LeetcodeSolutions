@@ -12,10 +12,10 @@ import static org.junit.Assert.assertThat;
  * @author Bohan Zheng
  */
 public class SlidingWindowMedianTest {
-    @Test
-    public void test() {
-        SlidingWindowMedian test = new SlidingWindowMedian();
-        int[] nums = {1, 2, 7, 8, 5};
-        assertThat(test.medianSlidingWindow(nums, 3), IsIterableContainingInOrder.contains(2, 7, 7));
-    }
+  @Test
+  public void test() {
+    SlidingWindowMedian test = new SlidingWindowMedian();
+    int[] nums = {1, 2, 7, 8, 5};
+    assertThat(test.medianSlidingWindow(nums, 3), IsIterableContainingInOrder.contains(2, 7, 7));
+  }
 }

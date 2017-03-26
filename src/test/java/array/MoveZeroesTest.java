@@ -11,12 +11,12 @@ import static org.junit.Assert.assertArrayEquals;
  * @author Bohan Zheng
  */
 public class MoveZeroesTest {
-    MoveZeroes test = new MoveZeroes();
+  MoveZeroes test = new MoveZeroes();
 
-    @Test
-    public void test() {
-        int[] arrays = new int[]{0, 1, 0, 3, 12};
-        test.moveZeroes(arrays);
-        assertArrayEquals(new int[]{1, 3, 12, 0, 0}, arrays);
-    }
+  @Test
+  public void test() {
+    int[] arrays = new int[]{0, 1, 0, 3, 12};
+    test.moveZeroes(arrays);
+    assertArrayEquals(new int[]{1, 3, 12, 0, 0}, arrays);
+  }
 }

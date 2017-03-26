@@ -11,38 +11,38 @@ import java.util.Arrays;
  * @author Bohan Zheng
  */
 public class MajorityElement {
-    public int majorityElement(int[] nums) {
-        Arrays.sort(nums);
-        return nums[nums.length / 2];
-    }
+  public int majorityElement(int[] nums) {
+    Arrays.sort(nums);
+    return nums[nums.length / 2];
+  }
 
-    /**
-     * Because the majority element must more than other elements, set a counter and iterate through the element, every
-     * time see a majority element counter++, counter-- on other elements, after iteration counter will be greater than 0.
-     * And all other element is less than majority element, their counter will less than 0.
-     * <p>
-     * 1. suppose the 1st element n is majority element, counter = 0;
-     * 2. iterate throught the array, if nums[i] == n counter++ else counter--
-     * 3. if counter == 0, set the current element as a new majority element candidiate.
-     * 4. the element left after the iteration must be the majority element.
-     *
-     * @param nums
-     * @return
-     */
-    public int majorityElement2(int[] nums) {
-        int candidate = nums[0], counter = 0;
-        for (int n : nums) {
-            if (n == candidate) {
-                counter++;
-            } else {
-                counter--;
-            }
-            if (counter == 0) {
-                counter = 1;
-                candidate = n;
-            }
-        }
-        // if the majority element not always exists, add a check here
+  /**
+   * Because the majority element must more than other elements, set a counter and iterate through the element, every
+   * time see a majority element counter++, counter-- on other elements, after iteration counter will be greater than 0.
+   * And all other element is less than majority element, their counter will less than 0.
+   * <p>
+   * 1. suppose the 1st element n is majority element, counter = 0;
+   * 2. iterate throught the array, if nums[i] == n counter++ else counter--
+   * 3. if counter == 0, set the current element as a new majority element candidiate.
+   * 4. the element left after the iteration must be the majority element.
+   *
+   * @param nums
+   * @return
+   */
+  public int majorityElement2(int[] nums) {
+    int candidate = nums[0], counter = 0;
+    for (int n : nums) {
+      if (n == candidate) {
+        counter++;
+      } else {
+        counter--;
+      }
+      if (counter == 0) {
+        counter = 1;
+        candidate = n;
+      }
+    }
+    // if the majority element not always exists, add a check here
         /*
         counter = 0;
         for (int n : nums) {
@@ -54,6 +54,6 @@ public class MajorityElement {
         else
             throw new RuntimeException("not exist");
         */
-        return candidate;
-    }
+    return candidate;
+  }
 }

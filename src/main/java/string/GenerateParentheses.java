@@ -15,26 +15,26 @@ import java.util.List;
  * @author Bohan Zheng
  */
 public class GenerateParentheses {
-    public List<String> generateParenthesis(int n) {
-        List<String> res = new ArrayList<>();
-        generate(res, n, n, new StringBuilder());
-        return res;
-    }
+  public List<String> generateParenthesis(int n) {
+    List<String> res = new ArrayList<>();
+    generate(res, n, n, new StringBuilder());
+    return res;
+  }
 
-    private void generate(List<String> res, int left, int right, StringBuilder tmpSB) {
-        if (left == 0 && right == 0) {
-            res.add(tmpSB.toString());
-            return;
-        }
-        if (left > 0) {
-            tmpSB.append('(');
-            generate(res, left - 1, right, tmpSB);
-            tmpSB.deleteCharAt(tmpSB.length() - 1);
-        }
-        if (right > left) {
-            tmpSB.append(')');
-            generate(res, left, right - 1, tmpSB);
-            tmpSB.deleteCharAt(tmpSB.length() - 1);
-        }
+  private void generate(List<String> res, int left, int right, StringBuilder tmpSB) {
+    if (left == 0 && right == 0) {
+      res.add(tmpSB.toString());
+      return;
     }
+    if (left > 0) {
+      tmpSB.append('(');
+      generate(res, left - 1, right, tmpSB);
+      tmpSB.deleteCharAt(tmpSB.length() - 1);
+    }
+    if (right > left) {
+      tmpSB.append(')');
+      generate(res, left, right - 1, tmpSB);
+      tmpSB.deleteCharAt(tmpSB.length() - 1);
+    }
+  }
 }

@@ -7,5 +7,5 @@ package utils;
  * @author Bohan Zheng
  */
 public enum Directions {
-    RIGHT, DOWN, LEFT, UP;
+  RIGHT, DOWN, LEFT, UP;
 }

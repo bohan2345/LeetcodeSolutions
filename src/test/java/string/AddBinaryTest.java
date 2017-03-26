@@ -17,9 +17,9 @@ import org.junit.Test;
  */
 public class AddBinaryTest {
 
-    @Test
-    public void test() {
-        AddBinary test = new AddBinary();
-        Assert.assertEquals("110", test.addBinary("11", "11"));
-    }
+  @Test
+  public void test() {
+    AddBinary test = new AddBinary();
+    Assert.assertEquals("110", test.addBinary("11", "11"));
+  }
 }

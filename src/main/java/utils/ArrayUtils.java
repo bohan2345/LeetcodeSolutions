@@ -7,9 +7,9 @@ package utils;
  * @author Bohan Zheng
  */
 public class ArrayUtils {
-    public static void swap(int[] nums, int a, int b) {
-        int tmp = nums[a];
-        nums[a] = nums[b];
-        nums[b] = tmp;
-    }
+  public static void swap(int[] nums, int a, int b) {
+    int tmp = nums[a];
+    nums[a] = nums[b];
+    nums[b] = tmp;
+  }
 }

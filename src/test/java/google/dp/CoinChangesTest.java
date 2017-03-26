@@ -10,10 +10,10 @@ import org.junit.Test;
  * @author Bohan Zheng
  */
 public class CoinChangesTest {
-    @Test
-    public void test() {
-        CoinChange test = new CoinChange();
-        int[] coins = {1, 2, 5};
-        Assert.assertEquals(3, test.coinChange(coins, 11));
-    }
+  @Test
+  public void test() {
+    CoinChange test = new CoinChange();
+    int[] coins = {1, 2, 5};
+    Assert.assertEquals(3, test.coinChange(coins, 11));
+  }
 }

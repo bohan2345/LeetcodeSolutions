@@ -10,10 +10,10 @@ import utils.ListNode;
  * @author Bohan Zheng
  */
 public class DeleteNodeinaLinkedList {
-    public void deleteNode(ListNode node) {
-        ListNode next = node.next;
-        node.val = next.val;
-        node.next = next.next;
-        next.next = null;
-    }
+  public void deleteNode(ListNode node) {
+    ListNode next = node.next;
+    node.val = next.val;
+    node.next = next.next;
+    next.next = null;
+  }
 }

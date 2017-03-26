@@ -17,14 +17,14 @@ import static org.junit.Assert.assertTrue;
  * @author Bohan Zheng
  */
 public class WordBreakIITest {
-    @Test
-    public void test() {
-        WordBreakII test = new WordBreakII();
-        Set<String> s = new HashSet<>();
-        s.addAll(Arrays.asList("cat", "cats", "and", "sand", "dog"));
+  @Test
+  public void test() {
+    WordBreakII test = new WordBreakII();
+    Set<String> s = new HashSet<>();
+    s.addAll(Arrays.asList("cat", "cats", "and", "sand", "dog"));
 
-        assertThat(test.wordBreakII("catsanddog", s), IsIterableContainingInAnyOrder.containsInAnyOrder("cats and dog", "cat sand dog"));
-    }
+    assertThat(test.wordBreakII("catsanddog", s), IsIterableContainingInAnyOrder.containsInAnyOrder("cats and dog", "cat sand dog"));
+  }
 
 //    @Test
 //    public void test2() {
@@ -37,14 +37,14 @@ public class WordBreakIITest {
 //        assertTrue(test.wordBreak("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", s).isEmpty());
 //    }
 
-    @Test
-    public void test3() {
+  @Test
+  public void test3() {
 //        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 //                ["a","aa","aaa","aaaa","aaaaa","aaaaaa","aaaaaaa","aaaaaaaa","aaaaaaaaa","aaaaaaaaaa"]
-        WordBreakII test = new WordBreakII();
-        Set<String> s = new HashSet<>();
-        s.addAll(Arrays.asList("a", "aa", "aaa", "aaaa", "aaaaa", "aaaaaa", "aaaaaaa", "aaaaaaaa", "aaaaaaaaa", "aaaaaaaaaa"));
+    WordBreakII test = new WordBreakII();
+    Set<String> s = new HashSet<>();
+    s.addAll(Arrays.asList("a", "aa", "aaa", "aaaa", "aaaaa", "aaaaaa", "aaaaaaa", "aaaaaaaa", "aaaaaaaaa", "aaaaaaaaaa"));
 
-        assertTrue(test.wordBreakII("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", s).isEmpty());
-    }
+    assertTrue(test.wordBreakII("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", s).isEmpty());
+  }
 }

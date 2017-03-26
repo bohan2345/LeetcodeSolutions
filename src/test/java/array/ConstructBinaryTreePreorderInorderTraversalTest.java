@@ -11,11 +11,11 @@ import static org.junit.Assert.assertEquals;
  * @author Bohan Zheng
  */
 public class ConstructBinaryTreePreorderInorderTraversalTest {
-    ConstructBinaryTreePreorderInorderTraversal test = new ConstructBinaryTreePreorderInorderTraversal();
+  ConstructBinaryTreePreorderInorderTraversal test = new ConstructBinaryTreePreorderInorderTraversal();
 
-    @Test
-    public void test() {
-        test.buildTree(new int[]{1, 2}, new int[]{2, 1});
-        assertEquals(0, 0);
-    }
+  @Test
+  public void test() {
+    test.buildTree(new int[]{1, 2}, new int[]{2, 1});
+    assertEquals(0, 0);
+  }
 }

@@ -13,10 +13,10 @@ import static org.junit.Assert.assertEquals;
  * @author Bohan Zheng
  */
 public class RemoveLinkedListElementsTest {
-    @Test
-    public void test() {
-        RemoveLinkedListElements test = new RemoveLinkedListElements();
-        ListNode head = LinkedListUtils.constructLinkedList(1, 2, 1, 4, 1);
-        assertEquals("2,4", LinkedListUtils.serialize(test.removeElements(head, 1)));
-    }
+  @Test
+  public void test() {
+    RemoveLinkedListElements test = new RemoveLinkedListElements();
+    ListNode head = LinkedListUtils.constructLinkedList(1, 2, 1, 4, 1);
+    assertEquals("2,4", LinkedListUtils.serialize(test.removeElements(head, 1)));
+  }
 }

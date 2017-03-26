@@ -13,21 +13,21 @@ package array;
  * @author Bohan Zheng
  */
 public class MissingNumber {
-    public int missingNumber(int[] nums) {
-        for (int i = 0; i < nums.length; ) {
-            if (nums[i] >= nums.length || nums[i] < 0 || nums[i] == nums[nums[i]]) {
-                i++;
-                continue;
-            }
-            int tmp = nums[i];
-            nums[i] = nums[tmp];
-            nums[tmp] = tmp;
-        }
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] != i) {
-                return i;
-            }
-        }
-        return nums.length;
+  public int missingNumber(int[] nums) {
+    for (int i = 0; i < nums.length; ) {
+      if (nums[i] >= nums.length || nums[i] < 0 || nums[i] == nums[nums[i]]) {
+        i++;
+        continue;
+      }
+      int tmp = nums[i];
+      nums[i] = nums[tmp];
+      nums[tmp] = tmp;
     }
+    for (int i = 0; i < nums.length; i++) {
+      if (nums[i] != i) {
+        return i;
+      }
+    }
+    return nums.length;
+  }
 }

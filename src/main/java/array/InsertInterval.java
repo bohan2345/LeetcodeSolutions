@@ -19,79 +19,79 @@ import java.util.List;
  * @author Bohan Zheng
  */
 public class InsertInterval {
-    public List<Interval> insert(List<Interval> intervals, Interval newInterval) {
-        int i = insertHelper(intervals, newInterval);
+  public List<Interval> insert(List<Interval> intervals, Interval newInterval) {
+    int i = insertHelper(intervals, newInterval);
 
-        if (i - 1 >= 0 && intervals.get(i - 1).end >= intervals.get(i).start) {
-            Interval removed = intervals.remove(i - 1);
-            i--;
-            intervals.get(i).start = removed.start;
-            intervals.get(i).end = Math.max(removed.end, intervals.get(i).end);
-        }
-
-        for (int j = i + 1; j < intervals.size() && intervals.get(j).start <= intervals.get(i).end; ) {
-            Interval removed = intervals.remove(j);
-            intervals.get(i).end = Math.max(intervals.get(i).end, removed.end);
-        }
-        return intervals;
+    if (i - 1 >= 0 && intervals.get(i - 1).end >= intervals.get(i).start) {
+      Interval removed = intervals.remove(i - 1);
+      i--;
+      intervals.get(i).start = removed.start;
+      intervals.get(i).end = Math.max(removed.end, intervals.get(i).end);
     }
 
-    public int insertHelper(List<Interval> intervals, Interval newInterval) {
-        int left = 0, right = intervals.size() - 1;
-        while (left <= right) {
-            int mid = left + (right - left) / 2;
-            if (intervals.get(mid).start == newInterval.start) {
-                intervals.add(mid, newInterval);
-                return mid;
-            } else if (intervals.get(mid).start > newInterval.start) {
-                if (mid == 0 || intervals.get(mid - 1).start < newInterval.start) {
-                    intervals.add(mid, newInterval);
-                    return mid;
-                }
-                right = mid - 1;
-            } else {
-                if (mid + 1 == intervals.size() || intervals.get(mid + 1).start > newInterval.start) {
-                    intervals.add(mid + 1, newInterval);
-                    return mid + 1;
-                }
-                left = mid + 1;
-            }
-        }
-        intervals.add(newInterval);
-        return 0;
+    for (int j = i + 1; j < intervals.size() && intervals.get(j).start <= intervals.get(i).end; ) {
+      Interval removed = intervals.remove(j);
+      intervals.get(i).end = Math.max(intervals.get(i).end, removed.end);
     }
+    return intervals;
+  }
 
-    public List<Interval> insert2(List<Interval> intervals, Interval newInterval) {
-        List<Interval> result = new ArrayList<>();
-        for (int i = 0; i < intervals.size(); i++) {
-            Interval interval = intervals.get(i);
-            if (newInterval == null) {
-                result.add(interval);
-                continue;
-            }
-            if (interval.start <= newInterval.end && interval.end >= newInterval.start) {
-                // merge interval and newInterval then insert into result
-                newInterval = merge(interval, newInterval);
-            } else {
-                if (interval.start < newInterval.start) {
-                    result.add(interval);
-                } else {
-                    result.add(newInterval);
-                    i--;
-                    newInterval = null;
-                }
-            }
+  public int insertHelper(List<Interval> intervals, Interval newInterval) {
+    int left = 0, right = intervals.size() - 1;
+    while (left <= right) {
+      int mid = left + (right - left) / 2;
+      if (intervals.get(mid).start == newInterval.start) {
+        intervals.add(mid, newInterval);
+        return mid;
+      } else if (intervals.get(mid).start > newInterval.start) {
+        if (mid == 0 || intervals.get(mid - 1).start < newInterval.start) {
+          intervals.add(mid, newInterval);
+          return mid;
         }
-        if (newInterval != null) {
-            result.add(newInterval);
+        right = mid - 1;
+      } else {
+        if (mid + 1 == intervals.size() || intervals.get(mid + 1).start > newInterval.start) {
+          intervals.add(mid + 1, newInterval);
+          return mid + 1;
         }
-        return result;
+        left = mid + 1;
+      }
     }
+    intervals.add(newInterval);
+    return 0;
+  }
 
-    private Interval merge(Interval i1, Interval i2) {
-        Interval newInterval = new Interval();
-        newInterval.start = Math.min(i1.start, i2.start);
-        newInterval.end = Math.max(i1.end, i2.end);
-        return newInterval;
+  public List<Interval> insert2(List<Interval> intervals, Interval newInterval) {
+    List<Interval> result = new ArrayList<>();
+    for (int i = 0; i < intervals.size(); i++) {
+      Interval interval = intervals.get(i);
+      if (newInterval == null) {
+        result.add(interval);
+        continue;
+      }
+      if (interval.start <= newInterval.end && interval.end >= newInterval.start) {
+        // merge interval and newInterval then insert into result
+        newInterval = merge(interval, newInterval);
+      } else {
+        if (interval.start < newInterval.start) {
+          result.add(interval);
+        } else {
+          result.add(newInterval);
+          i--;
+          newInterval = null;
+        }
+      }
     }
+    if (newInterval != null) {
+      result.add(newInterval);
+    }
+    return result;
+  }
+
+  private Interval merge(Interval i1, Interval i2) {
+    Interval newInterval = new Interval();
+    newInterval.start = Math.min(i1.start, i2.start);
+    newInterval.end = Math.max(i1.end, i2.end);
+    return newInterval;
+  }
 }

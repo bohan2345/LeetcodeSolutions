@@ -11,15 +11,15 @@ import static org.junit.Assert.assertEquals;
  * @author Bohan Zheng
  */
 public class ReverseWordsinaStringTest {
-    @Test
-    public void test() {
-        ReverseWordsinaString test = new ReverseWordsinaString();
-        assertEquals("blue is sky the", test.reverseWords("the sky is blue"));
-    }
+  @Test
+  public void test() {
+    ReverseWordsinaString test = new ReverseWordsinaString();
+    assertEquals("blue is sky the", test.reverseWords("the sky is blue"));
+  }
 
-    @Test
-    public void test2() {
-        ReverseWordsinaString test = new ReverseWordsinaString();
-        assertEquals("blue is sky the", test.reverseWords("the sky       is blue"));
-    }
+  @Test
+  public void test2() {
+    ReverseWordsinaString test = new ReverseWordsinaString();
+    assertEquals("blue is sky the", test.reverseWords("the sky       is blue"));
+  }
 }

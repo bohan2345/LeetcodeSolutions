@@ -14,18 +14,18 @@ package array;
  * @author Bohan Zheng
  */
 public class ProductofArrayExceptSelf {
-    public int[] productExceptSelf(int[] nums) {
-        int leng = nums.length;
-        int res[] = new int[leng];
-        res[0] = 1;
-        for (int i = 1; i < leng; i++) {
-            res[i] = nums[i - 1] * res[i - 1];
-        }
-        int product = 1;
-        for (int i = leng - 2; i >= 0; i--) {
-            product = nums[i + 1] * product;
-            res[i] = res[i] * product;
-        }
-        return res;
+  public int[] productExceptSelf(int[] nums) {
+    int leng = nums.length;
+    int res[] = new int[leng];
+    res[0] = 1;
+    for (int i = 1; i < leng; i++) {
+      res[i] = nums[i - 1] * res[i - 1];
     }
+    int product = 1;
+    for (int i = leng - 2; i >= 0; i--) {
+      product = nums[i + 1] * product;
+      res[i] = res[i] * product;
+    }
+    return res;
+  }
 }

@@ -11,11 +11,11 @@ import static org.junit.Assert.assertEquals;
  * @author Bohan Zheng
  */
 public class RussianDollEnvelopesTest {
-    @Test
-    public void test() {
-        //[[5,4],[6,4],[6,7],[2,3]]
-        RussianDollEnvelopes test = new RussianDollEnvelopes();
-        int[][] envelopes = {{5, 4}, {6, 4}, {6, 7}, {2, 3}};
-        assertEquals(3, test.maxEnvelopes(envelopes));
-    }
+  @Test
+  public void test() {
+    //[[5,4],[6,4],[6,7],[2,3]]
+    RussianDollEnvelopes test = new RussianDollEnvelopes();
+    int[][] envelopes = {{5, 4}, {6, 4}, {6, 7}, {2, 3}};
+    assertEquals(3, test.maxEnvelopes(envelopes));
+  }
 }

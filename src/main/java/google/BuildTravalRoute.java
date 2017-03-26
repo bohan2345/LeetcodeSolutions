@@ -15,52 +15,52 @@ import java.util.Map;
  * @author Bohan Zheng
  */
 public class BuildTravalRoute {
-    private class City {
-        String name;
-        City next;
-        boolean isOrigin = true;
-
-        City(String name) {
-            this.name = name;
-        }
+  public List<String> buildRoute(List<List<String>> cities) {
+    Map<String, City> map = new HashMap<>();
+    for (List<String> city : cities) {
+      String from = city.get(0);
+      String to = city.get(1);
+      City fromCity;
+      if (map.containsKey(from)) {
+        fromCity = map.get(from);
+      } else {
+        fromCity = new City(from);
+        map.put(from, fromCity);
+      }
+      City toCity;
+      if (map.containsKey(to)) {
+        toCity = map.get(to);
+      } else {
+        toCity = new City(to);
+        map.put(to, toCity);
+      }
+      fromCity.next = toCity;
+      toCity.isOrigin = false;
     }
 
-    public List<String> buildRoute(List<List<String>> cities) {
-        Map<String, City> map = new HashMap<>();
-        for (List<String> city : cities) {
-            String from = city.get(0);
-            String to = city.get(1);
-            City fromCity;
-            if (map.containsKey(from)) {
-                fromCity = map.get(from);
-            } else {
-                fromCity = new City(from);
-                map.put(from, fromCity);
-            }
-            City toCity;
-            if (map.containsKey(to)) {
-                toCity = map.get(to);
-            } else {
-                toCity = new City(to);
-                map.put(to, toCity);
-            }
-            fromCity.next = toCity;
-            toCity.isOrigin = false;
-        }
-
-        List<String> res = new ArrayList<>();
-        City head = null;
-        for (String city : map.keySet()) {
-            if (map.get(city).isOrigin) {
-                head = map.get(city);
-                break;
-            }
-        }
-        while (head != null) {
-            res.add(head.name);
-            head = head.next;
-        }
-        return res;
+    List<String> res = new ArrayList<>();
+    City head = null;
+    for (String city : map.keySet()) {
+      if (map.get(city).isOrigin) {
+        head = map.get(city);
+        break;
+      }
     }
+    while (head != null) {
+      res.add(head.name);
+      head = head.next;
+    }
+    return res;
+  }
+
+  private class City {
+    String name;
+    City next;
+    boolean isOrigin = true;
+
+    City(String name) {
+      this.name = name;
+    }
+  }
 
 }

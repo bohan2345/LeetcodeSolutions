@@ -24,37 +24,37 @@ package string;
  * @author Bohan Zheng
  */
 public class StringToInteger {
-    public int myAtoi(String str) {
-        if (str == null || str.length() == 0) {
-            return 0;
-        }
-        int i = 0;
-        while (i < str.length()) {
-            if (str.charAt(i) == ' ') {
-                i++;
-            } else {
-                break;
-            }
-        }
-        int j = i;
-        if (str.charAt(j) == '-' || str.charAt(j) == '+') {
-            j++;
-        }
-        while (j < str.length()) {
-            if (str.charAt(j) >= '0' && str.charAt(j) <= '9') {
-                j++;
-            } else {
-                break;
-            }
-        }
-        str = str.substring(i, j);
-        if (str.length() == 0 || str.equals("+") || str.equals("-")) {
-            return 0;
-        }
-        try {
-            return Integer.parseInt(str);
-        } catch (NumberFormatException e) {
-            return str.charAt(0) == '-' ? Integer.MIN_VALUE : Integer.MAX_VALUE;
-        }
+  public int myAtoi(String str) {
+    if (str == null || str.length() == 0) {
+      return 0;
     }
+    int i = 0;
+    while (i < str.length()) {
+      if (str.charAt(i) == ' ') {
+        i++;
+      } else {
+        break;
+      }
+    }
+    int j = i;
+    if (str.charAt(j) == '-' || str.charAt(j) == '+') {
+      j++;
+    }
+    while (j < str.length()) {
+      if (str.charAt(j) >= '0' && str.charAt(j) <= '9') {
+        j++;
+      } else {
+        break;
+      }
+    }
+    str = str.substring(i, j);
+    if (str.length() == 0 || str.equals("+") || str.equals("-")) {
+      return 0;
+    }
+    try {
+      return Integer.parseInt(str);
+    } catch (NumberFormatException e) {
+      return str.charAt(0) == '-' ? Integer.MIN_VALUE : Integer.MAX_VALUE;
+    }
+  }
 }

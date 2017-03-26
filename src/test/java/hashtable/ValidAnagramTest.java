@@ -12,15 +12,15 @@ import static org.junit.Assert.assertTrue;
  * @author Bohan Zheng
  */
 public class ValidAnagramTest {
-    @Test
-    public void test() {
-        ValidAnagram test = new ValidAnagram();
-        assertTrue(test.isAnagram2("ab", "ba"));
-    }
+  @Test
+  public void test() {
+    ValidAnagram test = new ValidAnagram();
+    assertTrue(test.isAnagram2("ab", "ba"));
+  }
 
-    @Test
-    public void test2() {
-        ValidAnagram test = new ValidAnagram();
-        assertFalse(test.isAnagram2("aaaaaa", "bbbbbb"));
-    }
+  @Test
+  public void test2() {
+    ValidAnagram test = new ValidAnagram();
+    assertFalse(test.isAnagram2("aaaaaa", "bbbbbb"));
+  }
 }

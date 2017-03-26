@@ -11,22 +11,22 @@ package array;
  * @author Bohan Zheng
  */
 public class ContainerWithMostWater {
-    public int maxArea(int[] height) {
-        int area = 0;
-        int left = 0, right = height.length - 1;
-        int h = 0, w = 0;
+  public int maxArea(int[] height) {
+    int area = 0;
+    int left = 0, right = height.length - 1;
+    int h = 0, w = 0;
 
-        while (left < right) {
-            w = right - left;
-            if (height[left] < height[right]) {
-                h = height[left];
-                left++;
-            } else {
-                h = height[right];
-                right--;
-            }
-            area = Math.max(area, h * w);
-        }
-        return area;
+    while (left < right) {
+      w = right - left;
+      if (height[left] < height[right]) {
+        h = height[left];
+        left++;
+      } else {
+        h = height[right];
+        right--;
+      }
+      area = Math.max(area, h * w);
     }
+    return area;
+  }
 }

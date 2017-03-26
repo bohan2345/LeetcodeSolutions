@@ -17,11 +17,11 @@ import static org.junit.Assert.assertThat;
  * @author Bohan Zheng
  */
 public class BinaryTreePathsTest {
-    @Test
-    public void test() {
-        TreeNode root = BinaryTreeUtils.constructBinaryTree(1, 2, 3, 0, 5);
-        BinaryTreePaths test = new BinaryTreePaths();
-        List<String> expected = Arrays.asList("1->2->5", "1->3");
-        assertThat(test.binaryTreePaths(root), IsIterableContainingInAnyOrder.containsInAnyOrder(expected.toArray()));
-    }
+  @Test
+  public void test() {
+    TreeNode root = BinaryTreeUtils.constructBinaryTree(1, 2, 3, 0, 5);
+    BinaryTreePaths test = new BinaryTreePaths();
+    List<String> expected = Arrays.asList("1->2->5", "1->3");
+    assertThat(test.binaryTreePaths(root), IsIterableContainingInAnyOrder.containsInAnyOrder(expected.toArray()));
+  }
 }

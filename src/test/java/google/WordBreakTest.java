@@ -14,13 +14,13 @@ import java.util.Set;
  * @author Bohan Zheng
  */
 public class WordBreakTest {
-    @Test
-    public void test() {
-        WordBreak test = new WordBreak();
-        Set<String> dic = new HashSet<>();
-        dic.add("leet");
-        dic.add("code");
-        Assert.assertTrue(test.wordBreak("leetcode", dic));
-    }
+  @Test
+  public void test() {
+    WordBreak test = new WordBreak();
+    Set<String> dic = new HashSet<>();
+    dic.add("leet");
+    dic.add("code");
+    Assert.assertTrue(test.wordBreak("leetcode", dic));
+  }
 
 }

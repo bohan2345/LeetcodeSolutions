@@ -15,23 +15,23 @@ import utils.ListNode;
  * @author Bohan Zheng
  */
 public class SwapNodesinPairs {
-    public ListNode swapPairs(ListNode head) {
-        if (head == null) {
-            return null;
-        }
-        ListNode dumyNode = new ListNode(0);
-        dumyNode.next = head;
-
-        ListNode prev = dumyNode;
-        ListNode a = head;
-        while (a != null && a.next != null) {
-            ListNode b = a.next;
-            a.next = b.next;
-            b.next = a;
-            prev.next = b;
-            prev = a;
-            a = a.next;
-        }
-        return dumyNode.next;
+  public ListNode swapPairs(ListNode head) {
+    if (head == null) {
+      return null;
     }
+    ListNode dumyNode = new ListNode(0);
+    dumyNode.next = head;
+
+    ListNode prev = dumyNode;
+    ListNode a = head;
+    while (a != null && a.next != null) {
+      ListNode b = a.next;
+      a.next = b.next;
+      b.next = a;
+      prev.next = b;
+      prev = a;
+      a = a.next;
+    }
+    return dumyNode.next;
+  }
 }

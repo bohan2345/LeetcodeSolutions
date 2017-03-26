@@ -11,19 +11,19 @@ import utils.TreeNode;
  * @author Bohan Zheng
  */
 public class PathSum {
-    public boolean hasPathSum(TreeNode root, int sum) {
-        return root != null && dfsHelper(root, sum, 0);
-    }
+  public boolean hasPathSum(TreeNode root, int sum) {
+    return root != null && dfsHelper(root, sum, 0);
+  }
 
-    private boolean dfsHelper(TreeNode node, int sum, int tmpSum) {
-        if (node.left == null && node.right == null) {
-            return sum == (tmpSum + node.val);
-        } else if (node.left == null) {
-            return dfsHelper(node.right, sum, tmpSum + node.val);
-        } else if (node.right == null) {
-            return dfsHelper(node.left, sum, tmpSum + node.val);
-        } else {
-            return dfsHelper(node.left, sum, tmpSum + node.val) || dfsHelper(node.right, sum, tmpSum + node.val);
-        }
+  private boolean dfsHelper(TreeNode node, int sum, int tmpSum) {
+    if (node.left == null && node.right == null) {
+      return sum == (tmpSum + node.val);
+    } else if (node.left == null) {
+      return dfsHelper(node.right, sum, tmpSum + node.val);
+    } else if (node.right == null) {
+      return dfsHelper(node.left, sum, tmpSum + node.val);
+    } else {
+      return dfsHelper(node.left, sum, tmpSum + node.val) || dfsHelper(node.right, sum, tmpSum + node.val);
     }
+  }
 }

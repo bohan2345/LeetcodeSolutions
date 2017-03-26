@@ -11,15 +11,15 @@ import org.junit.Test;
  * @author Bohan Zheng
  */
 public class DecodeStringTest {
-    @Test
-    public void test() {
-        DecodeString test = new DecodeString();
-        Assert.assertEquals("aaaabcdddefg", test.decode("a[4]bcd[3]efg"));
-    }
+  @Test
+  public void test() {
+    DecodeString test = new DecodeString();
+    Assert.assertEquals("aaaabcdddefg", test.decode("a[4]bcd[3]efg"));
+  }
 
-    @Test
-    public void test2() {
-        DecodeString test = new DecodeString();
-        Assert.assertEquals("a[4]bcd[3]efg", test.encode("aaaabcdddefg"));
-    }
+  @Test
+  public void test2() {
+    DecodeString test = new DecodeString();
+    Assert.assertEquals("a[4]bcd[3]efg", test.encode("aaaabcdddefg"));
+  }
 }

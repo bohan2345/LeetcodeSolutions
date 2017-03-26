@@ -18,30 +18,30 @@ import utils.ListNode;
  * @author Bohan Zheng
  */
 public class ReverseNodesinKGroup {
-    public ListNode reverseKGroup(ListNode head, int k) {
-        if (head == null || k > getLength(head)) {
-            return head;
-        }
-        ListNode prev = new ListNode(0);
-        prev.next = head;
-        int i = 1;
-        while (i < k) {
-            ListNode next = head.next;
-            head.next = next.next;
-            next.next = prev.next;
-            prev.next = next;
-            i++;
-        }
-        head.next = reverseKGroup(head.next, k);
-        return prev.next;
+  public ListNode reverseKGroup(ListNode head, int k) {
+    if (head == null || k > getLength(head)) {
+      return head;
     }
+    ListNode prev = new ListNode(0);
+    prev.next = head;
+    int i = 1;
+    while (i < k) {
+      ListNode next = head.next;
+      head.next = next.next;
+      next.next = prev.next;
+      prev.next = next;
+      i++;
+    }
+    head.next = reverseKGroup(head.next, k);
+    return prev.next;
+  }
 
-    private int getLength(ListNode head) {
-        int leng = 0;
-        while (head != null) {
-            head = head.next;
-            leng++;
-        }
-        return leng;
+  private int getLength(ListNode head) {
+    int leng = 0;
+    while (head != null) {
+      head = head.next;
+      leng++;
     }
+    return leng;
+  }
 }

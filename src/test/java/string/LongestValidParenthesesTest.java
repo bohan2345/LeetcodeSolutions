@@ -11,21 +11,21 @@ import static org.junit.Assert.assertEquals;
  * @author Bohan Zheng
  */
 public class LongestValidParenthesesTest {
-    @Test
-    public void test() {
-        LongestValidParentheses test = new LongestValidParentheses();
-        assertEquals(4, test.longestValidParentheses("(()()("));
-    }
+  @Test
+  public void test() {
+    LongestValidParentheses test = new LongestValidParentheses();
+    assertEquals(4, test.longestValidParentheses("(()()("));
+  }
 
-    @Test
-    public void test2() {
-        LongestValidParentheses test = new LongestValidParentheses();
-        assertEquals(4, test.longestValidParentheses("(()))"));
-    }
+  @Test
+  public void test2() {
+    LongestValidParentheses test = new LongestValidParentheses();
+    assertEquals(4, test.longestValidParentheses("(()))"));
+  }
 
-    @Test
-    public void test3() {
-        LongestValidParentheses test = new LongestValidParentheses();
-        assertEquals(2, test.longestValidParentheses("()(()"));
-    }
+  @Test
+  public void test3() {
+    LongestValidParentheses test = new LongestValidParentheses();
+    assertEquals(2, test.longestValidParentheses("()(()"));
+  }
 }

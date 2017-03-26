@@ -16,18 +16,18 @@ import static org.junit.Assert.assertThat;
  * @author Bohan Zheng
  */
 public class SubsetsIITest {
-    SubsetsII test = new SubsetsII();
+  SubsetsII test = new SubsetsII();
 
-    @Test
-    public void test() {
-        List<List<Integer>> actual = test.subsetsWithDup(new int[]{1, 2, 2});
-        List<List<Integer>> expected = new ArrayList<>();
-        expected.add(Arrays.asList());
-        expected.add(Arrays.asList(1));
-        expected.add(Arrays.asList(2));
-        expected.add(Arrays.asList(1, 2));
-        expected.add(Arrays.asList(2, 2));
-        expected.add(Arrays.asList(1, 2, 2));
-        assertThat(actual, IsIterableContainingInAnyOrder.containsInAnyOrder(expected.toArray()));
-    }
+  @Test
+  public void test() {
+    List<List<Integer>> actual = test.subsetsWithDup(new int[]{1, 2, 2});
+    List<List<Integer>> expected = new ArrayList<>();
+    expected.add(Arrays.asList());
+    expected.add(Arrays.asList(1));
+    expected.add(Arrays.asList(2));
+    expected.add(Arrays.asList(1, 2));
+    expected.add(Arrays.asList(2, 2));
+    expected.add(Arrays.asList(1, 2, 2));
+    assertThat(actual, IsIterableContainingInAnyOrder.containsInAnyOrder(expected.toArray()));
+  }
 }

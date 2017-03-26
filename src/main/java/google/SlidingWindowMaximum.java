@@ -19,31 +19,31 @@ import java.util.Deque;
  * @author Bohan Zheng
  */
 public class SlidingWindowMaximum {
-    public int[] maxSlidingWindow(int[] nums, int k) {
-        if (nums.length == 0) {
-            return new int[0];
-        }
-        int[] res = new int[nums.length - k + 1];
-        Deque<Integer> deque = new ArrayDeque<>();
-        int left = 0, right = 0;
-        for (; right < k; right++) {
-            addtoDeque(deque, nums, right);
-        }
-        res[0] = nums[deque.peekLast()];
-        for (; right < nums.length; right++, left++) {
-            if (deque.peekLast() == left) {
-                deque.pollLast();
-            }
-            addtoDeque(deque, nums, right);
-            res[left + 1] = nums[deque.peekLast()];
-        }
-        return res;
+  public int[] maxSlidingWindow(int[] nums, int k) {
+    if (nums.length == 0) {
+      return new int[0];
     }
+    int[] res = new int[nums.length - k + 1];
+    Deque<Integer> deque = new ArrayDeque<>();
+    int left = 0, right = 0;
+    for (; right < k; right++) {
+      addtoDeque(deque, nums, right);
+    }
+    res[0] = nums[deque.peekLast()];
+    for (; right < nums.length; right++, left++) {
+      if (deque.peekLast() == left) {
+        deque.pollLast();
+      }
+      addtoDeque(deque, nums, right);
+      res[left + 1] = nums[deque.peekLast()];
+    }
+    return res;
+  }
 
-    private void addtoDeque(Deque<Integer> deque, int[] nums, int i) {
-        while (!deque.isEmpty() && nums[i] >= nums[deque.peekFirst()]) {
-            deque.pollFirst();
-        }
-        deque.addFirst(i);
+  private void addtoDeque(Deque<Integer> deque, int[] nums, int i) {
+    while (!deque.isEmpty() && nums[i] >= nums[deque.peekFirst()]) {
+      deque.pollFirst();
     }
+    deque.addFirst(i);
+  }
 }

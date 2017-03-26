@@ -16,14 +16,14 @@ import static org.junit.Assert.assertThat;
  * @author Bohan Zheng
  */
 public class BuildTravalRouteTest {
-    @Test
-    public void test() {
-        BuildTravalRoute test = new BuildTravalRoute();
-        List<List<String>> input = new ArrayList<>();
-        input.add(Arrays.asList("MUC", "LHR"));
-        input.add(Arrays.asList("JFK", "MUC"));
-        input.add(Arrays.asList("SFO", "SJC"));
-        input.add(Arrays.asList("LHR", "SFO"));
-        assertThat(test.buildRoute(input), IsIterableContainingInOrder.contains("JFK", "MUC", "LHR", "SFO", "SJC"));
-    }
+  @Test
+  public void test() {
+    BuildTravalRoute test = new BuildTravalRoute();
+    List<List<String>> input = new ArrayList<>();
+    input.add(Arrays.asList("MUC", "LHR"));
+    input.add(Arrays.asList("JFK", "MUC"));
+    input.add(Arrays.asList("SFO", "SJC"));
+    input.add(Arrays.asList("LHR", "SFO"));
+    assertThat(test.buildRoute(input), IsIterableContainingInOrder.contains("JFK", "MUC", "LHR", "SFO", "SJC"));
+  }
 }
