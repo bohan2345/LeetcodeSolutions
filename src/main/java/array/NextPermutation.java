@@ -1,7 +1,5 @@
 package array;
 
-import java.util.Arrays;
-
 /**
  * Implement next permutation, which rearranges numbers into the lexicographically next greater permutation of numbers.
  * <br>
@@ -17,58 +15,60 @@ import java.util.Arrays;
  * @author Bohan Zheng
  */
 public class NextPermutation {
-  /**
-   * <ul>
-   * <li>From right to left, find the first number violated the increasing trend, call it PartitionNumber</li>
-   * <li>From right to left, find the first number greater than PartitionNumber, call it ChangeNumber</li>
-   * <li>Swap partitionNumber and changeNumber</li>
-   * <li>revert all number on the right side of the ChangeNumber(partitionNumber index)</li>
-   * </ul>
-   *
-   * @param nums
-   */
-  public void nextPermutation(int[] nums) {
-    if (nums == null || nums.length <= 1) {
-      return;
+    /**
+     * <ul>
+     * <li>From right to left, find the first number violated the increasing trend, call it PartitionNumber</li>
+     * <li>From right to left, find the first number greater than PartitionNumber, call it ChangeNumber</li>
+     * <li>Swap partitionNumber and changeNumber</li>
+     * <li>revert all number on the right side of the ChangeNumber(partitionNumber index)</li>
+     * </ul>
+     *
+     * @param nums
+     */
+    public void nextPermutation(int[] nums) {
+        if (nums == null || nums.length <= 1) {
+            return;
+        }
+        int i = findPartitionNumber(nums);
+        if (i < 0) {
+            revert(nums, 0);
+            return;
+        }
+        int j = findChangeNumber(nums, i);
+        swap(nums, i, j);
+        revert(nums, i + 1);
     }
-    int i = findPartitionNumber(nums);
-    if (i < 0) {
-      Arrays.sort(nums);
-      return;
-    }
-    int j = findChangeNumber(nums, i);
-    int tmp = nums[i];
-    nums[i] = nums[j];
-    nums[j] = tmp;
-    revert(nums, i + 1);
-  }
 
-  int findPartitionNumber(int[] nums) {
-    for (int i = nums.length - 2; i >= 0; --i) {
-      if (nums[i] < nums[i + 1]) {
-        return i;
-      }
+    private void swap(int[] nums, int i, int j) {
+        int tmp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tmp;
     }
-    return -1;
-  }
 
-  int findChangeNumber(int[] nums, int i) {
-    for (int j = nums.length - 1; j > i; --j) {
-      if (nums[j] > nums[i]) {
-        return j;
-      }
+    private int findPartitionNumber(int[] nums) {
+        for (int i = nums.length - 2; i >= 0; --i) {
+            if (nums[i] < nums[i + 1]) {
+                return i;
+            }
+        }
+        return -1;
     }
-    return -1;
-  }
 
-  void revert(int[] nums, int i) {
-    int j = nums.length - 1;
-    while (i < j) {
-      int tmp = nums[i];
-      nums[i] = nums[j];
-      nums[j] = tmp;
-      i++;
-      j--;
+    private int findChangeNumber(int[] nums, int i) {
+        for (int j = nums.length - 1; j > i; --j) {
+            if (nums[j] > nums[i]) {
+                return j;
+            }
+        }
+        return -1;
     }
-  }
+
+    private void revert(int[] nums, int i) {
+        int j = nums.length - 1;
+        while (i < j) {
+            swap(nums, i, j);
+            i++;
+            j--;
+        }
+    }
 }
