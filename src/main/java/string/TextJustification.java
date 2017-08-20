@@ -30,56 +30,56 @@ import java.util.List;
  * @author Bohan Zheng
  */
 public class TextJustification {
-  public List<String> fullJustify(String[] words, int maxWidth) {
-    List<String> res = new ArrayList<>();
-    if (words == null || words.length == 0) {
-      return res;
+    public List<String> fullJustify(String[] words, int maxWidth) {
+        List<String> res = new ArrayList<>();
+        if (words == null || words.length == 0) {
+            return res;
+        }
+        int totalLength = 0;
+        List<String> tmpWords = new ArrayList<>();
+        for (String word : words) {
+            if (totalLength + tmpWords.size() + word.length() > maxWidth) {
+                res.add(format(tmpWords, maxWidth, totalLength));
+                totalLength = 0;
+                tmpWords.clear();
+            }
+            totalLength += word.length();
+            tmpWords.add(word);
+        }
+        StringBuilder sb = new StringBuilder();
+        sb.append(tmpWords.get(0));
+        for (int i = 1; i < tmpWords.size(); i++) {
+            sb.append(' ');
+            sb.append(tmpWords.get(i));
+        }
+        appendSpaces(sb, maxWidth - sb.length());
+        res.add(sb.toString());
+        return res;
     }
-    int totalLength = 0;
-    List<String> tmpWords = new ArrayList<>();
-    for (String word : words) {
-      if (totalLength + tmpWords.size() + word.length() > maxWidth) {
-        res.add(format(tmpWords, maxWidth, totalLength));
-        totalLength = 0;
-        tmpWords.clear();
-      }
-      totalLength += word.length();
-      tmpWords.add(word);
-    }
-    StringBuilder sb = new StringBuilder();
-    sb.append(tmpWords.get(0));
-    for (int i = 1; i < tmpWords.size(); i++) {
-      sb.append(' ');
-      sb.append(tmpWords.get(i));
-    }
-    appendSpaces(sb, maxWidth - sb.length());
-    res.add(sb.toString());
-    return res;
-  }
 
-  private String format(List<String> words, int maxWidth, int totalLength) {
-    StringBuilder sb = new StringBuilder(maxWidth);
-    sb.append(words.get(0));
-    if (words.size() == 1) {
-      appendSpaces(sb, maxWidth - totalLength);
-      return sb.toString();
+    private String format(List<String> words, int maxWidth, int totalLength) {
+        StringBuilder sb = new StringBuilder(maxWidth);
+        sb.append(words.get(0));
+        if (words.size() == 1) {
+            appendSpaces(sb, maxWidth - totalLength);
+            return sb.toString();
+        }
+        int spaces = maxWidth - totalLength;
+        int n = words.size() - 1;
+        for (int i = 1; i < words.size(); i++) {
+            int numSpaces = (int) Math.ceil(spaces / (n * 1.0));
+            appendSpaces(sb, numSpaces);
+            spaces -= numSpaces;
+            n--;
+            sb.append(words.get(i));
+        }
+        return sb.toString();
     }
-    int spaces = maxWidth - totalLength;
-    int n = words.size() - 1;
-    for (int i = 1; i < words.size(); i++) {
-      int numSpaces = (int) Math.ceil(spaces / (n * 1.0));
-      appendSpaces(sb, numSpaces);
-      spaces -= numSpaces;
-      n--;
-      sb.append(words.get(i));
-    }
-    return sb.toString();
-  }
 
-  private void appendSpaces(StringBuilder sb, int n) {
-    while (n > 0) {
-      sb.append(' ');
-      n--;
+    private void appendSpaces(StringBuilder sb, int n) {
+        while (n > 0) {
+            sb.append(' ');
+            n--;
+        }
     }
-  }
 }

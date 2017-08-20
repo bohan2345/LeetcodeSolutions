@@ -11,10 +11,10 @@ import static org.junit.Assert.assertTrue;
  * @author Bohan Zheng
  */
 public class ContainsDuplicateTest {
-  ContainsDuplicateI test = new ContainsDuplicateI();
+    ContainsDuplicateI test = new ContainsDuplicateI();
 
-  @Test
-  public void test() {
-    assertTrue(test.containsDuplicate(new int[]{1, 1}));
-  }
+    @Test
+    public void test() {
+        assertTrue(test.containsDuplicate(new int[]{1, 1}));
+    }
 }

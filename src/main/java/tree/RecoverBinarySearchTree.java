@@ -17,37 +17,37 @@ import java.util.Stack;
  * @author Bohan Zheng
  */
 public class RecoverBinarySearchTree {
-  public void recoverTree(TreeNode root) {
-    if (root == null) {
-      return;
-    }
-    Stack<TreeNode> stack = new Stack<>();
-    stack.push(root);
-    TreeNode next = root.left;
-    int count = 0;
-    TreeNode last = null, a = root, b = root;
-    while (!stack.isEmpty() || next != null) {
-      if (next != null) {
-        stack.push(next);
-        next = next.left;
-      } else {
-        TreeNode node = stack.pop();
-        if (last != null && last.val > node.val) {
-          if (count == 0) {
-            a = last;
-            b = node;
-            count++;
-          } else {
-            b = node;
-            break;
-          }
+    public void recoverTree(TreeNode root) {
+        if (root == null) {
+            return;
         }
-        last = node;
-        next = node.right;
-      }
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        TreeNode next = root.left;
+        int count = 0;
+        TreeNode last = null, a = root, b = root;
+        while (!stack.isEmpty() || next != null) {
+            if (next != null) {
+                stack.push(next);
+                next = next.left;
+            } else {
+                TreeNode node = stack.pop();
+                if (last != null && last.val > node.val) {
+                    if (count == 0) {
+                        a = last;
+                        b = node;
+                        count++;
+                    } else {
+                        b = node;
+                        break;
+                    }
+                }
+                last = node;
+                next = node.right;
+            }
+        }
+        int tmp = a.val;
+        a.val = b.val;
+        b.val = tmp;
     }
-    int tmp = a.val;
-    a.val = b.val;
-    b.val = tmp;
-  }
 }

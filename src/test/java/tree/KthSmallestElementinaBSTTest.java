@@ -13,17 +13,17 @@ import static org.junit.Assert.assertEquals;
  * @author Bohan Zheng
  */
 public class KthSmallestElementinaBSTTest {
-  @Test
-  public void test() {
-    TreeNode root = BinaryTreeUtils.constructBinaryTree(4, 2, 5, 1, 3);
-    KthSmallestElementinaBST test = new KthSmallestElementinaBST();
-    assertEquals(1, test.kthSmallest(root, 1));
-  }
+    @Test
+    public void test() {
+        TreeNode root = BinaryTreeUtils.constructBinaryTree(4, 2, 5, 1, 3);
+        KthSmallestElementinaBST test = new KthSmallestElementinaBST();
+        assertEquals(1, test.kthSmallest(root, 1));
+    }
 
-  @Test
-  public void test2() {
-    TreeNode root = BinaryTreeUtils.constructBinaryTree(4, 2, 5, 1, 3);
-    KthSmallestElementinaBST test = new KthSmallestElementinaBST();
-    assertEquals(3, test.kthSmallest(root, 3));
-  }
+    @Test
+    public void test2() {
+        TreeNode root = BinaryTreeUtils.constructBinaryTree(4, 2, 5, 1, 3);
+        KthSmallestElementinaBST test = new KthSmallestElementinaBST();
+        assertEquals(3, test.kthSmallest(root, 3));
+    }
 }

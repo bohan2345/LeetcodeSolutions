@@ -12,10 +12,10 @@ import static org.junit.Assert.assertEquals;
  */
 public class
 TriangleCountTest {
-  @Test
-  public void test() {
-    TriangleCount test = new TriangleCount();
-    int[] nums = {1, 2, 3, 4, 5};
-    assertEquals(3, test.count(nums));
-  }
+    @Test
+    public void test() {
+        TriangleCount test = new TriangleCount();
+        int[] nums = {1, 2, 3, 4, 5};
+        assertEquals(3, test.count(nums));
+    }
 }

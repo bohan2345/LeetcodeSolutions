@@ -12,25 +12,25 @@ import utils.ListNode;
  * @author Bohan Zheng
  */
 public class LinkedListCycleII {
-  public ListNode detectCycle(ListNode head) {
-    if (head == null || head.next == null)
-      return null;
-    ListNode fast = head.next.next, slow = head.next;
-    while (fast != null) {
-      if (fast.equals(slow)) {
-        break;
-      }
-      fast = fast.next == null ? null : fast.next.next;
-      slow = slow.next;
+    public ListNode detectCycle(ListNode head) {
+        if (head == null || head.next == null)
+            return null;
+        ListNode fast = head.next.next, slow = head.next;
+        while (fast != null) {
+            if (fast.equals(slow)) {
+                break;
+            }
+            fast = fast.next == null ? null : fast.next.next;
+            slow = slow.next;
+        }
+        if (fast == null) {
+            return null;
+        }
+        slow = head;
+        while (!fast.equals(slow)) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        return fast;
     }
-    if (fast == null) {
-      return null;
-    }
-    slow = head;
-    while (!fast.equals(slow)) {
-      fast = fast.next;
-      slow = slow.next;
-    }
-    return fast;
-  }
 }

@@ -14,29 +14,29 @@ import static org.junit.Assert.assertEquals;
  * @author Bohan Zheng
  */
 public class MajorityElementIITest {
-  MajorityElementII test = new MajorityElementII();
+    MajorityElementII test = new MajorityElementII();
 
-  @Test
-  public void test() {
-    int[] nums = {1, 2, 3, 4, 4};
-    List<Integer> expected = new ArrayList<>(1);
-    expected.add(4);
-    assertEquals(expected, test.majorityElement(nums));
-  }
+    @Test
+    public void test() {
+        int[] nums = {1, 2, 3, 4, 4};
+        List<Integer> expected = new ArrayList<>(1);
+        expected.add(4);
+        assertEquals(expected, test.majorityElement(nums));
+    }
 
-  @Test
-  public void test2() {
-    int[] nums = {2, 2, 2, 4, 4};
-    List<Integer> expected = new ArrayList<>(2);
-    expected.add(2);
-    expected.add(4);
-    assertEquals(expected, test.majorityElement(nums));
-  }
+    @Test
+    public void test2() {
+        int[] nums = {2, 2, 2, 4, 4};
+        List<Integer> expected = new ArrayList<>(2);
+        expected.add(2);
+        expected.add(4);
+        assertEquals(expected, test.majorityElement(nums));
+    }
 
-  @Test
-  public void test3() {
-    int[] nums = {1, 2, 3, 4, 5};
-    List<Integer> expected = new ArrayList<>();
-    assertEquals(expected, test.majorityElement(nums));
-  }
+    @Test
+    public void test3() {
+        int[] nums = {1, 2, 3, 4, 5};
+        List<Integer> expected = new ArrayList<>();
+        assertEquals(expected, test.majorityElement(nums));
+    }
 }

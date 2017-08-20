@@ -12,10 +12,10 @@ import static org.junit.Assert.assertThat;
  * @author Bohan Zheng
  */
 public class LetterCombinationsofPhoneNumberTest {
-  @Test
-  public void test() {
-    LetterCombinationsofPhoneNumber test = new LetterCombinationsofPhoneNumber();
-    String[] expected = {"ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"};
-    assertThat(test.letterCombinations("23"), IsIterableContainingInAnyOrder.containsInAnyOrder(expected));
-  }
+    @Test
+    public void test() {
+        LetterCombinationsofPhoneNumber test = new LetterCombinationsofPhoneNumber();
+        String[] expected = {"ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"};
+        assertThat(test.letterCombinations("23"), IsIterableContainingInAnyOrder.containsInAnyOrder(expected));
+    }
 }

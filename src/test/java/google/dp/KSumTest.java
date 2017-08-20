@@ -10,10 +10,10 @@ import org.junit.Test;
  * @author Bohan Zheng
  */
 public class KSumTest {
-  @Test
-  public void test() {
-    KSum test = new KSum();
-    int[] A = {1, 2, 3, 4};
-    Assert.assertEquals(2, test.kSum(A, 2, 5));
-  }
+    @Test
+    public void test() {
+        KSum test = new KSum();
+        int[] A = {1, 2, 3, 4};
+        Assert.assertEquals(2, test.kSum(A, 2, 5));
+    }
 }

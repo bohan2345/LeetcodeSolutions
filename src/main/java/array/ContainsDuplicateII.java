@@ -11,14 +11,14 @@ import java.util.Map;
  * @author Bohan Zheng
  */
 public class ContainsDuplicateII {
-  public boolean solution1(int[] nums, int k) {
-    Map<Integer, Integer> table = new HashMap<>();
-    for (int i = 0; i < nums.length; i++) {
-      if (table.containsKey(nums[i]) && i - table.get(nums[i]) <= k) {
-        return true;
-      }
-      table.put(nums[i], i);
+    public boolean solution1(int[] nums, int k) {
+        Map<Integer, Integer> table = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (table.containsKey(nums[i]) && i - table.get(nums[i]) <= k) {
+                return true;
+            }
+            table.put(nums[i], i);
+        }
+        return false;
     }
-    return false;
-  }
 }

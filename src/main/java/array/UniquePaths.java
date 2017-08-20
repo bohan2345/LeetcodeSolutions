@@ -13,17 +13,17 @@ import java.util.Arrays;
  * @author Bohan Zheng
  */
 public class UniquePaths {
-  public int uniquePaths(int m, int n) {
-    int[] tmp = new int[n];
-    Arrays.fill(tmp, 1);
-    int totalPaths = 1;
-    for (int i = 1; i < m; i++) {
-      totalPaths = 1;
-      for (int j = 1; j < n; j++) {
-        totalPaths += tmp[j];
-        tmp[j] = totalPaths;
-      }
+    public int uniquePaths(int m, int n) {
+        int[] tmp = new int[n];
+        Arrays.fill(tmp, 1);
+        int totalPaths = 1;
+        for (int i = 1; i < m; i++) {
+            totalPaths = 1;
+            for (int j = 1; j < n; j++) {
+                totalPaths += tmp[j];
+                tmp[j] = totalPaths;
+            }
+        }
+        return totalPaths;
     }
-    return totalPaths;
-  }
 }

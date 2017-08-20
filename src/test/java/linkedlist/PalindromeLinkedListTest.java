@@ -13,17 +13,17 @@ import static org.junit.Assert.assertTrue;
  * @author Bohan Zheng
  */
 public class PalindromeLinkedListTest {
-  @Test
-  public void test() {
-    PalindromeLinkedList test = new PalindromeLinkedList();
-    ListNode head = LinkedListUtils.constructLinkedList(1, 2, 3, 2, 1);
-    assertTrue(test.isPalindrome(head));
-  }
+    @Test
+    public void test() {
+        PalindromeLinkedList test = new PalindromeLinkedList();
+        ListNode head = LinkedListUtils.constructLinkedList(1, 2, 3, 2, 1);
+        assertTrue(test.isPalindrome(head));
+    }
 
-  @Test
-  public void test2() {
-    PalindromeLinkedList test = new PalindromeLinkedList();
-    ListNode head = LinkedListUtils.constructLinkedList(1, 2, 3, 3, 2, 1);
-    assertTrue(test.isPalindrome(head));
-  }
+    @Test
+    public void test2() {
+        PalindromeLinkedList test = new PalindromeLinkedList();
+        ListNode head = LinkedListUtils.constructLinkedList(1, 2, 3, 3, 2, 1);
+        assertTrue(test.isPalindrome(head));
+    }
 }

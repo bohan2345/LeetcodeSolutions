@@ -10,12 +10,12 @@ import org.junit.Test;
  * @author Bohan Zheng
  */
 public class NutsBoltsProblemTest {
-  @Test
-  public void test() {
-    NutsBoltsProblem test = new NutsBoltsProblem();
-    String[] nuts = {"a", "c", "b", "d"};
-    String[] bolts = {"c", "d", "a", "b"};
-    test.sortNutsAndBolts(nuts, bolts, String::compareTo);
-    Assert.assertArrayEquals(nuts, bolts);
-  }
+    @Test
+    public void test() {
+        NutsBoltsProblem test = new NutsBoltsProblem();
+        String[] nuts = {"a", "c", "b", "d"};
+        String[] bolts = {"c", "d", "a", "b"};
+        test.sortNutsAndBolts(nuts, bolts, String::compareTo);
+        Assert.assertArrayEquals(nuts, bolts);
+    }
 }

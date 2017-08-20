@@ -10,18 +10,18 @@ import utils.TreeNode;
  * @author Bohan Zheng
  */
 public class ConvertSortedArraytoBinarySearchTree {
-  public TreeNode sortedArrayToBST(int[] nums) {
-    return construct(nums, 0, nums.length - 1);
-  }
-
-  private TreeNode construct(int[] nums, int left, int right) {
-    if (left > right) {
-      return null;
+    public TreeNode sortedArrayToBST(int[] nums) {
+        return construct(nums, 0, nums.length - 1);
     }
-    int mid = left + (right - left) / 2;
-    TreeNode root = new TreeNode(nums[mid]);
-    root.left = construct(nums, left, mid - 1);
-    root.right = construct(nums, mid + 1, right);
-    return root;
-  }
+
+    private TreeNode construct(int[] nums, int left, int right) {
+        if (left > right) {
+            return null;
+        }
+        int mid = left + (right - left) / 2;
+        TreeNode root = new TreeNode(nums[mid]);
+        root.left = construct(nums, left, mid - 1);
+        root.right = construct(nums, mid + 1, right);
+        return root;
+    }
 }

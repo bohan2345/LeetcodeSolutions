@@ -18,46 +18,46 @@ import java.util.List;
  * @author Bohan Zheng
  */
 public class FilpGameII {
-  public boolean canWin(String s) {
-    return canWin(s.toCharArray());
-  }
+    public boolean canWin(String s) {
+        return canWin(s.toCharArray());
+    }
 
-  private boolean canWin(char[] s) {
-    for (int i = 0; i < s.length - 1; i++) {
-      if (s[i] == '+' && s[i + 1] == '+') {
-        s[i] = '-';
-        s[i + 1] = '-';
-        boolean f = !canWin(s);
-        // need to change s[i] and s[i + 1] back to '+' before return
-        s[i] = '+';
-        s[i + 1] = '+';
-        if (f) {
-          return true;
+    private boolean canWin(char[] s) {
+        for (int i = 0; i < s.length - 1; i++) {
+            if (s[i] == '+' && s[i + 1] == '+') {
+                s[i] = '-';
+                s[i + 1] = '-';
+                boolean f = !canWin(s);
+                // need to change s[i] and s[i + 1] back to '+' before return
+                s[i] = '+';
+                s[i + 1] = '+';
+                if (f) {
+                    return true;
+                }
+            }
         }
-      }
+        return false;
     }
-    return false;
-  }
 
-  /**
-   * https://leetcode.com/discuss/64344/theory-matters-from-backtracking-128ms-to-dp-0ms
-   */
-  public boolean canWin2(String s) {
-    s = s.replace('-', ' ');
-    int G = 0;
-    List<Integer> g = new ArrayList<>();
-    for (String t : s.split("[ ]+")) {
-      int p = t.length();
-      if (p == 0) continue;
-      while (g.size() <= p) {
-        char[] x = t.toCharArray();
-        int i = 0, j = g.size() - 2;
-        while (i <= j)
-          x[g.get(i++) ^ g.get(j--)] = '-';
-        g.add(new String(x).indexOf('+'));
-      }
-      G ^= g.get(p);
+    /**
+     * https://leetcode.com/discuss/64344/theory-matters-from-backtracking-128ms-to-dp-0ms
+     */
+    public boolean canWin2(String s) {
+        s = s.replace('-', ' ');
+        int G = 0;
+        List<Integer> g = new ArrayList<>();
+        for (String t : s.split("[ ]+")) {
+            int p = t.length();
+            if (p == 0) continue;
+            while (g.size() <= p) {
+                char[] x = t.toCharArray();
+                int i = 0, j = g.size() - 2;
+                while (i <= j)
+                    x[g.get(i++) ^ g.get(j--)] = '-';
+                g.add(new String(x).indexOf('+'));
+            }
+            G ^= g.get(p);
+        }
+        return G != 0;
     }
-    return G != 0;
-  }
 }

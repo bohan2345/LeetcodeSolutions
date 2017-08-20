@@ -30,31 +30,31 @@ import utils.TreeNode;
  * @author Bohan Zheng
  */
 public class BTLongestConsecutiveSequence {
-  public int longestConsecutive(TreeNode root) {
-    int[] max = {0};
-    if (root != null) {
-      dfs(root, max, 1);
+    public int longestConsecutive(TreeNode root) {
+        int[] max = {0};
+        if (root != null) {
+            dfs(root, max, 1);
+        }
+        return max[0];
     }
-    return max[0];
-  }
 
-  private void dfs(TreeNode root, int[] max, int length) {
-    if (length > max[0]) {
-      max[0] = length;
+    private void dfs(TreeNode root, int[] max, int length) {
+        if (length > max[0]) {
+            max[0] = length;
+        }
+        if (root.left != null) {
+            if (root.left.val == root.val + 1)
+                dfs(root.left, max, length + 1);
+            else {
+                dfs(root.left, max, 1);
+            }
+        }
+        if (root.right != null) {
+            if (root.right.val == root.val + 1)
+                dfs(root.right, max, length + 1);
+            else {
+                dfs(root.right, max, 1);
+            }
+        }
     }
-    if (root.left != null) {
-      if (root.left.val == root.val + 1)
-        dfs(root.left, max, length + 1);
-      else {
-        dfs(root.left, max, 1);
-      }
-    }
-    if (root.right != null) {
-      if (root.right.val == root.val + 1)
-        dfs(root.right, max, length + 1);
-      else {
-        dfs(root.right, max, 1);
-      }
-    }
-  }
 }

@@ -20,22 +20,22 @@ import java.util.List;
  * @author Bohan Zheng
  */
 public class Subsets {
-  public List<List<Integer>> subsets(int[] nums) {
-    Arrays.sort(nums);
-    List<List<Integer>> res = new ArrayList<>();
-    dfsHelper(nums, 0, new ArrayList<>(), res);
-    return res;
-  }
+    public List<List<Integer>> subsets(int[] nums) {
+        Arrays.sort(nums);
+        List<List<Integer>> res = new ArrayList<>();
+        dfsHelper(nums, 0, new ArrayList<>(), res);
+        return res;
+    }
 
-  private void dfsHelper(int[] nums, int i, List<Integer> tmp, List<List<Integer>> res) {
-    res.add(new ArrayList<>(tmp));
-    if (tmp.size() == nums.length) {
-      return;
+    private void dfsHelper(int[] nums, int i, List<Integer> tmp, List<List<Integer>> res) {
+        res.add(new ArrayList<>(tmp));
+        if (tmp.size() == nums.length) {
+            return;
+        }
+        for (; i < nums.length; i++) {
+            tmp.add(nums[i]);
+            dfsHelper(nums, i + 1, tmp, res);
+            tmp.remove(tmp.size() - 1);
+        }
     }
-    for (; i < nums.length; i++) {
-      tmp.add(nums[i]);
-      dfsHelper(nums, i + 1, tmp, res);
-      tmp.remove(tmp.size() - 1);
-    }
-  }
 }

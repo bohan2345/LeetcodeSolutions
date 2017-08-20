@@ -17,34 +17,34 @@ package string;
  * @author Bohan Zheng
  */
 public class ValidPalindrome {
-  public boolean isPalindrome(String s) {
-    s = s.trim().toLowerCase();
-    if (s.length() == 0)
-      return true;
-    int l = 0, r = s.length() - 1;
-    while (l <= r) {
-      while (l < r && !isAlpha(s.charAt(l))) {
-        l++;
-      }
-      while (r > l && !isAlpha(s.charAt(r))) {
-        r--;
-      }
-      if (s.charAt(l) != s.charAt(r))
-        return false;
-      l++;
-      r--;
+    public boolean isPalindrome(String s) {
+        s = s.trim().toLowerCase();
+        if (s.length() == 0)
+            return true;
+        int l = 0, r = s.length() - 1;
+        while (l <= r) {
+            while (l < r && !isAlpha(s.charAt(l))) {
+                l++;
+            }
+            while (r > l && !isAlpha(s.charAt(r))) {
+                r--;
+            }
+            if (s.charAt(l) != s.charAt(r))
+                return false;
+            l++;
+            r--;
+        }
+        return true;
     }
-    return true;
-  }
 
-  private boolean isAlpha(char c) {
-    return (c <= 'z' && c >= 'a') || (c >= '0' && c <= '9');
-  }
+    private boolean isAlpha(char c) {
+        return (c <= 'z' && c >= 'a') || (c >= '0' && c <= '9');
+    }
 
-  public boolean isPalindromeII(String s) {
-    s = s.replaceAll("\\W", "");
-    StringBuilder sb = new StringBuilder(s);
-    sb.reverse();
-    return sb.toString().equalsIgnoreCase(s);
-  }
+    public boolean isPalindromeII(String s) {
+        s = s.replaceAll("\\W", "");
+        StringBuilder sb = new StringBuilder(s);
+        sb.reverse();
+        return sb.toString().equalsIgnoreCase(s);
+    }
 }

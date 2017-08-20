@@ -18,26 +18,26 @@ import java.util.Set;
  * @author Bohan Zheng
  */
 public class ReverseVowelsofaString {
-  public String reverseVowels(String s) {
-    char[] chars = s.toCharArray();
-    int i = 0, j = s.length() - 1;
-    Set<Character> vowel = new HashSet<>(10);
-    vowel.addAll(Arrays.asList('A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u'));
-    while (i < j) {
-      while (i < chars.length && !vowel.contains(chars[i])) {
-        i++;
-      }
-      while (j >= 0 && !vowel.contains(chars[j])) {
-        j--;
-      }
-      if (i < chars.length && j >= 0 && i < j) {
-        char tmp = chars[i];
-        chars[i] = chars[j];
-        chars[j] = tmp;
-        i++;
-        j--;
-      }
+    public String reverseVowels(String s) {
+        char[] chars = s.toCharArray();
+        int i = 0, j = s.length() - 1;
+        Set<Character> vowel = new HashSet<>(10);
+        vowel.addAll(Arrays.asList('A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u'));
+        while (i < j) {
+            while (i < chars.length && !vowel.contains(chars[i])) {
+                i++;
+            }
+            while (j >= 0 && !vowel.contains(chars[j])) {
+                j--;
+            }
+            if (i < chars.length && j >= 0 && i < j) {
+                char tmp = chars[i];
+                chars[i] = chars[j];
+                chars[j] = tmp;
+                i++;
+                j--;
+            }
+        }
+        return new String(chars);
     }
-    return new String(chars);
-  }
 }

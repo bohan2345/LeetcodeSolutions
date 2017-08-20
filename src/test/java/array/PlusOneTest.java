@@ -11,11 +11,11 @@ import static org.junit.Assert.assertArrayEquals;
  * @author Bohan Zheng
  */
 public class PlusOneTest {
-  @Test
-  public void test() {
-    PlusOne test = new PlusOne();
-    int[] digits = {9, 9, 9};
-    int[] expected = {1, 0, 0, 0};
-    assertArrayEquals(expected, test.plusOne(digits));
-  }
+    @Test
+    public void test() {
+        PlusOne test = new PlusOne();
+        int[] digits = {9, 9, 9};
+        int[] expected = {1, 0, 0, 0};
+        assertArrayEquals(expected, test.plusOne(digits));
+    }
 }

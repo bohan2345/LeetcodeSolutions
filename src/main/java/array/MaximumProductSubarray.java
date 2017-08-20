@@ -10,30 +10,30 @@ package array;
  * @author Bohan Zheng
  */
 public class MaximumProductSubarray {
-  public int maxProduct(int[] nums) {
-    if (nums == null || nums.length == 0) {
-      throw new IllegalArgumentException();
+    public int maxProduct(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            throw new IllegalArgumentException();
+        }
+        int min = 1, max = 1;
+        int maxProduct = Integer.MIN_VALUE;
+        for (int n : nums) {
+            if (n < 0) {
+                maxProduct = Math.max(min * n, maxProduct);
+                int tmp = max;
+                max = min * n;
+                min = tmp * n;
+            } else if (n > 0) {
+                maxProduct = Math.max(max * n, maxProduct);
+                max = max * n;
+                min = min * n;
+            } else {
+                maxProduct = Math.max(0, maxProduct);
+                max = 1;
+                min = 1;
+            }
+            max = max > 0 ? max : 1;
+            min = min < 0 ? min : 1;
+        }
+        return maxProduct;
     }
-    int min = 1, max = 1;
-    int maxProduct = Integer.MIN_VALUE;
-    for (int n : nums) {
-      if (n < 0) {
-        maxProduct = Math.max(min * n, maxProduct);
-        int tmp = max;
-        max = min * n;
-        min = tmp * n;
-      } else if (n > 0) {
-        maxProduct = Math.max(max * n, maxProduct);
-        max = max * n;
-        min = min * n;
-      } else {
-        maxProduct = Math.max(0, maxProduct);
-        max = 1;
-        min = 1;
-      }
-      max = max > 0 ? max : 1;
-      min = min < 0 ? min : 1;
-    }
-    return maxProduct;
-  }
 }

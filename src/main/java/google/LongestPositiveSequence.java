@@ -12,25 +12,25 @@ import java.util.List;
  * @author Bohan Zheng
  */
 public class LongestPositiveSequence {
-  public List<Integer> findLongest(int[] nums) {
-    int left = 0;
-    int right = 0;
-    int index = 0;
-    int maxLength = 0;
-    for (; right < nums.length; right++) {
-      if (nums[right] > 0) {
-        if (right - left > maxLength) {
-          maxLength = right - left;
-          index = left;
+    public List<Integer> findLongest(int[] nums) {
+        int left = 0;
+        int right = 0;
+        int index = 0;
+        int maxLength = 0;
+        for (; right < nums.length; right++) {
+            if (nums[right] > 0) {
+                if (right - left > maxLength) {
+                    maxLength = right - left;
+                    index = left;
+                }
+            } else {
+                left = right;
+            }
         }
-      } else {
-        left = right;
-      }
+        List<Integer> res = new ArrayList<>(maxLength);
+        for (int i = index + 1; i <= index + maxLength; i++) {
+            res.add(nums[i]);
+        }
+        return res;
     }
-    List<Integer> res = new ArrayList<>(maxLength);
-    for (int i = index + 1; i <= index + maxLength; i++) {
-      res.add(nums[i]);
-    }
-    return res;
-  }
 }

@@ -9,9 +9,9 @@ import org.junit.Test;
  * @author Bohan Zheng
  */
 public class PalindromePartitioningIITest {
-  @Test
-  public void test() {
-    PalindromePartitioningII test = new PalindromePartitioningII();
-    Assert.assertEquals(1, test.minCut("aab"));
-  }
+    @Test
+    public void test() {
+        PalindromePartitioningII test = new PalindromePartitioningII();
+        Assert.assertEquals(1, test.minCut("aab"));
+    }
 }

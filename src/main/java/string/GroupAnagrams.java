@@ -21,25 +21,25 @@ import java.util.*;
  * @author Bohan Zheng
  */
 public class GroupAnagrams {
-  public List<List<String>> groupAnagrams(String[] strs) {
-    List<List<String>> res = new ArrayList<>();
-    Map<String, List<String>> map = new HashMap<>();
-    for (String s : strs) {
-      char[] chars = s.toCharArray();
-      Arrays.sort(chars);
-      String key = String.valueOf(chars);
-      if (map.containsKey(key)) {
-        map.get(key).add(s);
-      } else {
-        List<String> tmp = new ArrayList<>();
-        tmp.add(s);
-        map.put(key, tmp);
-      }
+    public List<List<String>> groupAnagrams(String[] strs) {
+        List<List<String>> res = new ArrayList<>();
+        Map<String, List<String>> map = new HashMap<>();
+        for (String s : strs) {
+            char[] chars = s.toCharArray();
+            Arrays.sort(chars);
+            String key = String.valueOf(chars);
+            if (map.containsKey(key)) {
+                map.get(key).add(s);
+            } else {
+                List<String> tmp = new ArrayList<>();
+                tmp.add(s);
+                map.put(key, tmp);
+            }
+        }
+        for (String key : map.keySet()) {
+            Collections.sort(map.get(key));
+            res.add(map.get(key));
+        }
+        return res;
     }
-    for (String key : map.keySet()) {
-      Collections.sort(map.get(key));
-      res.add(map.get(key));
-    }
-    return res;
-  }
 }

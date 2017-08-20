@@ -15,15 +15,15 @@ import static org.junit.Assert.assertEquals;
  * @author Bohan Zheng
  */
 public class TriangleTest {
-  Triangle test = new Triangle();
+    Triangle test = new Triangle();
 
-  @Test
-  public void test() {
-    List<List<Integer>> triangle = new ArrayList<>();
-    triangle.add(Arrays.asList(2));
-    triangle.add(Arrays.asList(3, 4));
-    triangle.add(Arrays.asList(5, 6, 7));
-    triangle.add(Arrays.asList(4, 1, 8, 3));
-    assertEquals(11, test.minimumTotal(triangle));
-  }
+    @Test
+    public void test() {
+        List<List<Integer>> triangle = new ArrayList<>();
+        triangle.add(Arrays.asList(2));
+        triangle.add(Arrays.asList(3, 4));
+        triangle.add(Arrays.asList(5, 6, 7));
+        triangle.add(Arrays.asList(4, 1, 8, 3));
+        assertEquals(11, test.minimumTotal(triangle));
+    }
 }

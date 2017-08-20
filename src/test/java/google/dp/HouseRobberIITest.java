@@ -11,9 +11,9 @@ import static org.junit.Assert.assertEquals;
  * @author Bohan Zheng
  */
 public class HouseRobberIITest {
-  @Test
-  public void test() {
-    int[] nums = {8, 2, 8, 9, 2};
-    assertEquals(17, new HouseRobberII().rob(nums));
-  }
+    @Test
+    public void test() {
+        int[] nums = {8, 2, 8, 9, 2};
+        assertEquals(17, new HouseRobberII().rob(nums));
+    }
 }

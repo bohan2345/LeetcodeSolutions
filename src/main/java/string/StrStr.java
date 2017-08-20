@@ -10,23 +10,23 @@ package string;
  * @author Bohan Zheng
  */
 public class StrStr {
-  public int strStr(String haystack, String needle) {
-    if (needle == null || needle.length() == 0)
-      return 0;
-    if (haystack == null || haystack.length() == 0)
-      return -1;
-    char[] h = haystack.toCharArray(), n = needle.toCharArray();
-    for (int i = 0; i <= h.length - n.length; i++) {
-      int j = 0;
-      for (; j < n.length && h[i + j] == n[j]; j++) ;
-      if (j == n.length) {
-        return i;
-      }
+    public int strStr(String haystack, String needle) {
+        if (needle == null || needle.length() == 0)
+            return 0;
+        if (haystack == null || haystack.length() == 0)
+            return -1;
+        char[] h = haystack.toCharArray(), n = needle.toCharArray();
+        for (int i = 0; i <= h.length - n.length; i++) {
+            int j = 0;
+            for (; j < n.length && h[i + j] == n[j]; j++) ;
+            if (j == n.length) {
+                return i;
+            }
+        }
+        return -1;
     }
-    return -1;
-  }
 
-  /**
-   * KMP
-   */
+    /**
+     * KMP
+     */
 }

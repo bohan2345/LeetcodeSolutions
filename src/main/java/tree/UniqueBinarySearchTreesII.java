@@ -16,30 +16,30 @@ import java.util.List;
  * @author Bohan Zheng
  */
 public class UniqueBinarySearchTreesII {
-  public List<TreeNode> generateTrees(int n) {
-    if (n == 0)
-      return new ArrayList<>();
-    return generateTrees(1, n);
-  }
+    public List<TreeNode> generateTrees(int n) {
+        if (n == 0)
+            return new ArrayList<>();
+        return generateTrees(1, n);
+    }
 
-  public List<TreeNode> generateTrees(int left, int right) {
-    List<TreeNode> res = new ArrayList<>();
-    if (left > right) {
-      res.add(null);
-      return res;
-    }
-    for (int i = left; i <= right; i++) {
-      List<TreeNode> leftTrees = generateTrees(left, i - 1);
-      List<TreeNode> rightTrees = generateTrees(i + 1, right);
-      for (TreeNode leftNode : leftTrees) {
-        for (TreeNode rightNode : rightTrees) {
-          TreeNode root = new TreeNode(i);
-          root.left = leftNode;
-          root.right = rightNode;
-          res.add(root);
+    public List<TreeNode> generateTrees(int left, int right) {
+        List<TreeNode> res = new ArrayList<>();
+        if (left > right) {
+            res.add(null);
+            return res;
         }
-      }
+        for (int i = left; i <= right; i++) {
+            List<TreeNode> leftTrees = generateTrees(left, i - 1);
+            List<TreeNode> rightTrees = generateTrees(i + 1, right);
+            for (TreeNode leftNode : leftTrees) {
+                for (TreeNode rightNode : rightTrees) {
+                    TreeNode root = new TreeNode(i);
+                    root.left = leftNode;
+                    root.right = rightNode;
+                    res.add(root);
+                }
+            }
+        }
+        return res;
     }
-    return res;
-  }
 }

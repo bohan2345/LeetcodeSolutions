@@ -10,18 +10,18 @@ import utils.ListNode;
  * @author Bohan Zheng
  */
 public class LinkedListCycle {
-  public boolean hasCycle(ListNode head) {
-    if (head == null) {
-      return false;
+    public boolean hasCycle(ListNode head) {
+        if (head == null) {
+            return false;
+        }
+        ListNode fast = head.next, slow = head;
+        while (fast != null) {
+            if (fast.equals(slow)) {
+                return true;
+            }
+            slow = slow.next;
+            fast = fast.next != null ? fast.next.next : fast.next;
+        }
+        return false;
     }
-    ListNode fast = head.next, slow = head;
-    while (fast != null) {
-      if (fast.equals(slow)) {
-        return true;
-      }
-      slow = slow.next;
-      fast = fast.next != null ? fast.next.next : fast.next;
-    }
-    return false;
-  }
 }

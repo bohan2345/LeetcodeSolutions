@@ -16,15 +16,15 @@ import static org.junit.Assert.assertThat;
  * @author Bohan Zheng
  */
 public class CombinationSumIIITest {
-  CombinationSumIII test = new CombinationSumIII();
+    CombinationSumIII test = new CombinationSumIII();
 
-  @Test
-  public void test() {
-    List<List<Integer>> expected = new ArrayList<>(3);
-    expected.add(Arrays.asList(1, 2, 6));
-    expected.add(Arrays.asList(1, 3, 5));
-    expected.add(Arrays.asList(2, 3, 4));
+    @Test
+    public void test() {
+        List<List<Integer>> expected = new ArrayList<>(3);
+        expected.add(Arrays.asList(1, 2, 6));
+        expected.add(Arrays.asList(1, 3, 5));
+        expected.add(Arrays.asList(2, 3, 4));
 
-    assertThat(test.combinationSum3(3, 9), IsIterableContainingInAnyOrder.containsInAnyOrder(expected.toArray()));
-  }
+        assertThat(test.combinationSum3(3, 9), IsIterableContainingInAnyOrder.containsInAnyOrder(expected.toArray()));
+    }
 }

@@ -15,10 +15,10 @@ package miscellany;
  * @author Bohan Zheng
  */
 public class NimGame {
-  /**
-   * So boring
-   */
-  public boolean canWinNim(int n) {
-    return n % 4 != 0;
-  }
+    /**
+     * So boring
+     */
+    public boolean canWinNim(int n) {
+        return n % 4 != 0;
+    }
 }

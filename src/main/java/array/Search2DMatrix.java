@@ -23,42 +23,42 @@ package array;
  * @author Bohan Zheng
  */
 public class Search2DMatrix {
-  public boolean searchMatrix(int[][] matrix, int target) {
-    if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
-      return false;
-    }
-    int ceil = 0, floor = matrix.length - 1;
-    int i = floor;
-    while (ceil <= floor) {
-      int mid = ceil + (floor - ceil) / 2;
-      if (matrix[mid][0] == target) {
-        return true;
-      }
-      if (matrix[mid][0] > target) {
-        floor = mid - 1;
-      } else {
-        if (mid + 1 < matrix.length && matrix[mid + 1][0] > target) {
-          i = mid;
-          break;
+    public boolean searchMatrix(int[][] matrix, int target) {
+        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
+            return false;
         }
-        ceil = mid + 1;
-      }
+        int ceil = 0, floor = matrix.length - 1;
+        int i = floor;
+        while (ceil <= floor) {
+            int mid = ceil + (floor - ceil) / 2;
+            if (matrix[mid][0] == target) {
+                return true;
+            }
+            if (matrix[mid][0] > target) {
+                floor = mid - 1;
+            } else {
+                if (mid + 1 < matrix.length && matrix[mid + 1][0] > target) {
+                    i = mid;
+                    break;
+                }
+                ceil = mid + 1;
+            }
+        }
+        return binarySearch(matrix[i], target);
     }
-    return binarySearch(matrix[i], target);
-  }
 
-  private boolean binarySearch(int[] arrays, int target) {
-    int left = 0, right = arrays.length - 1;
-    while (left <= right) {
-      int mid = left + (right - left) / 2;
-      if (arrays[mid] == target) {
-        return true;
-      } else if (arrays[mid] > target) {
-        right = mid - 1;
-      } else {
-        left = mid + 1;
-      }
+    private boolean binarySearch(int[] arrays, int target) {
+        int left = 0, right = arrays.length - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (arrays[mid] == target) {
+                return true;
+            } else if (arrays[mid] > target) {
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return false;
     }
-    return false;
-  }
 }

@@ -21,40 +21,40 @@ package google.dp;
  * @author Bohan Zheng
  */
 public class CoinChange {
-  /**
-   * let f(n) denote the fewest number of coins needed to make up amount n.
-   * f(n) = Min(f(n - x)) + 1, x is the coins we have
-   */
-  public int coinChange(int[] coins, int amount) {
-    int[] f = new int[amount + 1];
-    return search(coins, amount, f);
-  }
+    /**
+     * let f(n) denote the fewest number of coins needed to make up amount n.
+     * f(n) = Min(f(n - x)) + 1, x is the coins we have
+     */
+    public int coinChange(int[] coins, int amount) {
+        int[] f = new int[amount + 1];
+        return search(coins, amount, f);
+    }
 
-  private int search(int[] coins, int amount, int[] f) {
-    if (amount < 0) {
-      return -1;
+    private int search(int[] coins, int amount, int[] f) {
+        if (amount < 0) {
+            return -1;
+        }
+        if (amount == 0) {
+            return 0;
+        }
+        if (f[amount] != 0) {
+            return f[amount];
+        }
+        if (f[amount] == -1) {
+            return -1;
+        }
+        int n = Integer.MAX_VALUE;
+        for (int x : coins) {
+            int tmp = search(coins, amount - x, f);
+            tmp = tmp == -1 ? n : tmp;
+            n = Math.min(n, tmp);
+        }
+        if (n == Integer.MAX_VALUE) {
+            f[amount] = -1;
+            return -1;
+        } else {
+            f[amount] = n + 1;
+            return n + 1;
+        }
     }
-    if (amount == 0) {
-      return 0;
-    }
-    if (f[amount] != 0) {
-      return f[amount];
-    }
-    if (f[amount] == -1) {
-      return -1;
-    }
-    int n = Integer.MAX_VALUE;
-    for (int x : coins) {
-      int tmp = search(coins, amount - x, f);
-      tmp = tmp == -1 ? n : tmp;
-      n = Math.min(n, tmp);
-    }
-    if (n == Integer.MAX_VALUE) {
-      f[amount] = -1;
-      return -1;
-    } else {
-      f[amount] = n + 1;
-      return n + 1;
-    }
-  }
 }

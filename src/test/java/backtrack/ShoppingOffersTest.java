@@ -20,4 +20,17 @@ public class ShoppingOffersTest {
 
         assertThat(totalPrice).isEqualTo(14);
     }
+
+    @Test
+    public void test2() {
+        ShoppingOffers test = new ShoppingOffers();
+        //[2,3,4], [[1,1,0,4],[2,2,1,9]], [1,2,1]
+        List<Integer> price = ImmutableList.of(2, 3, 4);
+        List<List<Integer>> offer = ImmutableList.of(ImmutableList.of(1, 1, 0, 4), ImmutableList.of(2, 2, 1, 9));
+        List<Integer> need = ImmutableList.of(1, 2, 1);
+
+        int totalPrice = test.shoppingOffers(price, offer, need);
+
+        assertThat(totalPrice).isEqualTo(11);
+    }
 }

@@ -24,25 +24,25 @@ import utils.TreeNode;
  * @author Bohan Zheng
  */
 public class SumRoottoLeafNumbers {
-  public int sumNumbers(TreeNode root) {
-    if (root == null) {
-      return 0;
+    public int sumNumbers(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int[] sum = new int[1];
+        dfsHelper(root, 0, sum);
+        return sum[0];
     }
-    int[] sum = new int[1];
-    dfsHelper(root, 0, sum);
-    return sum[0];
-  }
 
-  private void dfsHelper(TreeNode root, int tmpNum, int[] sum) {
-    if (root.left == null && root.right == null) {
-      sum[0] += tmpNum * 10 + root.val;
-      return;
+    private void dfsHelper(TreeNode root, int tmpNum, int[] sum) {
+        if (root.left == null && root.right == null) {
+            sum[0] += tmpNum * 10 + root.val;
+            return;
+        }
+        if (root.left != null) {
+            dfsHelper(root.left, tmpNum * 10 + root.val, sum);
+        }
+        if (root.right != null) {
+            dfsHelper(root.right, tmpNum * 10 + root.val, sum);
+        }
     }
-    if (root.left != null) {
-      dfsHelper(root.left, tmpNum * 10 + root.val, sum);
-    }
-    if (root.right != null) {
-      dfsHelper(root.right, tmpNum * 10 + root.val, sum);
-    }
-  }
 }

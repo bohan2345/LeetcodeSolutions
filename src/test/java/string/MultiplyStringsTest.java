@@ -11,15 +11,15 @@ import static org.junit.Assert.assertEquals;
  * @author Bohan Zheng
  */
 public class MultiplyStringsTest {
-  @Test
-  public void test() {
-    MultiplyStrings test = new MultiplyStrings();
-    assertEquals("484", test.multiply("22", "22"));
-  }
+    @Test
+    public void test() {
+        MultiplyStrings test = new MultiplyStrings();
+        assertEquals("484", test.multiply("22", "22"));
+    }
 
-  @Test
-  public void test2() {
-    MultiplyStrings test = new MultiplyStrings();
-    assertEquals("15185088", test.multiply("123456", "123"));
-  }
+    @Test
+    public void test2() {
+        MultiplyStrings test = new MultiplyStrings();
+        assertEquals("15185088", test.multiply("123456", "123"));
+    }
 }

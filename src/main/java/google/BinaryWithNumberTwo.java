@@ -7,32 +7,32 @@ package google;
  * @author Bohan Zheng
  */
 public class BinaryWithNumberTwo {
-  /**
-   * f(i + 1, n) denotes using i digits total representation of number n
-   * f(i + 1, n) = f(i, n) +             , digits[i] = 0
-   * #             f(i, n - 2 ^ i) +     , digits[i] = 1 && n - 2 ^ i >= 0
-   * #             f(i, n - 2 * 2 ^ i)   , digits[i] = 2 && n - 2 * 2 ^ i >= 0
-   */
-  public int totalNumber(int n) {
-    // log (base 2) (n) = log(n) / log(2)
-    int[][] f = new int[(int) (Math.log(n) / Math.log(2)) + 2][n + 1];
+    /**
+     * f(i + 1, n) denotes using i digits total representation of number n
+     * f(i + 1, n) = f(i, n) +             , digits[i] = 0
+     * #             f(i, n - 2 ^ i) +     , digits[i] = 1 && n - 2 ^ i >= 0
+     * #             f(i, n - 2 * 2 ^ i)   , digits[i] = 2 && n - 2 * 2 ^ i >= 0
+     */
+    public int totalNumber(int n) {
+        // log (base 2) (n) = log(n) / log(2)
+        int[][] f = new int[(int) (Math.log(n) / Math.log(2)) + 2][n + 1];
 
-    int p = 1;
-    f[0][0] = 1;
-    for (int i = 1; i < f.length; i++) {
-      for (int j = 0; j <= n; j++) {
-        f[i][j] = f[i - 1][j];
+        int p = 1;
+        f[0][0] = 1;
+        for (int i = 1; i < f.length; i++) {
+            for (int j = 0; j <= n; j++) {
+                f[i][j] = f[i - 1][j];
 
-        if (j - p >= 0) {
-          f[i][j] += f[i - 1][j - p];
+                if (j - p >= 0) {
+                    f[i][j] += f[i - 1][j - p];
+                }
+                if (j - 2 * p >= 0) {
+                    f[i][j] += f[i - 1][j - 2 * p];
+                }
+            }
+            p *= 2;
         }
-        if (j - 2 * p >= 0) {
-          f[i][j] += f[i - 1][j - 2 * p];
-        }
-      }
-      p *= 2;
+
+        return f[f.length - 1][n];
     }
-
-    return f[f.length - 1][n];
-  }
 }

@@ -32,37 +32,37 @@ import java.util.Map;
  * @author Bohan Zheng
  */
 public class HouseRobberIII {
-  private Map<TreeNode, Integer> map = new HashMap<>();
+    private Map<TreeNode, Integer> map = new HashMap<>();
 
-  public int rob(TreeNode root) {
-    if (root == null) {
-      return 0;
+    public int rob(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        if (map.containsKey(root)) {
+            return map.get(root);
+        }
+        int sum1 = root.val;
+        int sum2 = 0;
+        if (root.left != null) {
+            sum2 += rob(root.left);
+            if (root.left.left != null) {
+                sum1 += rob(root.left.left);
+            }
+            if (root.left.right != null) {
+                sum1 += rob(root.left.right);
+            }
+        }
+        if (root.right != null) {
+            sum2 += rob(root.right);
+            if (root.right.left != null) {
+                sum1 += rob(root.right.left);
+            }
+            if (root.right.right != null) {
+                sum1 += rob(root.right.right);
+            }
+        }
+        int sum = Math.max(sum1, sum2);
+        map.put(root, sum);
+        return sum;
     }
-    if (map.containsKey(root)) {
-      return map.get(root);
-    }
-    int sum1 = root.val;
-    int sum2 = 0;
-    if (root.left != null) {
-      sum2 += rob(root.left);
-      if (root.left.left != null) {
-        sum1 += rob(root.left.left);
-      }
-      if (root.left.right != null) {
-        sum1 += rob(root.left.right);
-      }
-    }
-    if (root.right != null) {
-      sum2 += rob(root.right);
-      if (root.right.left != null) {
-        sum1 += rob(root.right.left);
-      }
-      if (root.right.right != null) {
-        sum1 += rob(root.right.right);
-      }
-    }
-    int sum = Math.max(sum1, sum2);
-    map.put(root, sum);
-    return sum;
-  }
 }

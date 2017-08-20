@@ -21,25 +21,25 @@ import java.util.List;
  * @author Bohan Zheng
  */
 public class PascalsTriangle {
-  public List<List<Integer>> generate(int numRows) {
-    if (numRows < 0) {
-      throw new IllegalArgumentException();
+    public List<List<Integer>> generate(int numRows) {
+        if (numRows < 0) {
+            throw new IllegalArgumentException();
+        }
+        List<List<Integer>> res = new ArrayList<>(numRows);
+        if (numRows == 0) {
+            return res;
+        }
+        res.add(Arrays.asList(1));
+        for (int i = 1; i < numRows; i++) {
+            List<Integer> lastRow = res.get(i - 1);
+            List<Integer> row = new ArrayList<>(i + 1);
+            row.add(1);
+            for (int j = 1; j < lastRow.size(); j++) {
+                row.add(lastRow.get(j) + lastRow.get(j - 1));
+            }
+            row.add(1);
+            res.add(row);
+        }
+        return res;
     }
-    List<List<Integer>> res = new ArrayList<>(numRows);
-    if (numRows == 0) {
-      return res;
-    }
-    res.add(Arrays.asList(1));
-    for (int i = 1; i < numRows; i++) {
-      List<Integer> lastRow = res.get(i - 1);
-      List<Integer> row = new ArrayList<>(i + 1);
-      row.add(1);
-      for (int j = 1; j < lastRow.size(); j++) {
-        row.add(lastRow.get(j) + lastRow.get(j - 1));
-      }
-      row.add(1);
-      res.add(row);
-    }
-    return res;
-  }
 }

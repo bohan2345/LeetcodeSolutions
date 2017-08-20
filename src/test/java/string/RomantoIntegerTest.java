@@ -11,9 +11,9 @@ import static org.junit.Assert.assertEquals;
  * @author Bohan Zheng
  */
 public class RomantoIntegerTest {
-  @Test
-  public void test() {
-    RomantoInteger test = new RomantoInteger();
-    assertEquals(99, test.romanToInt("XCIX"));
-  }
+    @Test
+    public void test() {
+        RomantoInteger test = new RomantoInteger();
+        assertEquals(99, test.romanToInt("XCIX"));
+    }
 }

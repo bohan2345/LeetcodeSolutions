@@ -11,10 +11,10 @@ import static org.junit.Assert.assertEquals;
  * @author Bohan Zheng
  */
 public class HashFunctionTest {
-  @Test
-  public void test() {
-    HashFunction test = new HashFunction();
-    char[] key = "abcd".toCharArray();
-    assertEquals(78, test.hashCode(key, 100));
-  }
+    @Test
+    public void test() {
+        HashFunction test = new HashFunction();
+        char[] key = "abcd".toCharArray();
+        assertEquals(78, test.hashCode(key, 100));
+    }
 }

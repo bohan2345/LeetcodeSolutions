@@ -16,16 +16,16 @@ import static org.junit.Assert.assertThat;
  * @author Bohan Zheng
  */
 public class TopologicalSortTest {
-  @Test
-  public void test() {
-    TopologicalSort test = new TopologicalSort();
-    List<String> strs = new ArrayList<>(Arrays.asList(
-        "wrt",
-        "wrf",
-        "er",
-        "ett",
-        "rftt"));
+    @Test
+    public void test() {
+        TopologicalSort test = new TopologicalSort();
+        List<String> strs = new ArrayList<>(Arrays.asList(
+                "wrt",
+                "wrf",
+                "er",
+                "ett",
+                "rftt"));
 
-    assertThat(test.alienDictionary(strs), IsIterableContainingInOrder.contains('w', 'e', 'r', 'f', 't'));
-  }
+        assertThat(test.alienDictionary(strs), IsIterableContainingInOrder.contains('w', 'e', 'r', 'f', 't'));
+    }
 }

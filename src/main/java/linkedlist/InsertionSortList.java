@@ -10,41 +10,41 @@ import utils.ListNode;
  * @author Bohan Zheng
  */
 public class InsertionSortList {
-  public ListNode insertionSortList(ListNode head) {
-    if (head == null) {
-      return null;
+    public ListNode insertionSortList(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+        ListNode newHead = new ListNode(0);
+        newHead.next = head;
+        ListNode prev = newHead;
+        ListNode min;
+        while (head != null) {
+            min = removeMin(head);
+            insertAfter(prev, min);
+            prev = prev.next;
+            head = prev.next;
+        }
+        return newHead.next;
     }
-    ListNode newHead = new ListNode(0);
-    newHead.next = head;
-    ListNode prev = newHead;
-    ListNode min;
-    while (head != null) {
-      min = removeMin(head);
-      insertAfter(prev, min);
-      prev = prev.next;
-      head = prev.next;
-    }
-    return newHead.next;
-  }
 
-  private void insertAfter(ListNode prev, ListNode node) {
-    if (prev.next.equals(node)) {
-      return;
+    private void insertAfter(ListNode prev, ListNode node) {
+        if (prev.next.equals(node)) {
+            return;
+        }
+        node.next = prev.next;
+        prev.next = node;
     }
-    node.next = prev.next;
-    prev.next = node;
-  }
 
-  private ListNode removeMin(ListNode head) {
-    ListNode min = head, prev = new ListNode(0), minPrev = prev;
-    prev.next = head;
-    while (head != null) {
-      minPrev = head.val < min.val ? prev : minPrev;
-      min = head.val < min.val ? head : min;
-      head = head.next;
-      prev = prev.next;
+    private ListNode removeMin(ListNode head) {
+        ListNode min = head, prev = new ListNode(0), minPrev = prev;
+        prev.next = head;
+        while (head != null) {
+            minPrev = head.val < min.val ? prev : minPrev;
+            min = head.val < min.val ? head : min;
+            head = head.next;
+            prev = prev.next;
+        }
+        minPrev.next = min.next;
+        return min;
     }
-    minPrev.next = min.next;
-    return min;
-  }
 }

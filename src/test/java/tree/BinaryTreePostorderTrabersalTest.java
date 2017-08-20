@@ -14,10 +14,10 @@ import static org.junit.Assert.assertThat;
  * @author Bohan Zheng
  */
 public class BinaryTreePostorderTrabersalTest {
-  @Test
-  public void test() {
-    BinaryTreePostorderTraversal test = new BinaryTreePostorderTraversal();
-    TreeNode root = BinaryTreeUtils.constructBinaryTree(1, 2, 3, 4, 5, 0, 0, 0, 0, 6);
-    assertThat(test.postorderTraversal(root), IsIterableContainingInOrder.contains(4, 6, 5, 2, 3, 1));
-  }
+    @Test
+    public void test() {
+        BinaryTreePostorderTraversal test = new BinaryTreePostorderTraversal();
+        TreeNode root = BinaryTreeUtils.constructBinaryTree(1, 2, 3, 4, 5, 0, 0, 0, 0, 6);
+        assertThat(test.postorderTraversal(root), IsIterableContainingInOrder.contains(4, 6, 5, 2, 3, 1));
+    }
 }

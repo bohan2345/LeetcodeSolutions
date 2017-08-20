@@ -12,21 +12,21 @@ import utils.TreeNode;
  * @author Bohan Zheng
  */
 public class BalancedBinaryTree {
-  public boolean isBalanced(TreeNode root) {
-    return helper(root) >= 0;
-  }
+    public boolean isBalanced(TreeNode root) {
+        return helper(root) >= 0;
+    }
 
-  private int helper(TreeNode root) {
-    if (root == null) {
-      return 0;
+    private int helper(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int left, right;
+        left = helper(root.left);
+        right = helper(root.right);
+        if (left >= 0 && right >= 0 && Math.abs(left - right) <= 1) {
+            return Math.max(left, right) + 1;
+        } else {
+            return -1;
+        }
     }
-    int left, right;
-    left = helper(root.left);
-    right = helper(root.right);
-    if (left >= 0 && right >= 0 && Math.abs(left - right) <= 1) {
-      return Math.max(left, right) + 1;
-    } else {
-      return -1;
-    }
-  }
 }
