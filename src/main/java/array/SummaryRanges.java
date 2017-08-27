@@ -17,24 +17,21 @@ public class SummaryRanges {
         if (nums.length == 0) {
             return res;
         }
-        int start = nums[0], end = nums[0];
-        int count = nums[0] + 1;
+        int current = nums[0], next = nums[0] + 1;
         for (int i = 1; i < nums.length; i++) {
-            if (count == nums[i]) {
-                end++;
+            if (next == nums[i]) {
+                next++;
             } else {
-                res.add(generateRangeStr(start, end));
-                start = nums[i];
-                end = nums[i];
-                count = nums[i];
+                res.add(getRange(current, next - 1));
+                current = nums[i];
+                next = nums[i] + 1;
             }
-            count++;
         }
-        res.add(generateRangeStr(start, end));
+        res.add(getRange(current, next - 1));
         return res;
     }
 
-    private String generateRangeStr(int start, int end) {
-        return start == end ? Integer.toString(start) : Integer.toString(start) + "->" + Integer.toString(end);
+    private String getRange(int n1, int n2) {
+        return (n1 == n2) ? String.valueOf(n1) : String.format("%d->%d", n1, n2);
     }
 }
