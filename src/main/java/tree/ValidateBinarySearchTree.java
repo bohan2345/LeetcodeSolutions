@@ -17,45 +17,50 @@ import utils.TreeNode;
  */
 public class ValidateBinarySearchTree {
     public boolean isValidBST(TreeNode root) {
-        return root == null || isValidBSTHelper(root)[0] == 1;
+        return isValidBSTHelper(root).isBst;
     }
 
-    /**
-     * @param root root
-     * @return {isValid ? 1 : 0, minValue, maxValue}
-     */
-    public int[] isValidBSTHelper(TreeNode root) {
+    private ReturnType isValidBSTHelper(TreeNode root) {
+        ReturnType res = new ReturnType();
         if (root == null) {
-            return null;
+            res.isBst = true;
+            return res;
         }
-        int[] res = new int[3]; // res[0] if this tree is a BST, res[1] largest num, res[2] smallest num
-        int[] left = isValidBSTHelper(root.left);
-        int[] right = isValidBSTHelper(root.right);
-        if (left != null && right != null) {
-            res[0] = (left[0] == 1 && right[0] == 1 && left[2] < root.val && root.val < right[1]) ? 1 : 0;
-            res[1] = left[1];
-            res[2] = right[2];
-        } else if (left == null && right != null) {
-            res[0] = (right[0] == 1 && root.val < right[1]) ? 1 : 0;
-            res[1] = root.val;
-            res[2] = right[2];
-        } else if (left != null && right == null) {
-            res[0] = (left[0] == 1 && root.val > left[2]) ? 1 : 0;
-            res[1] = left[1];
-            res[2] = root.val;
+        if (root.left == null && root.right == null) {
+            res.isBst = true;
+            res.maxVal = root.val;
+            res.minVal = root.val;
+            return res;
+        } else if (root.left == null) {
+            ReturnType right = isValidBSTHelper(root.right);
+            res.isBst = right.isBst && root.val < right.minVal;
+            res.minVal = root.val;
+            res.maxVal = right.maxVal;
+            return res;
+        } else if (root.right == null) {
+            ReturnType left = isValidBSTHelper(root.left);
+            res.isBst = left.isBst && root.val > left.maxVal;
+            res.minVal = left.minVal;
+            res.maxVal = root.val;
+            return res;
         } else {
-            res[0] = 1;
-            res[1] = root.val;
-            res[2] = root.val;
+            ReturnType left = isValidBSTHelper(root.left);
+            ReturnType right = isValidBSTHelper(root.right);
+            res.isBst = left.isBst && right.isBst && root.val > left.maxVal && root.val < right.minVal;
+            res.minVal = left.minVal;
+            res.maxVal = right.maxVal;
+            return res;
         }
-        return res;
+    }
+
+    private class ReturnType {
+        boolean isBst;
+        int maxVal;
+        int minVal;
     }
 
     /**
      * solution 2 in-order traversal.
-     *
-     * @param root
-     * @return
      */
     public boolean isValidBST2(TreeNode root) {
         return true;
