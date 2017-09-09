@@ -26,4 +26,9 @@ public class DecodeWaysIITest {
     public void test4() {
         assertThat(test.numDecodings("*1*1*0")).isEqualTo(404);
     }
+
+    @Test
+    public void test5() {
+        assertThat(test.numDecodings("**********1111111111")).isEqualTo(133236775);
+    }
 }

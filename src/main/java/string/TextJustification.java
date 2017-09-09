@@ -46,6 +46,11 @@ public class TextJustification {
             totalLength += word.length();
             tmpWords.add(word);
         }
+        res.add(formatLastLine(maxWidth, tmpWords));
+        return res;
+    }
+
+    private String formatLastLine(int maxWidth, List<String> tmpWords) {
         StringBuilder sb = new StringBuilder();
         sb.append(tmpWords.get(0));
         for (int i = 1; i < tmpWords.size(); i++) {
@@ -53,8 +58,7 @@ public class TextJustification {
             sb.append(tmpWords.get(i));
         }
         appendSpaces(sb, maxWidth - sb.length());
-        res.add(sb.toString());
-        return res;
+        return sb.toString();
     }
 
     private String format(List<String> words, int maxWidth, int totalLength) {

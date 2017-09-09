@@ -41,6 +41,54 @@ public class DecodeWaysII {
 //        return (int) (f[s.length()] % 1000000007);
 //    }
 // }
+//    public int numDecodings(String s) {
+//        if (s == null || s.length() == 0) {
+//            return 0;
+//        }
+//
+//        long[] f = new long[s.length() + 1];
+//        f[0] = 1;
+//        for (int i = 1; i <= s.length(); i++) {
+//            char c = s.charAt(i - 1);
+//            if (c != '*') {
+//                if (c != '0') {
+//                    f[i] = f[i - 1] % 1000000007;
+//                }
+//                if (i < 2) {
+//                    continue;
+//                }
+//                char p = s.charAt(i - 2);
+//                if (p != '*') { // "12"
+//                    int lastTwo = Integer.valueOf(s.substring(i - 2, i));
+//                    if (lastTwo >= 10 && lastTwo <= 26) {
+//                        f[i] += f[i - 2] % 1000000007;
+//                    }
+//                } else { // "*2"
+//                    if (c >= '0' && c <= '6') { // 10-16 20-26
+//                        f[i] += (f[i - 2] * 2) % 1000000007;
+//                    } else if (c > '6') { // 17 18 19
+//                        f[i] += f[i - 2] % 1000000007;
+//                    }
+//                }
+//            } else {
+//                f[i] = (f[i - 1] * 9) % 1000000007;
+//                if (i < 2)
+//                    continue;
+//                char p = s.charAt(i - 2);
+//                if (p != '*') {
+//                    if (p == '1') {
+//                        f[i] += (f[i - 2] * 9) % 1000000007;
+//                    } else if (p == '2') {
+//                        f[i] += (f[i - 2] * 6) % 1000000007;
+//                    }
+//                } else {
+//                    f[i] += (f[i - 2] * 15) % 1000000007; // 21-26 11-19
+//                }
+//            }
+//        }
+//        return (int) (f[s.length()] % 1000000007);
+//    }
+
     public int numDecodings(String s) {
         if (s == null || s.length() == 0) {
             return 0;
@@ -49,40 +97,38 @@ public class DecodeWaysII {
         long[] f = new long[s.length() + 1];
         f[0] = 1;
         for (int i = 1; i <= s.length(); i++) {
-            char c = s.charAt(i - 1);
-            if (c != '*') {
-                if (c != '0') {
+            if (s.charAt(i - 1) != '*') {
+                if (s.charAt(i - 1) != '0') {
                     f[i] = f[i - 1] % 1000000007;
                 }
                 if (i < 2) {
                     continue;
                 }
-                char p = s.charAt(i - 2);
-                if (p != '*') { // "12"
-                    int lastTwo = Integer.valueOf(s.substring(i - 2, i));
-                    if (lastTwo >= 10 && lastTwo <= 26) {
+                if (s.charAt(i - 2) != '*') {
+                    int lastTwoDigits = Integer.valueOf(s.substring(i - 2, i));
+                    if (lastTwoDigits >= 10 && lastTwoDigits <= 26) {
                         f[i] += f[i - 2] % 1000000007;
                     }
-                } else { // "*2"
-                    if (c >= '0' && c <= '6') { // 10-16 20-26
+                } else { // *2
+                    if (s.charAt(i - 1) >= '0' && s.charAt(i - 1) <= '6') {
                         f[i] += (f[i - 2] * 2) % 1000000007;
-                    } else if (c > '6') { // 17 18 19
+                    } else {
                         f[i] += f[i - 2] % 1000000007;
                     }
                 }
             } else {
                 f[i] = (f[i - 1] * 9) % 1000000007;
-                if (i < 2)
+                if (i < 2) {
                     continue;
-                char p = s.charAt(i - 2);
-                if (p != '*') {
-                    if (p == '1') {
+                }
+                if (s.charAt(i - 2) != '*') {
+                    if (s.charAt(i - 2) == '1') {
                         f[i] += (f[i - 2] * 9) % 1000000007;
-                    } else if (p == '2') {
+                    } else if (s.charAt(i - 2) == '2') {
                         f[i] += (f[i - 2] * 6) % 1000000007;
                     }
                 } else {
-                    f[i] += (f[i - 2] * 15) % 1000000007; // 21-26 11-19
+                    f[i] += (f[i - 2] * 15) % 1000000007;
                 }
             }
         }
