@@ -1,6 +1,9 @@
 package design;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.PriorityQueue;
+import java.util.Stack;
 
 public class AutocompleteSystem {
     private TrieNode root;
@@ -95,122 +98,3 @@ public class AutocompleteSystem {
         }
     }
 }
-//class AutocompleteSystem {
-//    class TrieNode {
-//        public TrieNode[] children;
-//        public int count;
-//        public TrieNode() {
-//            children = new TrieNode[27];
-//            count = 0;
-//        }
-//    }
-//
-//    class Trie {
-//        public TrieNode root;
-//        public Trie() {
-//            root = new TrieNode();
-//        }
-//
-//        public void init(String s, int times) {
-//            TrieNode current = root;
-//            for (int i = 0; i < s.length(); i++) {
-//                current = traverse(s.charAt(i), current);
-//            }
-//            current.count = times;
-//        }
-//
-//        private TrieNode traverse(char c, TrieNode current) {
-//            if (c == ' ') {
-//                if (current.children[26] == null) {
-//                    current.children[26] = new TrieNode();
-//                }
-//                current = current.children[26];
-//            } else {
-//                if (current.children[c - 'a'] == null) {
-//                    current.children[c - 'a'] = new TrieNode();
-//                }
-//                current = current.children[c - 'a'];
-//            }
-//            return current;
-//        }
-//
-//        public void add(TrieNode current) {
-//            current.count++;
-//        }
-//
-//        public TrieNode startWith(TrieNode current, char c, String s, List<Node> result) {
-//            TrieNode nextCurrent = current;
-//            if (c == ' ') {
-//                nextCurrent = current.children[26];
-//                dfs(current.children[26], s + c, result);
-//            } else if (c != '#') {
-//                nextCurrent = current.children[c - 'a'];
-//                dfs(current.children[c - 'a'], s + c, result);
-//            }
-//
-//            return nextCurrent;
-//        }
-//
-//        private void dfs(TrieNode current, String s, List<Node> result) {
-//            if (current == null) {
-//                return;
-//            }
-//
-//            if (current.count > 0) {
-//                result.add(new Node(s, current.count));
-//            }
-//
-//            for (int i = 0; i < current.children.length; i++) {
-//                if (current.children[i] != null) {
-//                    if (i == 26) {
-//                        dfs(current.children[i], s + ' ', result);
-//                    } else {
-//                        dfs(current.children[i], s + (char)('a' + i), result);
-//                    }
-//                }
-//            }
-//        }
-//    }
-//
-//    class Node {
-//        public String s;
-//        public int count;
-//        public Node(String ss, int cc) {
-//            s = ss;
-//            count = cc;
-//        }
-//    }
-//
-//    private Trie trie;
-//    private TrieNode current;
-//    private String prefix;
-//    public AutocompleteSystem(String[] sentences, int[] times) {
-//        trie = new Trie();
-//        for (int i = 0; i < sentences.length; i++) {
-//            trie.init(sentences[i], times[i]);
-//        }
-//        current = trie.root;
-//        prefix = "";
-//    }
-//
-//    public List<String> input(char c) {
-//        List<Node> result = new ArrayList<>();
-//        current = trie.startWith(current, c, prefix, result);
-//        prefix += c;
-//        if (c == '#') {
-//            trie.add(current);
-//            prefix = "";
-//            current = trie.root;
-//        }
-//
-//        Queue<Node> q = new PriorityQueue<>((o1, o2) -> o2.count - o1.count);
-//        q.addAll(result);
-//        List<String> ff = new ArrayList<>();
-//        int num = 3;
-//        while (num > 0 && !q.isEmpty()) {
-//            ff.add(q.poll().s);
-//            num--;
-//        }
-//        return ff;
-//    }
-//}
