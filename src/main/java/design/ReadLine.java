@@ -1,6 +1,13 @@
 package design;
 
 public class ReadLine {
+    /**
+     * 666666666666666666666666666
+     */
+    int currentRead4 = 0;
+    int offset = 0;
+    char[] buffer = new char[4];
+    StringBuilder sb;
     private String file;
 
     public void setFile(String file) {
@@ -15,14 +22,6 @@ public class ReadLine {
         file = file.substring(endIndex);
         return endIndex;
     }
-
-    /**
-     * 666666666666666666666666666
-     */
-    int currentRead4 = 0;
-    int offset = 0;
-    char[] buffer = new char[4];
-    StringBuilder sb;
 
     String readLine() {
         sb = new StringBuilder();

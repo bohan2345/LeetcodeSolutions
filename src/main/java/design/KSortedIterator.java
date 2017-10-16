@@ -3,21 +3,8 @@ package design;
 import java.util.*;
 
 public class KSortedIterator<E extends Comparable<E>> implements Iterator<E> {
-    private class Node {
-        private int arr;
-        private int index;
-        private E val;
-
-        private Node(int arr, int index, E val) {
-            this.arr = arr;
-            this.index = index;
-            this.val = val;
-        }
-    }
-
     private final Queue<Node> q;
     private final List<List<E>> list;
-
     public KSortedIterator(List<List<E>> list) {
         q = new PriorityQueue<>(Comparator.comparing(a -> a.val));
         this.list = list;
@@ -36,6 +23,20 @@ public class KSortedIterator<E extends Comparable<E>> implements Iterator<E> {
         }
     }
 
+    public static void main(String[] args) {
+        List<List<Integer>> result = new ArrayList<>();
+        result.add(Arrays.asList(90, 100, 101));
+        result.add(Arrays.asList(1, 2, 3));
+        result.add(Arrays.asList(40, 50, 200));
+
+        KSortedIterator<Integer> test = new KSortedIterator<>(result);
+        while (test.hasNext()) {
+            System.out.println(test.next());
+        }
+
+        Arrays.sort(new Object[]{1, 2, 3});
+    }
+
     @Override
     public E next() {
         Node cur = q.poll();
@@ -52,17 +53,15 @@ public class KSortedIterator<E extends Comparable<E>> implements Iterator<E> {
         return !q.isEmpty();
     }
 
-    public static void main(String[] args) {
-        List<List<Integer>> result = new ArrayList<>();
-        result.add(Arrays.asList(90, 100, 101));
-        result.add(Arrays.asList(1, 2, 3));
-        result.add(Arrays.asList(40, 50, 200));
+    private class Node {
+        private int arr;
+        private int index;
+        private E val;
 
-        KSortedIterator<Integer> test = new KSortedIterator<>(result);
-        while (test.hasNext()) {
-            System.out.println(test.next());
+        private Node(int arr, int index, E val) {
+            this.arr = arr;
+            this.index = index;
+            this.val = val;
         }
-
-        Arrays.sort(new Object[]{1, 2, 3});
     }
 }

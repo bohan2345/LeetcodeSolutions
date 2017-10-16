@@ -53,16 +53,16 @@ public class ValidateBinarySearchTree {
         }
     }
 
-    private class ReturnType {
-        boolean isBst;
-        int maxVal;
-        int minVal;
-    }
-
     /**
      * solution 2 in-order traversal.
      */
     public boolean isValidBST2(TreeNode root) {
         return true;
+    }
+
+    private class ReturnType {
+        boolean isBst;
+        int maxVal;
+        int minVal;
     }
 }

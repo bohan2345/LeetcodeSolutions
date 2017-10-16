@@ -13,7 +13,7 @@ public class SortedListToBinaryTreeTest {
     public void test() {
         SortedListToBST test = new SortedListToBST();
 
-        ListNode head = LinkedListUtils.constructLinkedList(1,2,3,4);
+        ListNode head = LinkedListUtils.constructLinkedList(1, 2, 3, 4);
 
         TreeNode root = test.sortedListToBST(head);
 
@@ -25,7 +25,7 @@ public class SortedListToBinaryTreeTest {
     public void test2() {
         SortedListToBST test = new SortedListToBST();
 
-        ListNode head = LinkedListUtils.constructLinkedList(1,2,3,4,5);
+        ListNode head = LinkedListUtils.constructLinkedList(1, 2, 3, 4, 5);
 
         TreeNode root = test.sortedListToBST(head);
 
