@@ -71,4 +71,10 @@ public class RegularExpressionMatchingTest {
         RegularExpressionMatching test = new RegularExpressionMatching();
         assertTrue(test.isMatch("a", "ab*"));
     }
+
+    @Test
+    public void test11() {
+        RegularExpressionMatching test = new RegularExpressionMatching();
+        assertFalse(test.isMatch2("ab", ".*c"));
+    }
 }

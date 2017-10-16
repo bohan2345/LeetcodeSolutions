@@ -53,4 +53,22 @@ public class RegularExpressionMatching {
         }
         return table[p.length()][s.length()];
     }
+
+    public boolean isMatch2(String s, String p) {
+        if (p.isEmpty()) {
+            return s.isEmpty();
+        }
+
+        if (s.isEmpty()) {
+            if (p.length() < 2 || p.charAt(1) != '*') {
+                return false;
+            }
+        }
+
+        if (p.length() >= 2 && p.charAt(1) == '*') {
+            return isMatch2(s, p.substring(2)) || !s.isEmpty() && isMatch2(s.substring(1), p) && (s.charAt(0) == p.charAt(0) || p.charAt(0) == '.');
+        } else {
+            return (p.charAt(0) == '.' || s.charAt(0) == p.charAt(0)) && isMatch2(s.substring(1), p.substring(1));
+        }
+    }
 }
