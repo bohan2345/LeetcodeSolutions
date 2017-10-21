@@ -11,4 +11,11 @@ public class MultiTreeNode {
         this.val = val;
         this.children = new ArrayList<>();
     }
+
+    @Override
+    public String toString() {
+        return "MultiTreeNode{" +
+                "val=" + val +
+                '}';
+    }
 }
