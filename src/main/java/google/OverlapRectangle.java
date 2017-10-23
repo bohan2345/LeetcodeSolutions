@@ -1,25 +1,13 @@
 package google;
 
+import utils.Rectangle;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
 public class OverlapRectangle {
-
-    static class Rectangle {
-        int x1;
-        int x2;
-        int y1;
-        int y2;
-
-        Rectangle(int x1, int x2, int y1, int y2) {
-            this.x1 = x1;
-            this.x2 = x2;
-            this.y1 = y1;
-            this.y2 = y2;
-        }
-    }
 
 
     class Node {
