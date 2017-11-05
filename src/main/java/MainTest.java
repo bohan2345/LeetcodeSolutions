@@ -1,8 +1,5 @@
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 /**
  * <br>
@@ -11,42 +8,50 @@ import java.util.stream.Collectors;
  * @author Bohan Zheng
  */
 public class MainTest {
-    public static void main(String[] args) {
-        HashMap<String, Integer> map = new HashMap<>();
-        map.put("a", 1);
-        map.put("b", 2);
-        map.put("c", 2);
-        map.put("d", 2);
+    class Node {
+        Node left;
+        Node right;
+        int val;
+        int size;
 
-        for (String str : new MainTest().test(map, 2))
-            System.out.println(str);
-
-        Map<Integer, List<String>> newMap = new MainTest().test2(map);
-        for (Map.Entry<Integer, List<String>> entry : newMap.entrySet()) {
-            for (String str : entry.getValue())
-                System.out.print(str);
-            System.out.println("");
+        Node(int val, int size) {
+            this.val = val;
+            this.size = size;
         }
     }
 
-    public List<String> test(HashMap<String, Integer> map, int a) {
-        return map.entrySet().stream()
-                .filter(pair -> pair.getValue().equals(a))
-                .map(Map.Entry::getKey)
-                .collect(Collectors.toList());
-    }
-
-    public Map<Integer, List<String>> test2(HashMap<String, Integer> map) {
-        Map<Integer, List<String>> result = new HashMap<>();
-        for (Map.Entry<String, Integer> entry : map.entrySet()) {
-            if (result.containsKey(entry.getValue())) {
-                result.get(entry.getValue()).add(entry.getKey());
-            } else {
-                ArrayList<String> strs = new ArrayList<>();
-                strs.add(entry.getKey());
-                result.put(entry.getValue(), strs);
-            }
+    int sum = 0;
+    public List<Integer> countSmaller(int[] nums) {
+        Node root = new Node(nums[0], 1);
+        List<Integer> result = new ArrayList<>();
+        for (int i = nums.length - 1; i >= 0; i--) {
+            sum = 0;
+            result.add(insert(root, nums[i]));
         }
         return result;
+    }
+
+    private int insert(Node root, int num) {
+        if (root.val == num) {
+            root.size++;
+            return (root.left == null ? 0 : root.left.size) + sum;
+        } else if (root.val < num) {
+            sum += root.size - (root.right == null ? 0 : root.right.size);
+            root.size++;
+            if (root.right == null) {
+                Node n = new Node(num, 1);
+                root.right = n;
+                return sum;
+            }
+            return insert(root.right, num);
+        } else { // root.val > num
+            root.size++;
+            if (root.left == null) {
+                Node n = new Node(num, 1);
+                root.left = n;
+                return sum;
+            }
+            return insert(root.left, num);
+        }
     }
 }
