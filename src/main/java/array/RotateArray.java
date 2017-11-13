@@ -62,4 +62,29 @@ public class RotateArray {
             end--;
         }
     }
+
+
+    public void rotate3(int[] nums, int k) {
+        if (k == 0) {
+            return;
+        }
+        int count = 0;
+        int tmp = nums[0];
+        int pos = k % nums.length;
+        int start = 0;
+
+        while (count < nums.length) {
+            int nextTmp = nums[pos];
+            nums[pos] = tmp;
+            count++;
+            if (start == pos) {
+                start = (start + 1) % nums.length;
+                pos = (start + k) % nums.length;
+                tmp = nums[start];
+            } else {
+                pos = (pos + k) % nums.length;
+                tmp = nextTmp;
+            }
+        }
+    }
 }
