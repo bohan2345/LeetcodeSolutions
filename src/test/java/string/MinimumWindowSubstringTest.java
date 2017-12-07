@@ -34,4 +34,10 @@ public class MinimumWindowSubstringTest {
         MinimumWindowSubstring test = new MinimumWindowSubstring();
         assertEquals("adobecodeba", test.minWindow("adobecodebanc", "abcda"));
     }
+
+    @Test
+    public void test5() {
+        MinimumWindowSubstring test = new MinimumWindowSubstring();
+        assertEquals("c", test.minWindow("abc", "c"));
+    }
 }
